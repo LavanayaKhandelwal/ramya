@@ -3,13 +3,18 @@ import { WireBlock } from '../components/WireBlock';
 import { AboutSection } from '../components/home-sections/AboutSection';
 import { SkillsSection } from '../components/home-sections/SkillsSection';
 import { ContactSection } from '../components/home-sections/ContactSection';
+import { WhyMeSection } from '../components/home-sections/WhyMeSection';
 import { siteData } from '../data/site';
 
 /**
  * Home — wireframe.
  * Mirrors lavanaya HomePage sections:
- * 1. Internship feature callout → 2. Selected projects (4-up) → 3. About Me →
- * 4. Skills → 5. Contact.
+ * 1. Internship feature callout → 2. Selected projects (4-up) → 3. About-me plate
+ * (3-col wireframe) → 4. About Me → 5. Skills → 6. Contact.
+ *
+ * The two about blocks are adjacent on purpose. The plate is the copy, the navy
+ * section is the same story rendered, and putting four sections between them
+ * made them read as unrelated asides.
  *
  * The About section sits OUTSIDE the 1100px column the rest of the page is set
  * in, and that is deliberate. It is a full-bleed 100vh composition whose
@@ -46,6 +51,8 @@ export function HomePage() {
             ))}
           </div>
         </WireBlock>
+
+        <WhyMeSection />
       </div>
 
       <AboutSection />
