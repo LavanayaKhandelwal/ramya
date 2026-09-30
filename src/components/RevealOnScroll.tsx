@@ -36,34 +36,48 @@ import { useLocation } from 'react-router-dom';
 /**
  * The elements that fade up as they are scrolled to.
  *
- * `.wire-block` reaches every wireframe block on every page and every project.
- * `.project-card` is the four-card index on the home page. The rest are the
- * designed full-height sections, which each get the same treatment as one
- * block — animating the section rather than its contents, because their
- * contents are absolutely positioned layers of artwork that have to keep their
- * composition exactly as drawn.
+ * `.wire-block` reaches every wireframe block on every page and every project,
+ * which is most of Projects 2, 3 and 4, all three case study slides and both
+ * internship pages. `.page-*` is the breadcrumb / eyebrow / title / intro head
+ * that opens all four projects and both internship pages. `.project-card` is
+ * the four-card index on the home page. The rest are the designed full-height
+ * sections, which each get the same treatment as one block — animating the
+ * section rather than its contents, because their contents are absolutely
+ * positioned layers of artwork that have to keep their composition exactly as
+ * drawn.
  *
  * The header is deliberately absent. It is persistent chrome present on every
  * route, and re-animating navigation each time the reader changes page is the
  * opposite of subtle.
  *
  * A new full-height section needs its root class added here — this list is the
- * one place that decides what moves. The two `.project1-*` and `.p1-*` entries
- * are the Project 1 sections, which are full-bleed spreads for the same reason
- * the About and Projects sections are.
+ * one place that decides what moves, and the same class also needs adding to the
+ * cross-fade group in motion.css. The `.project1-*` and `.p1-*` entries are the
+ * five Project 1 spreads, which are full-bleed for the same reason the About
+ * and Projects sections are.
  */
 const REVEAL_SELECTOR = [
   '.wire-block',
+  '.page-breadcrumb',
+  '.page-eyebrow',
+  '.page-title',
+  '.page-intro',
   '.project-card',
   '.portfolio-hero',
   '.about-section',
   '.projects-section',
   '.project1-hero-wrapper',
+  '.p1-hero-garment-spread',
   '.p1-beginning-spread',
+  '.p1-direction-spread',
+  '.p1-collection-spread',
   '.site-footer',
 ].join(', ');
 
-/** How many elements in a row may be delayed before the rest all share the last slot. */
+/** How long each element in a row waits behind the one before it. */
+const STAGGER_MS = 70;
+
+/** How many elements in a row may be delayed before the rest share the last slot. */
 const MAX_STAGGERED = 4;
 
 export function RevealOnScroll() {
@@ -109,23 +123,39 @@ export function RevealOnScroll() {
 
     const scan = () => {
       const pending = document.querySelectorAll<HTMLElement>(REVEAL_SELECTOR);
+      // Row detection, rather than naming the classes that deserve a stagger.
+      // Siblings that share a parent and sit at the same offsetTop are on the
+      // same visual row, so they arrive together and read better slightly
+      // offset from each other. Everything else gets none: a lone full-height
+      // block, or a column of blocks each met at a different scroll position,
+      // would only feel sluggish if its arrival were held back.
+      //
+      // This replaced a hard-coded `.project-card` check, which meant the
+      // four-up on the internship learnings page and any future row of blocks
+      // got no stagger at all — and which also gave the Projects section an
+      // arbitrary 70ms delay for no reason, since it has no siblings to be in a
+      // row with. Deriving it from the layout gets both right without a list.
       let row = 0;
-      let previousParent: Element | null = null;
+      let previous: { parent: Element | null; top: number } | null = null;
 
       for (const el of Array.from(pending)) {
         if (seen.has(el)) continue;
         if (el.classList.contains('is-revealed')) continue;
         seen.add(el);
 
-        // Only the four cards are delayed behind each other. They sit side by
-        // side in a grid and enter view together, so a stagger reads as intent.
-        // Every other target is a lone full-height block that arrives in view on
-        // its own, where a delay would only make it feel sluggish.
-        if (el.classList.contains('project-card')) {
-          if (el.parentElement === previousParent) row += 1;
-          else row = 0;
-          previousParent = el.parentElement;
-          el.style.setProperty('--reveal-delay', `${Math.min(row, MAX_STAGGERED) * 70}ms`);
+        const top = el.offsetTop;
+        if (previous && previous.parent === el.parentElement && previous.top === top) {
+          row += 1;
+        } else {
+          row = 0;
+        }
+        previous = { parent: el.parentElement, top };
+
+        if (row > 0) {
+          el.style.setProperty(
+            '--reveal-delay',
+            `${Math.min(row, MAX_STAGGERED) * STAGGER_MS}ms`
+          );
         }
 
         observer.observe(el);

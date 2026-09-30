@@ -32,7 +32,14 @@
   --motion-in: 520ms;
   --motion-in-ease: cubic-bezier(0.22, 1, 0.36, 1);
   --motion-rise: 14px;
-  --motion-stagger: 70ms;
+
+  /* A full-bleed spread cross-fades instead of rising. Its height is the height
+     of the viewport, so a 14px rise is a movement of one percent of its own
+     height and reads as nothing at all — the only part of the entrance a reader
+     can actually perceive on one of these is the opacity. It also gets a little
+     longer, because a block filling the screen sitting at low opacity for half
+     a second feels like loading rather than arriving. */
+  --motion-fade: 620ms;
 
   /* Hover */
   --motion-hover: 220ms;
@@ -69,6 +76,26 @@ html.has-reveal .reveal-target.is-revealed {
      leaving the delay in place would only sit between the reader and the
      card's hover, so it is dropped. */
   transition-delay: 0ms;
+}
+
+/* The full-bleed spreads — the fashion cover, the two home sections, and each
+   Project 1 spread — cross-fade rather than rise. See --motion-fade. This is
+   also the only part of the entrance that reads at this size, so it is the one
+   place the effect is given a little more room to breathe. */
+html.has-reveal :is(
+    .portfolio-hero,
+    .about-section,
+    .projects-section,
+    .project1-hero-wrapper,
+    .p1-hero-garment-spread,
+    .p1-beginning-spread,
+    .p1-direction-spread,
+    .p1-collection-spread
+  ).reveal-target {
+  translate: 0 0;
+  transition:
+    opacity var(--motion-fade) var(--motion-in-ease),
+    transform var(--motion-hover) var(--motion-hover-ease);
 }
 
 /* ——— Hover ———
@@ -123,6 +150,49 @@ html.has-reveal .reveal-target.is-revealed {
 
 .site-footer a:hover {
   opacity: 0.6;
+}
+
+/* A wire block warms up on hover — border and ground both shift, to the pale
+   blue and cream already in the palette. It deliberately does not lift or take
+   a shadow, for the same reason the project card only lifts when its button is
+   hovered: a wire block is a placeholder, not a control, and anything that
+   suggests it can be pressed or picked up would be a lie. This is most of what
+   "a hover in every place" amounts to on Projects 2, 3 and 4, the three case
+   study slides and both internship pages, which are built out of these.
+
+   The two colours are read through custom properties because WireBlock sets its
+   border and ground inline, and an inline style outranks any stylesheet. The
+   fallbacks mean the block looks exactly as it does today if this file never
+   loads. Transitioning border-color and background-color rather than the
+   properties themselves is what makes the shift animate. */
+.wire-block {
+  transition:
+    border-color var(--motion-hover) var(--motion-hover-ease),
+    background-color var(--motion-hover) var(--motion-hover-ease);
+}
+
+.wire-block:hover {
+  --wire-border: #A9D0F5;
+  --wire-ground: #FCFBF6;
+}
+
+/* Keyboard focus. Everything interactive on this site is a link or the project
+   button, and until now none of them had a focus style at all — a keyboard
+   reader could tab through the whole portfolio with no idea where they were.
+   `:focus-visible` keeps this off mouse clicks, so it appears for keyboard and
+   assistive navigation without adding a ring to every click. */
+a:focus-visible,
+button:focus-visible,
+.project-button:focus-visible {
+  outline: 2px solid #163F82;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* The footer is a near-black band, where that navy outline would be very hard
+   to see. The same ring in the pale blue reads against it. */
+.site-footer a:focus-visible {
+  outline-color: #A9D0F5;
 }
 
 /* ——— The stars ———
