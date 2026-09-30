@@ -1,26 +1,34 @@
-import { Link } from 'react-router-dom';
 import { WireBlock } from '../components/WireBlock';
 import { AboutSection } from '../components/home-sections/AboutSection';
+import { ProjectsSection } from '../components/home-sections/ProjectsSection';
 import { SkillsSection } from '../components/home-sections/SkillsSection';
 import { ContactSection } from '../components/home-sections/ContactSection';
 import { siteData } from '../data/site';
 
 /**
- * Home — wireframe.
+ * Home — wireframe, with two designed sections in place.
  * Mirrors lavanaya HomePage sections:
  * 1. About Me → 2. Internship feature callout → 3. Selected projects (4-up) →
  * 4. Skills → 5. Contact.
  *
+ * The order above is unchanged. What changed is that sections 1 and 3 are no
+ * longer wireframes — About Me and the project index are both real designs now —
+ * and both are fixed 100vh compositions whose artwork is sized against the
+ * viewport. So they sit OUTSIDE the 1100px column the remaining blocks are set
+ * in, and the page becomes a sequence:
+ *
+ *   About Me          full-bleed
+ *   internship        1100px column
+ *   My Projects       full-bleed
+ *   skills + contact  1100px column
+ *
+ * Inside a centred column they would be boxed in on both sides and their edges
+ * would stop being edges. Each brings its own ground and its own overflow.
+ *
  * About Me leads the page, straight after the fashion cover that precedes it in
  * App, so the reader meets it before the internship and the project index rather
- * than halfway down.
- *
- * It sits OUTSIDE the 1100px column the rest of the page is set in, and that is
- * deliberate. It is a full-bleed 100vh composition whose collages are cut by the
- * window edges and whose columns are sized as percentages of the viewport, so
- * inside a centred column it would be boxed in on both sides and its edges would
- * stop being edges. It brings its own ground and its own overflow, so everything
- * below it sits in a single column block that opens underneath.
+ * than halfway down. The project index sits in its original position, between
+ * the internship and the skills.
  */
 export function HomePage() {
   return (
@@ -38,21 +46,11 @@ export function HomePage() {
             <li>[CTA → /internship/experience + /internship/learnings]</li>
           </ul>
         </WireBlock>
+      </div>
 
-        <WireBlock label="Home — 3. Selected projects (4-up index)" minHeight={220}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 12 }}>
-            {siteData.selectedProjects.map((p) => (
-              <div key={p.id} style={{ border: '1px dashed #999', padding: 12 }}>
-                <p>[{p.number} — {p.title}]</p>
-                <p>{p.category}</p>
-                <p>[Image]</p>
-                <p>[Brief / Research / Contribution / Learning]</p>
-                <Link to={`/projects/${p.slug}`}>[Read → /projects/{p.slug}]</Link>
-              </div>
-            ))}
-          </div>
-        </WireBlock>
+      <ProjectsSection />
 
+      <div style={{ maxWidth: 1100, margin: '0 auto', padding: '32px 16px' }}>
         <SkillsSection />
         <ContactSection />
       </div>

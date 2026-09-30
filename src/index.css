@@ -378,17 +378,20 @@ a { color: inherit; }
 }
 
 
-/* ————————————————— Projects index (asset-faithful, no redraws) —————————————————
-   A fixed 100vh composition on the supplied warped checkerboard.
+/* ————————————————— Projects (asset-faithful, no redraws) —————————————————
+   A fixed 100vh composition on the supplied warped checkerboard, now a section
+   of the home page rather than a route.
 
    Every value in this block is the brief's own, written out literally, so a
    number here can be checked against the spec one at a time.
 
    `width: 100%` rather than the brief's 100vw: 100vw includes the scrollbar, so
-   on any viewport short enough to scroll the block would be wider than the
-   visible area and the left:50% centring would sit off-centre. The hero uses
-   100% for the same reason, and on a full-bleed block the two are identical. */
-.projects-page {
+   on a page that scrolls vertically the block would be wider than the visible
+   area and the left:50% centring would sit off-centre. The hero uses 100% for
+   the same reason, and on a full-bleed block the two are identical. The About
+   section directly above this one still uses 100vw, which on a platform with
+   classic scrollbars would give the home page a stray horizontal one. */
+.projects-section {
   position: relative;
   width: 100%;
   height: 100vh;
@@ -695,7 +698,7 @@ a { color: inherit; }
   /* The page stops being a fixed composition and becomes a normal scroll: the
      header and grid come out of absolute positioning, the page grows to fit its
      content, and the edge-cut decorations stop being cut. */
-  .projects-page {
+  .projects-section {
     height: auto;
     min-height: 100vh;
     overflow: visible;

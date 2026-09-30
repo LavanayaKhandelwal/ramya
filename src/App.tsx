@@ -14,7 +14,6 @@ import { ProjectFourPage } from './pages/ProjectFourPage';
 import { ProjectMarketingPage } from './pages/ProjectMarketingPage';
 import { ProjectThreePage } from './pages/ProjectThreePage';
 import { ProjectVisualMerchandisingPage } from './pages/ProjectVisualMerchandisingPage';
-import { ProjectsOverviewPage } from './pages/ProjectsOverviewPage';
 
 /**
  * Routes mirror lavanaya/src/App.tsx 1:1 — structure only, no design.
@@ -37,7 +36,8 @@ export default function App() {
                 </>
               }
             />
-            <Route path="/projects" element={<ProjectsOverviewPage />} />
+            {/* No /projects route: the project index is a section of the home page,
+                reached as /#projects. The four project pages below still exist. */}
             <Route path="/internship/experience" element={<InternshipExperiencePage />} />
             <Route path="/internship/learnings" element={<InternshipLearningsPage />} />
             <Route path="/projects/marketing" element={<ProjectMarketingPage />} />
