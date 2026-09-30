@@ -377,3 +377,352 @@ a { color: inherit; }
   .about-star-rule, .about-star-crop-left { display: none; }
 }
 
+
+/* ————————————————— Projects index (asset-faithful, no redraws) —————————————————
+   A fixed 100vh composition on the supplied warped checkerboard.
+
+   Every value in this block is the brief's own, written out literally, so a
+   number here can be checked against the spec one at a time.
+
+   `width: 100%` rather than the brief's 100vw: 100vw includes the scrollbar, so
+   on any viewport short enough to scroll the block would be wider than the
+   visible area and the left:50% centring would sit off-centre. The hero uses
+   100% for the same reason, and on a full-bleed block the two are identical. */
+.projects-page {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 900px;
+  overflow: hidden;
+}
+
+.projects-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* The curve is the supplied decoration PNG. The brief calls it a "curved navy
+   line" and the file also carries a small sparkle, which comes along with it. */
+.projects-decoration {
+  position: absolute;
+  height: auto;
+  object-fit: contain;
+  z-index: 2;
+  pointer-events: none;
+  user-select: none;
+}
+
+.projects-decoration-top-left {
+  top: -20px;
+  left: -15px;
+  width: 430px;
+}
+
+.projects-decoration-bottom-right {
+  right: -20px;
+  bottom: -25px;
+  width: 330px;
+  transform: rotate(180deg);
+}
+
+.projects-header {
+  position: absolute;
+  z-index: 5;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.projects-title {
+  width: 650px;
+  max-width: 75vw;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  user-select: none;
+}
+
+.title-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 600px;
+  max-width: 65vw;
+  margin-top: -3px;
+}
+
+.divider-line {
+  height: 1px;
+  flex: 1;
+  background: #163F82;
+}
+
+/* Four-point navy sparkle, cropped out of the supplied 2172x724 three-element
+   sheet. Measured as a connected component it occupies x1809..1964, y248..405 —
+   156x158 — so --s 0.1519 maps its height onto the brief's 24px box and its
+   width to 23.7px, a third of a pixel the eye will not see. It is a component of
+   its own because the two straight strips in the sheet sit directly above and
+   below it: the upper ends at y242 and the lower starts at y408, leaving 5px and
+   2px of clear space, so no window over the star can catch either.
+
+   Measured against the sheet: the window never clips star ink at any alpha
+   threshold, and from alpha>=8 upward it contains the entire star and nothing
+   else. Below alpha 8 the only extra pixels are 125 specks at alpha 1-6 (0.4 to
+   2.4% opacity) tracing the star's own outline — a compression halo, not a
+   neighbour, and far under one screen pixel once scaled to 24px. The sheet is
+   not modified; this is a window onto it. */
+.divider-star-crop {
+  width: 24px;
+  height: 24px;
+  margin: 0 10px;
+  overflow: hidden;
+  flex: none;
+  pointer-events: none;
+  --s: 0.1519;
+}
+
+.divider-star-crop > img {
+  position: absolute;
+  width: calc(2172px * var(--s));
+  max-width: none;
+  height: auto;
+  left: calc(-1809px * var(--s));
+  top: calc(-248px * var(--s));
+  user-select: none;
+}
+
+.projects-subtitle {
+  margin-top: 17px;
+  margin-bottom: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 6px;
+  color: #163F82;
+  text-transform: uppercase;
+}
+
+.projects-grid {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 43%;
+  width: 94%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 3.5%;
+  align-items: start;
+}
+
+.project-card {
+  position: relative;
+  width: 100%;
+  height: 390px;
+}
+
+.project-back-paper {
+  position: absolute;
+  left: 8%;
+  top: 2%;
+  width: 84%;
+  height: 58%;
+  background: #F4EFE5;
+  transform: rotate(-4deg);
+  border-radius: 2px;
+  z-index: 1;
+}
+
+.project-photo-shadow {
+  position: absolute;
+  left: 7%;
+  top: 9%;
+  width: 85%;
+  height: 48%;
+  background: rgba(30, 50, 80, 0.12);
+  filter: blur(5px);
+  z-index: 2;
+}
+
+.project-photo {
+  position: absolute;
+  left: 8%;
+  top: 8%;
+  width: 84%;
+  height: 48%;
+  object-fit: cover;
+  z-index: 3;
+}
+
+/* object-fit: fill is the brief's own value for the envelope. The asset is
+   1324x1188 (aspect 1.115) and the box is the card's full width by 220px, so at
+   the 1600px reference canvas the envelope is stretched about 37% wider than
+   tall. Recorded rather than silently corrected. */
+.project-envelope {
+  position: absolute;
+  left: 0;
+  bottom: 55px;
+  width: 100%;
+  height: 220px;
+  object-fit: fill;
+  z-index: 5;
+}
+
+/* The brief wants a torn cream paper label as an asset and also specifies this
+   layer as a plain div, so the div wins. It does not say how the text sits
+   inside it, so it is centred. */
+.project-label {
+  position: absolute;
+  top: 12px;
+  right: 4%;
+  width: 55%;
+  height: 70px;
+  background: #F7F1E6;
+  z-index: 8;
+  transform: rotate(4deg);
+  box-shadow: 0 2px 6px rgba(20, 40, 70, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-label span {
+  font-family: 'Snell Roundhand', 'Segoe Script', cursive;
+  font-size: 23px;
+  color: #163F82;
+  white-space: nowrap;
+}
+
+.project-tape {
+  position: absolute;
+  top: 4px;
+  left: 14%;
+  width: 65px;
+  height: 38px;
+  object-fit: cover;
+  z-index: 9;
+  transform: rotate(-8deg);
+}
+
+.project-binder-clip {
+  position: absolute;
+  top: -5px;
+  left: 49%;
+  width: 38px;
+  height: 55px;
+  object-fit: contain;
+  z-index: 10;
+  transform: rotate(-3deg);
+}
+
+.project-seal {
+  position: absolute;
+  left: 50%;
+  bottom: 67px;
+  transform: translateX(-50%);
+  width: 78px;
+  height: 78px;
+  object-fit: contain;
+  z-index: 12;
+}
+
+.project-button {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 76%;
+  height: 58px;
+  border: 1.5px solid #163F82;
+  border-radius: 30px;
+  background: rgba(250, 248, 241, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 35px;
+  padding-right: 7px;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.project-button-label {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 20px;
+  font-style: italic;
+  color: #163F82;
+}
+
+.project-button-arrow {
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  background: #A9D0F5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #163F82;
+  font-size: 22px;
+}
+
+@media (max-width: 1200px) {
+  .projects-grid { column-gap: 3%; }
+}
+
+@media (max-width: 768px) {
+  .projects-header { top: 4%; }
+  .projects-title { width: 520px; }
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 45px;
+  }
+}
+
+@media (max-width: 767px) {
+  /* The page stops being a fixed composition and becomes a normal scroll: the
+     header and grid come out of absolute positioning, the page grows to fit its
+     content, and the edge-cut decorations stop being cut. */
+  .projects-page {
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+
+  /* left: auto is not in the brief but is required: the desktop rule sets
+     left: 50%, and a relatively-positioned element still honours that, which
+     would shove the header right by half its own width. */
+  .projects-header {
+    position: relative;
+    top: 0;
+    left: auto;
+    transform: none;
+    width: 100%;
+    padding-top: 70px;
+  }
+
+  .projects-grid {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 90%;
+    margin: 60px auto 0;
+    grid-template-columns: 1fr;
+    row-gap: 60px;
+  }
+
+  .project-card { height: 390px; }
+}
