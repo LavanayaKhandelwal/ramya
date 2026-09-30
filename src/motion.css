@@ -1,0 +1,201 @@
+/* ————————————————— Motion —————————————————
+   Subtle scroll reveals and minimal hover affordances.
+
+   This is a separate stylesheet, loaded after index.css, on purpose. index.css
+   is where the design geometry lives and is edited constantly; motion is a
+   cross-cutting layer that touches the same elements while changing none of
+   their geometry. Keeping it apart means it can be retuned or deleted without
+   touching a single design rule, and it loads last so equal-specificity rules
+   here win over anything it decorates.
+
+   Three rules the whole system obeys:
+
+   1. Nothing is hidden unless JavaScript has confirmed it can be shown again.
+      The hidden state is scoped to `html.has-reveal`, a class the observer
+      adds to <html> itself. With no JS the class never appears, every element
+      renders normally, and the reveal is an enhancement rather than a
+      prerequisite for seeing the page.
+
+   2. Movement is never expressed by overwriting a `transform` that already
+      means something. Several elements here are centred with
+      `transform: translateX(-50%)` and the project label is rotated 4deg; a
+      hover rule that simply wrote `transform` would silently wipe that out and
+      throw the layout off-centre. Movement therefore uses the independent
+      `translate` property, which stacks with `transform` instead of replacing
+      it, and a `--lift` variable that collapses to 0 under reduced motion.
+
+   3. Feedback is kept, movement is dropped, when the reader has asked for less
+      motion. A colour shift on hover survives; a lift does not. */
+
+:root {
+  /* Entrance */
+  --motion-in: 520ms;
+  --motion-in-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-rise: 14px;
+  --motion-stagger: 70ms;
+
+  /* Hover */
+  --motion-hover: 220ms;
+  --motion-hover-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --lift-card: -3px;
+  --nudge-arrow: 3px;
+}
+
+/* ——— Entrance ———
+   The hidden state is a starting point, not an end state. `is-revealed` is
+   added by the observer the moment the element is properly in view, and is
+   never removed, so an element can only ever get more visible. */
+
+html.has-reveal .reveal-target {
+  opacity: 0;
+  translate: 0 var(--motion-rise);
+  transition:
+    opacity var(--motion-in) var(--motion-in-ease),
+    translate var(--motion-in) var(--motion-in-ease),
+    /* A project card is a reveal target that also lifts on hover, and this rule
+       outranks any plain `.project-card` transition. A `transition` value
+       replaces the previous one rather than merging with it, so `transform`
+       must be listed here or the lift snaps into place with no easing at all.
+       It carries the hover timing because nothing moves a card during its
+       reveal. */
+    transform var(--motion-hover) var(--motion-hover-ease);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+html.has-reveal .reveal-target.is-revealed {
+  opacity: 1;
+  translate: 0 0;
+  /* The stagger exists to space out the arrival. Once an element has arrived,
+     leaving the delay in place would only sit between the reader and the
+     card's hover, so it is dropped. */
+  transition-delay: 0ms;
+}
+
+/* ——— Hover ———
+   The button is the only clickable part of a project card, so the card lifts
+   when the button is reached for rather than when the pointer merely crosses
+   the empty space above it — lifting the whole card on any hover would imply
+   the card itself is clickable, which it is not. `:has()` degrades cleanly to
+   "the card does not lift" where it is unsupported; the button still brightens.
+
+   The card's own transform is empty, so `transform` is safe to write here, and
+   the transition is declared on the base rule rather than the hover rule —
+   a transition declared only on `:hover` has nothing to animate from, and the
+   card would snap up on entry instead of easing.
+
+   That base rule is also what eases the lift when JavaScript never runs: with no
+   `has-reveal` class the reveal rule above does not apply, and this is the only
+   transition in play. Where JS does run, the reveal rule outranks this one and
+   lists `transform` itself, so the lift eases either way. */
+
+.project-card {
+  transition: transform var(--motion-hover) var(--motion-hover-ease);
+}
+
+.project-card:has(.project-button:hover) {
+  transform: translateY(var(--lift-card));
+}
+
+.project-button {
+  transition:
+    background-color var(--motion-hover) var(--motion-hover-ease),
+    border-color var(--motion-hover) var(--motion-hover-ease);
+}
+
+.project-button:hover {
+  background-color: rgba(250, 248, 241, 0.72);
+  border-color: #0F2C63;
+}
+
+.project-button-arrow {
+  transition: translate var(--motion-hover) var(--motion-hover-ease);
+}
+
+.project-button:hover .project-button-arrow {
+  translate: var(--nudge-arrow) 0;
+}
+
+/* The footer links. The nav already has a hover of its own, so it is left
+   alone rather than given a second, competing one. */
+.site-footer a {
+  transition: opacity var(--motion-hover) var(--motion-hover-ease);
+}
+
+.site-footer a:hover {
+  opacity: 0.6;
+}
+
+/* ——— The stars ———
+   The sheet the sparkles are cropped from appears five times across the site,
+   and they are the one thing on the page that is decorative enough to idle.
+   Each starts at a different negative delay so they breathe out of step
+   instead of pulsing together. 5.5s between 1 and 0.72 is slow enough to read
+   as a shimmer rather than a blink. */
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.72;
+  }
+}
+
+.top-star-crop,
+.divider-star-crop,
+.about-star-crop,
+.about-star-crop-left,
+.about-star-crop-right {
+  animation: twinkle 5.5s ease-in-out infinite;
+}
+
+.top-star-crop {
+  animation-delay: 0s;
+}
+
+.divider-star-crop {
+  animation-delay: -1.4s;
+}
+
+.about-star-crop {
+  animation-delay: -2.8s;
+}
+
+.about-star-crop-left {
+  animation-delay: -4.2s;
+}
+
+.about-star-crop-right {
+  animation-delay: -0.7s;
+}
+
+/* ——— Less motion, please ———
+   The entrance becomes immediate and the decorative breathing stops. The hover
+   colour shifts are kept: they are feedback about where the pointer is, not
+   movement, and dropping them would leave the button with no hover state at
+   all. The lift and the arrow nudge collapse to zero through their own
+   variables, so those rules need no special-casing here. */
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-rise: 0px;
+    --lift-card: 0px;
+    --nudge-arrow: 0px;
+  }
+
+  html.has-reveal .reveal-target {
+    opacity: 1;
+    translate: none;
+    transition: none;
+  }
+
+  .top-star-crop,
+  .divider-star-crop,
+  .about-star-crop,
+  .about-star-crop-left,
+  .about-star-crop-right {
+    animation: none;
+  }
+}

@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
+import { RevealOnScroll } from './components/RevealOnScroll';
 import { ScrollToTop } from './components/ScrollToTop';
 import { BringingConceptToLifeSlide } from './pages/BringingConceptToLifeSlide';
 import { ContactPage } from './pages/ContactPage';
@@ -23,6 +24,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <RevealOnScroll />
       <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
         <Header />
         <main style={{ flex: 1 }}>

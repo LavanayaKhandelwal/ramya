@@ -17,6 +17,7 @@ export function WireBlock({
   return (
     <div
       data-wireframe={label}
+      className="wire-block"
       style={{
         border: '2px dashed #999',
         borderRadius: 8,
