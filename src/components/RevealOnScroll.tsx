@@ -158,6 +158,13 @@ export function RevealOnScroll() {
           );
         }
 
+        // JS hands out both halves of the hidden state, and this is the second.
+        // `has-reveal` was added to <html> above; this marks the element itself.
+        // Nothing else in the tree sets it, so an element is only ever hidden by
+        // the very code that is observing it and is about to add `is-revealed`
+        // again — and an element whose observation we never reach is never
+        // hidden. motion.css reads nothing but these two classes.
+        el.classList.add('reveal-target');
         observer.observe(el);
       }
     };
