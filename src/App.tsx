@@ -2,7 +2,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 import { ScrollToTop } from './components/ScrollToTop';
-import { AboutPage } from './pages/AboutPage';
 import { BringingConceptToLifeSlide } from './pages/BringingConceptToLifeSlide';
 import { ContactPage } from './pages/ContactPage';
 import { FashionPortfolioPage } from './pages/FashionPortfolioPage';
@@ -38,7 +37,6 @@ export default function App() {
                 </>
               }
             />
-            <Route path="/about" element={<AboutPage />} />
             <Route path="/projects" element={<ProjectsOverviewPage />} />
             <Route path="/internship/experience" element={<InternshipExperiencePage />} />
             <Route path="/internship/learnings" element={<InternshipLearningsPage />} />

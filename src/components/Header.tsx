@@ -25,7 +25,7 @@ export function Header() {
         </Link>
         <nav data-wireframe="Header.nav" style={{ display: 'flex', gap: 16 }}>
           <NavLink to="/projects">Projects</NavLink>
-          <NavLink to="/about">About</NavLink>
+          <NavLink to="/#about">About</NavLink>
           <NavLink to="/contact">Contact</NavLink>
         </nav>
       </div>

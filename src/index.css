@@ -150,7 +150,7 @@ a { color: inherit; }
    `.top-star-crop` already uses on the cover. Each crop box is the region's
    bounding box at full resolution, and --s is the scale the sheet is drawn at,
    so the sheet's width and the crop's offset are one number apart. */
-.about-page {
+.about-section {
   position: relative;
   width: 100vw;
   height: 100vh;
@@ -346,7 +346,7 @@ a { color: inherit; }
 /* Mobile: the two columns stop competing for a 100vh box and stack. The page
    keeps its overflow:hidden so the collage is still cut by the viewport. */
 @media (max-width: 767px) {
-  .about-page { height: auto; min-height: 100vh; }
+  .about-section { height: auto; min-height: 100vh; }
 
   .about-copy {
     position: relative;

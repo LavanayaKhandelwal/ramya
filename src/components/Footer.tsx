@@ -21,7 +21,7 @@ export function Footer() {
       >
         <span>[Footer — Name / Year]</span>
         <span style={{ display: 'flex', gap: 16 }}>
-          <Link to="/about">About</Link>
+          <Link to="/#about">About</Link>
           <Link to="/contact">Contact</Link>
           <Link to="/projects">All Projects</Link>
         </span>

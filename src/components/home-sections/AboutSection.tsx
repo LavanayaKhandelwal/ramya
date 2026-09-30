@@ -1,5 +1,12 @@
 /**
- * About Me — navy-and-cream editorial spread, built from the supplied artwork only.
+ * About Me — a section of the home page, built from the supplied artwork only.
+ *
+ * This began life as a page of its own at /about. It is a full-bleed 100vh
+ * composition, which is a section rather than a route: the artwork is sized
+ * against the viewport and the reader arrives at it by scrolling, not by being
+ * sent somewhere. It keeps its own ground and its own overflow, so the collages
+ * are still cut by the window edges exactly as they were on the page — dropping
+ * it into the home scroll changed where it lives, not how it is composed.
  *
  * Unlike the home cover, this page has no background photograph. Both background
  * images in the folder are light — `hero-section-background.png` is a cream and
@@ -43,9 +50,9 @@ const INTRO = [
 
 const SHEET = '/ramya-portfolio-images/design-elements-flower-ribbon-star.png';
 
-export function AboutPage() {
+export function AboutSection() {
   return (
-    <main className="about-page" aria-label="About Me">
+    <section className="about-section" id="about" aria-label="About Me">
       {/* corner collages — one supplied asset, placed twice, partly off-canvas */}
       <img
         className="about-collage about-collage-top-right"
@@ -105,6 +112,6 @@ export function AboutPage() {
           <img src={SHEET} alt="" aria-hidden draggable={false} />
         </div>
       </section>
-    </main>
+    </section>
   );
 }
