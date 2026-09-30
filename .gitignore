@@ -1,0 +1,13 @@
+# deps
+node_modules/
+
+# build
+dist/
+
+# logs / os
+*.log
+.DS_Store
+
+# local design drops (not committed yet — wireframe only)
+ramya portfolio /
+
