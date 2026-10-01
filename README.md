@@ -44,7 +44,7 @@ src/
 ├── components/
 │   ├── WireBlock.tsx         # dashed placeholder box
 │   ├── PageShell.tsx         # breadcrumb + title + sections
-│   ├── Header / Footer / ScrollToTop
+│   ├── ScrollToTop / RevealOnScroll   (no site header or footer)
 │   ├── fashion/              # CoverSection, WhyMeSection
 │   ├── home-sections/        # SkillsSection, ContactSection
 │   ├── internship/           # SocialBoard, CommerceBoard

@@ -71,7 +71,6 @@ const REVEAL_SELECTOR = [
   '.p1-beginning-spread',
   '.p1-direction-spread',
   '.p1-collection-spread',
-  '.site-footer',
 ].join(', ');
 
 /** How long each element in a row waits behind the one before it. */

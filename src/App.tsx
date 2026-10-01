@@ -1,6 +1,4 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Footer } from './components/Footer';
-import { Header } from './components/Header';
 import { RevealOnScroll } from './components/RevealOnScroll';
 import { ScrollToTop } from './components/ScrollToTop';
 import { BringingConceptToLifeSlide } from './pages/BringingConceptToLifeSlide';
@@ -25,8 +23,10 @@ export default function App() {
     <BrowserRouter>
       <ScrollToTop />
       <RevealOnScroll />
+      {/* The header and footer are gone site-wide, so this column is just the
+          page box: main still grows to fill it, which keeps the flex:1 below
+          meaningful on a short route like the 404 wireframe. */}
       <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-        <Header />
         <main style={{ flex: 1 }}>
           <Routes>
             <Route
@@ -63,7 +63,6 @@ export default function App() {
             <Route path="*" element={<div style={{ padding: 48 }}>[404 — wireframe]</div>} />
           </Routes>
         </main>
-        <Footer />
       </div>
     </BrowserRouter>
   );

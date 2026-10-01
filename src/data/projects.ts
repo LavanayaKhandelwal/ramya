@@ -38,7 +38,7 @@ export const projectsIndex: ProjectCardData[] = [
     slug: 'marketing',
     label: 'Project 1',
     buttonLabel: 'Project 1',
-    image: null,
+    image: '/ramya-portfolio-images/project1-hero-section-background.png',
     imageDescription: 'fashion clothing rack with garments in blue and neutral tones',
     sealIcon: 'hanger',
     binderClip: null,

@@ -1,23 +1,26 @@
-import { PageShell } from '../components/PageShell';
-import { WireBlock } from '../components/WireBlock';
-import { MappingOpportunitySection } from '../components/marketing/MappingOpportunitySection';
-import { ConceptToLifeSection } from '../components/marketing/ConceptToLifeSection';
-import { ProjectLearnedSection } from '../components/marketing/ProjectLearnedSection';
+import React from 'react';
+import { Project1HeroSection } from '../components/marketing/Project1HeroSection';
+import { Project1BeginningSection } from '../components/marketing/Project1BeginningSection';
+import { Project1DirectionSection } from '../components/marketing/Project1DirectionSection';
+import { Project1CollectionSection } from '../components/marketing/Project1CollectionSection';
+import { Project1HeroGarmentSection } from '../components/marketing/Project1HeroGarmentSection';
 
-/** Mirrors lavanaya ProjectMarketingPage (wireframe). */
+/**
+ * Project 1 Case Study Page — Fashion Merchandising & Production Processes.
+ * Section 1: Full-screen Hero Section ("ONE DRESS. MORE POSSIBILITIES.")
+ * Section 2: "THE BEGINNING - A NEED TURNED INTO A POSSIBILITY"
+ * Section 3: "FINDING THE DIRECTION - HOW INSIGHTS TURNED INTO TRENDS AND OPPORTUNITIES"
+ * Section 4: "BUILDING THE COLLECTION - FROM IDEA TO A VISUAL WORLD"
+ * Section 5: "ONE BASE, TWO LENGTHS - THE HERO GARMENT & TECHNICAL DOCUMENTATION"
+ */
 export function ProjectMarketingPage() {
   return (
-    <PageShell
-      breadcrumb="PROJECTS / 01 MARKETING"
-      eyebrow="MARKETING MANAGEMENT PROJECT — PAGE 1"
-      title="[A New Dimension of Lifewear]"
-      intro="[Project intro — context paragraph]"
-    >
-      <WireBlock label="Project 1 — cover hero (full bleed image)" minHeight={160} />
-      <MappingOpportunitySection />
-      <WireBlock label="Project 1 — design decisions (fragrance variants + list)" minHeight={160} />
-      <ConceptToLifeSection />
-      <ProjectLearnedSection />
-    </PageShell>
+    <main className="project-case-study-page">
+      <Project1HeroSection />
+      <Project1BeginningSection />
+      <Project1DirectionSection />
+      <Project1CollectionSection />
+      <Project1HeroGarmentSection />
+    </main>
   );
 }

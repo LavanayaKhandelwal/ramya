@@ -142,16 +142,6 @@ html.has-reveal :is(
   translate: var(--nudge-arrow) 0;
 }
 
-/* The footer links. The nav already has a hover of its own, so it is left
-   alone rather than given a second, competing one. */
-.site-footer a {
-  transition: opacity var(--motion-hover) var(--motion-hover-ease);
-}
-
-.site-footer a:hover {
-  opacity: 0.6;
-}
-
 /* A wire block warms up on hover — border and ground both shift, to the pale
    blue and cream already in the palette. It deliberately does not lift or take
    a shadow, for the same reason the project card only lifts when its button is
@@ -187,12 +177,6 @@ button:focus-visible,
   outline: 2px solid #163F82;
   outline-offset: 3px;
   border-radius: 2px;
-}
-
-/* The footer is a near-black band, where that navy outline would be very hard
-   to see. The same ring in the pale blue reads against it. */
-.site-footer a:focus-visible {
-  outline-color: #A9D0F5;
 }
 
 /* ——— The stars ———
