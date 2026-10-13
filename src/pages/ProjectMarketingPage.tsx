@@ -4,6 +4,7 @@ import { Project1BeginningSection } from '../components/marketing/Project1Beginn
 import { Project1DirectionSection } from '../components/marketing/Project1DirectionSection';
 import { Project1CollectionSection } from '../components/marketing/Project1CollectionSection';
 import { Project1HeroGarmentSection } from '../components/marketing/Project1HeroGarmentSection';
+import { Project1LearningJourneySection } from '../components/marketing/Project1LearningJourneySection';
 
 /**
  * Project 1 Case Study Page — Fashion Merchandising & Production Processes.
@@ -12,6 +13,7 @@ import { Project1HeroGarmentSection } from '../components/marketing/Project1Hero
  * Section 3: "FINDING THE DIRECTION - HOW INSIGHTS TURNED INTO TRENDS AND OPPORTUNITIES"
  * Section 4: "BUILDING THE COLLECTION - FROM IDEA TO A VISUAL WORLD"
  * Section 5: "ONE BASE, TWO LENGTHS - THE HERO GARMENT & TECHNICAL DOCUMENTATION"
+ * Section 6: "A LEARNING JOURNEY - FOUR STAGES OF THE DESIGN PROCESS"
  */
 export function ProjectMarketingPage() {
   return (
@@ -21,6 +23,7 @@ export function ProjectMarketingPage() {
       <Project1DirectionSection />
       <Project1CollectionSection />
       <Project1HeroGarmentSection />
+      <Project1LearningJourneySection />
     </main>
   );
 }

@@ -46,9 +46,10 @@
 //     set in the project's own Didot display face, not a generic sans — the
 //     closest honest stand-in until the lettering arrives.
 //
-// Phone and LinkedIn are deliberately blank. Their values were not supplied,
-// so those two rows render the brief's placeholder rule rather than a fabricated
-// number or a guessed profile URL. Email and location are the two real values.
+// Phone, LinkedIn, email and location are Ramya's supplied details (Oct 2026).
+// The LinkedIn row shows the profile name; its `href` stays null until the
+// profile URL itself is supplied — a name is not a destination, and guessing
+// a linkedin.com/in/... slug risks pointing at someone else's profile.
 
 export interface ContactItemData {
   /** Stable key; also the alt-text handle for the icon. */
@@ -74,7 +75,8 @@ export interface ContactData {
   items: ContactItemData[];
 }
 
-const EMAIL = 'ramyaupadhyay0-71@gmail.com';
+const EMAIL = 'ramyaupadhyay071@gmail.com';
+const PHONE = '8126107579';
 
 export const contact: ContactData = {
   backgroundAsset: '/ramya-portfolio-images/contact-section-background.png',
@@ -99,16 +101,16 @@ export const contact: ContactData = {
       id: 'phone',
       icon: null,
       iconDescription: 'phone',
-      // Not supplied. Renders the brief's placeholder rule.
-      text: null,
-      href: null,
+      text: PHONE,
+      href: `tel:${PHONE}`,
     },
     {
       id: 'linkedin',
       icon: null,
       iconDescription: 'LinkedIn',
-      // Not supplied. Renders the brief's placeholder rule.
-      text: null,
+      text: 'Ramya Upadhyay',
+      // Set to the profile URL the moment it is supplied; a plain name is
+      // displayed until then. See the note above.
       href: null,
     },
   ],

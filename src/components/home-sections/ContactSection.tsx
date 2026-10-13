@@ -18,7 +18,7 @@ import { contact } from '../../data/contact';
  * second checkerboard anywhere in this section.
  *
  * Composition is the brief's, written out literally: the card is 58% x 83% at
- * 51% down the page, the heading sits at top 7% of it, the four rows at top 46%,
+ * 51% down the page, the heading sits at top 7% of it, the four rows at top 31%
  * and the three sparkles hang off the left, top-right and bottom edges. The card
  * is an arch — 125px on the two top corners, square at the foot — with the
  * second hairline inset 10px inside the first, both in the brief's #123F82.

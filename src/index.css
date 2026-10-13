@@ -152,7 +152,7 @@ a { color: inherit; }
    so the sheet's width and the crop's offset are one number apart. */
 .about-section {
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   min-height: 720px;
   overflow: hidden;
@@ -245,26 +245,37 @@ a { color: inherit; }
 }
 
 /* ——— left column ——— */
+/* 44% / 600px rather than 39% / 520px: at the old measure the copy stopped
+   around two-fifths of the way down a 100vh section and read as a small block
+   parked in the corner next to the portrait. The column is wider and the type
+   below is larger, so the left half of the spread carries the same weight as the
+   arch on the right. The 6% gutter to the portrait survives: the copy now ends
+   at 49.5% and the portrait starts at 55.5%. */
 .about-copy {
   position: absolute;
   z-index: 5;
   left: 5.5%;
-  top: 6%;
-  width: 39%;
-  max-width: 520px;
+  top: 3%;
+  width: 44%;
+  max-width: 600px;
 }
 
 /* The title is HTML text, not the supplied wordmark the brief asked for: no
    "About Me" title file exists in the folder, and the two title PNGs that do
    are the cover's own name and a "my projects" heading. Replacing this <p> with
    an <img> of the real wordmark, and deleting this rule, is the whole change. */
+/* The 470px box is gone: it was sized around a 74px line, and the title is now a
+   viewport measure, so a fixed width would clamp the very thing that scales.
+   `min(7vw, 100px)` is the size the line can take without ever wrapping — at
+   Didot the words measure 5.6x the font size, and the copy column is 44% wide —
+   while the 100px cap keeps the title off the portrait on very wide screens.
+   Measured single-line at 320, 390, 768, 1024 and 1440. */
 .about-title {
-  width: 470px;
-  max-width: 100%;
+  width: 100%;
   margin: 0;
   color: #F8F5EF;
   font-family: 'Didot', 'Bodoni MT', 'Playfair Display', Georgia, serif;
-  font-size: 74px;
+  font-size: clamp(2rem, min(5.2vw, 6vh), 4.25rem);
   font-weight: 400;
   line-height: 0.95;
   letter-spacing: 1px;
@@ -273,16 +284,17 @@ a { color: inherit; }
 }
 
 .about-description {
-  margin-top: 26px;
+  margin-top: 18px;
   color: #F8F5EF;
   font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 1.55;
+  line-height: 1.6;
   letter-spacing: 0.25px;
+  text-align: justify;
 }
 
-.about-description p { margin: 0 0 15px; }
+.about-description p { margin: 0 0 10px; }
 .about-description p:last-child { margin-bottom: 0; }
 
 /* ——— right column ——— */
@@ -290,9 +302,9 @@ a { color: inherit; }
   position: absolute;
   z-index: 5;
   right: 5.5%;
-  top: 17%;
+  top: 6%;
   width: 39%;
-  height: 70%;
+  height: 52%;
 }
 
 /* The arch. An ivory plate with a pale blue hairline, rounded hard at the top
@@ -325,18 +337,29 @@ a { color: inherit; }
   user-select: none;
 }
 
-.about-ribbon-crop { top: -10px; left: 5%; z-index: 7; --s: 0.10294; }
+/* The ribbon bow is a wide, shallow band in the supplied sheet (x714, y130, 1020x511
+   at full resolution) — it runs along the top of the left column. With the copy now
+   44% wide on desktop and 44% + 5% on tablet it sits to the right of the bow in a
+   shallow band, which is how the sheet is composed, so it never touches the
+   portrait. Desktop is the only place that gap matters: on the stacked phone view
+   the band sits right beside the heading. */
+.about-ribbon-crop { top: -10px; left: 16%; z-index: 7; --s: 0.10294; }
 .about-star-crop-right { right: 1%; top: 34%; z-index: 8; --s: 0.15033; }
 .about-star-crop-left { left: 25px; top: 92px; z-index: 4; --s: 0.14379; }
-.about-flower-crop { right: -2%; bottom: 0; z-index: 9; --s: 0.27828; }
+.about-flower-crop { right: -2%; bottom: 0; z-index: 9; --s: 0.22828; }
 
 /* Tablet: the columns take more of the width, the arch widens, the copy steps
    down a size and the corner collages come in. */
 @media (max-width: 768px) {
   .about-copy { left: 5%; width: 44%; }
   .about-portrait { right: 4%; width: 43%; }
-  .about-description { font-size: 11px; }
-  .about-title { font-size: 54px; }
+  /* Justified text in a column this narrow reads loose without hyphenation —
+     at 390px the 14px measure is about 45 characters and "I enjoy working on
+     creative projects" came out with gaps between every word. It is enabled
+     here and not on the desktop rule above, where the 75-character measure
+     justifies cleanly on its own. */
+  .about-description { font-size: 13px; hyphens: auto; }
+  .about-title { font-size: min(46px, 12vw); }
   .about-portrait-frame { width: 78%; }
   .about-flower-crop { --s: 0.19749; }
   .about-collage-top-right { width: 203px; }
@@ -346,7 +369,7 @@ a { color: inherit; }
 /* Mobile: the two columns stop competing for a 100vh box and stack. The page
    keeps its overflow:hidden so the collage is still cut by the viewport. */
 @media (max-width: 767px) {
-  .about-section { height: auto; min-height: 100vh; }
+  .about-section { height: 100vh; min-height: 720px; overflow: hidden; }
 
   .about-copy {
     position: relative;
@@ -357,16 +380,18 @@ a { color: inherit; }
     padding-top: 80px;
   }
 
-  .about-title { font-size: 46px; }
-  .about-description { margin-top: 20px; font-size: 11px; }
+  /* 12vw keeps the title on one line on a 320px screen, where a flat 46px is
+     2px wider than the stacked column and breaks "ABOUT ME" onto two lines. */
+  .about-title { font-size: min(46px, 12vw); }
+  .about-description { margin-top: 16px; font-size: 13px; }
 
   .about-portrait {
     position: relative;
     right: auto;
     top: auto;
     width: 100%;
-    height: 500px;
-    margin-top: 50px;
+    height: 420px;
+    margin-top: 40px;
   }
 
   .about-portrait-frame { right: 15%; width: 70%; height: 390px; }
@@ -389,8 +414,8 @@ a { color: inherit; }
    on a page that scrolls vertically the block would be wider than the visible
    area and the left:50% centring would sit off-centre. The hero uses 100% for
    the same reason, and on a full-bleed block the two are identical. The About
-   section directly above this one still uses 100vw, which on a platform with
-   classic scrollbars would give the home page a stray horizontal one. */
+   section directly above this one used 100vw and did exactly that; it is now
+   100% as well, so the home page has no 100vw block left in it. */
 .projects-section {
   position: relative;
   width: 100%;
@@ -531,122 +556,34 @@ a { color: inherit; }
   align-items: start;
 }
 
+/* Each card is one supplied image plus the pill button below it. The artwork is
+   1501x1048 (aspect 1.43) and carries its own transparent margin, so it is laid
+   out at its natural ratio — `height: auto` with no object-fit, which cannot
+   distort it at any column width.
+
+   The card is a flex column rather than a fixed-height positioned box, so its
+   height follows the image instead of being pinned to the old 390px. */
 .project-card {
-  position: relative;
   width: 100%;
-  height: 390px;
-}
-
-.project-back-paper {
-  position: absolute;
-  left: 8%;
-  top: 2%;
-  width: 84%;
-  height: 58%;
-  background: #F4EFE5;
-  transform: rotate(-4deg);
-  border-radius: 2px;
-  z-index: 1;
-}
-
-.project-photo-shadow {
-  position: absolute;
-  left: 7%;
-  top: 9%;
-  width: 85%;
-  height: 48%;
-  background: rgba(30, 50, 80, 0.12);
-  filter: blur(5px);
-  z-index: 2;
-}
-
-.project-photo {
-  position: absolute;
-  left: 8%;
-  top: 8%;
-  width: 84%;
-  height: 48%;
-  object-fit: cover;
-  z-index: 3;
-}
-
-/* object-fit: fill is the brief's own value for the envelope. The asset is
-   1324x1188 (aspect 1.115) and the box is the card's full width by 220px, so at
-   the 1600px reference canvas the envelope is stretched about 37% wider than
-   tall. Recorded rather than silently corrected. */
-.project-envelope {
-  position: absolute;
-  left: 0;
-  bottom: 55px;
-  width: 100%;
-  height: 220px;
-  object-fit: fill;
-  z-index: 5;
-}
-
-/* The brief wants a torn cream paper label as an asset and also specifies this
-   layer as a plain div, so the div wins. It does not say how the text sits
-   inside it, so it is centred. */
-.project-label {
-  position: absolute;
-  top: 12px;
-  right: 4%;
-  width: 55%;
-  height: 70px;
-  background: #F7F1E6;
-  z-index: 8;
-  transform: rotate(4deg);
-  box-shadow: 0 2px 6px rgba(20, 40, 70, 0.12);
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
-.project-label span {
-  font-family: 'Snell Roundhand', 'Segoe Script', cursive;
-  font-size: 23px;
-  color: #163F82;
-  white-space: nowrap;
+.project-card-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
-.project-tape {
-  position: absolute;
-  top: 4px;
-  left: 14%;
-  width: 65px;
-  height: 38px;
-  object-fit: cover;
-  z-index: 9;
-  transform: rotate(-8deg);
-}
-
-.project-binder-clip {
-  position: absolute;
-  top: -5px;
-  left: 49%;
-  width: 38px;
-  height: 55px;
-  object-fit: contain;
-  z-index: 10;
-  transform: rotate(-3deg);
-}
-
-.project-seal {
-  position: absolute;
-  left: 50%;
-  bottom: 67px;
-  transform: translateX(-50%);
-  width: 78px;
-  height: 78px;
-  object-fit: contain;
-  z-index: 12;
-}
-
+/* Sits under the artwork in normal flow. It used to be absolutely positioned
+   against the old fixed-height card; the card is a flex column now, so the
+   centring comes from `align-items: center` on the card and this only needs the
+   gap and its own geometry. */
 .project-button {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  margin-top: 16px;
   width: 76%;
   height: 58px;
   border: 1.5px solid #163F82;
@@ -686,18 +623,15 @@ a { color: inherit; }
 }
 
 @media (max-width: 768px) {
-  .projects-header { top: 4%; }
-  .projects-title { width: 520px; }
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-    row-gap: 45px;
-  }
-}
-
-@media (max-width: 767px) {
   /* The page stops being a fixed composition and becomes a normal scroll: the
      header and grid come out of absolute positioning, the page grows to fit its
-     content, and the edge-cut decorations stop being cut. */
+     content, and the edge-cut decorations stop being cut.
+
+     This starts at 768, not 767, because the two-column grid does not fit in a
+     100vh box: at 768x1024 the grid is 825px tall and starts at 43% of the
+     viewport, so 241px of the second row ran past the section and `overflow:
+     hidden` cut it off. The section therefore grows here, the way the phone
+     layout below already did; the two columns themselves stay. */
   .projects-section {
     height: auto;
     min-height: 100vh;
@@ -709,6 +643,10 @@ a { color: inherit; }
        `hidden` would compute back to auto and trap the section in a scroll box). */
     overflow-x: clip;
     overflow-y: visible;
+    /* The header already opens with 70px above it; with the section growing to
+       its content the grid would otherwise end flush on the section's last
+       pixel, so the button on the bottom card sat against the next section. */
+    padding-bottom: 70px;
   }
 
   /* left: auto is not in the brief but is required: the desktop rule sets
@@ -723,6 +661,8 @@ a { color: inherit; }
     padding-top: 70px;
   }
 
+  .projects-title { width: 520px; }
+
   .projects-grid {
     position: relative;
     top: 0;
@@ -730,11 +670,18 @@ a { color: inherit; }
     transform: none;
     width: 90%;
     margin: 60px auto 0;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 45px;
+  }
+}
+
+/* Phone: one column. The layout switch above already applies from 768 down, so
+   only the column count changes here. */
+@media (max-width: 767px) {
+  .projects-grid {
     grid-template-columns: 1fr;
     row-gap: 60px;
   }
-
-  .project-card { height: 390px; }
 }
 
 /* ————————————————— Skills (supplied ground, no redraws) —————————————————
@@ -971,6 +918,15 @@ img.skills-panel-title {
   white-space: pre-line;
 }
 
+/* The toolkit rows are named products — MS Office, Canva, ERP, AI Tools — and
+   Ramya asked for them set larger than the expertise disciplines, so they read
+   as sub-headings of the Creative & Digital Toolkit panel. 14px is the largest
+   that keeps "(Word, Excel, PowerPoint)" on its intended single line inside the
+   265px pill: the line measures 169px against ~179px of label room. 15px
+   measures 177px and clips at the pill's rounded end. Measured, not guessed —
+   see the tablet note below for the size that breakpoint can afford. */
+.skills-panel-toolkit .skill-pill-label { font-size: 14px; }
+
 /* Tablet: the columns take more of the width and the padding tightens so the
    two-line pills keep their measure.
 
@@ -1000,6 +956,14 @@ img.skills-panel-title {
      45-62px tall here, so 34px would be cramped against the rounded ends. */
   .skill-pill { padding: 0 12px; }
   .skill-pill-label { font-size: 10px; letter-spacing: 0; }
+
+  /* The toolkit step-up is 11px here. Measured, this breakpoint never held the
+     two-line design: the parenthetical line is 125px wide even at the original
+     10px against ~77px of label room, so "(Word, Excel, PowerPoint)" has always
+     wrapped to a second line inside the pill. 11px is the largest step that
+     keeps those three lines inside the 45px row (3 × 1.2 × 11 = 39.6px); 12px
+     needs 43.2px and leaves under a pixel of air. Do not raise it here. */
+  .skills-panel-toolkit .skill-pill-label { font-size: 11px; }
 
   /* The 92px desktop cap is tuned to that panel's height; this one is shorter and
      holds the same rows, so the rows would otherwise fill it and drift back toward
@@ -1065,6 +1029,10 @@ img.skills-panel-title {
 
   .skills-panel-description { width: 100%; }
 
+  /* Single-column pills are ~288px wide here, so the toolkit labels get the
+     full 14px step-up back — the longest line is 169px against ~224px of room. */
+  .skills-panel-toolkit .skill-pill-label { font-size: 14px; }
+
   /* On mobile the panel is height:auto, so the desktop `flex:1` / `1fr` row
      stretching has no definite height to divide and would make the single-column
      pills grow unpredictably. Both are reset to the fixed 45px row with a 12px
@@ -1075,6 +1043,11 @@ img.skills-panel-title {
     grid-auto-rows: 45px;
     gap: 12px;
     flex: 0 0 auto;
+    /* The grid no longer takes the leftover height with flex:1, so nothing is
+       holding it off the header: without this the first pill sat flush against
+       the last line of the description (measured gap 0). 22px matches the 14px
+       header gap plus the description's own 7px top margin. */
+    margin-top: 22px;
   }
 }
 
@@ -1188,15 +1161,19 @@ img.skills-panel-title {
 }
 
 /* ——— the rows ———
-   Four 65px rows at 23px spacing, starting at 46% down the card. */
+   Four 56px rows at 20px spacing, starting at 31% down the card. The list was
+   originally at 46% when two of the four rows were placeholder rules; with all
+   four values supplied that left a ~220px void under the heading, so the block
+   now sits just above the card's visual centre and the row height matches the
+   disc size, which removes the dead air inside each row. */
 .contact-list {
   position: absolute;
-  top: 46%;
+  top: 34%;
   left: 22%;
   z-index: 7;
   display: flex;
   flex-direction: column;
-  gap: 23px;
+  gap: 20px;
   width: 58%;
   margin: 0;
   padding: 0;
@@ -1207,7 +1184,7 @@ img.skills-panel-title {
   display: flex;
   align-items: center;
   width: 100%;
-  height: 65px;
+  height: 56px;
 }
 
 /* The pale blue disc is the brief's icon container, and it is what carries the
@@ -1217,8 +1194,8 @@ img.skills-panel-title {
   flex: 0 0 auto;
   align-items: center;
   justify-content: center;
-  width: 64px;
-  height: 64px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   background: #DCE9F8;
   color: #123F82;
@@ -1226,8 +1203,8 @@ img.skills-panel-title {
 
 .contact-icon-glyph {
   display: block;
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
 }
 
 /* The whole row is the link target, so the mail address is not a 12px-tall
@@ -1253,6 +1230,11 @@ img.skills-panel-title {
   color: #123F82;
   white-space: nowrap;
 }
+
+/* Link rows get their indent from .contact-item-link; plain-text rows (location,
+   LinkedIn) are the span itself, so they need the same offset here or the four
+   values start at two different x positions and the column reads ragged. */
+.contact-item > .contact-item-text { margin-left: 34px; }
 
 .contact-item-link:hover .contact-item-text {
   text-decoration: underline;
@@ -1325,12 +1307,27 @@ img.skills-panel-title {
   .contact-heading { font-size: clamp(30px, 4.6vw, 48px); }
 
   .contact-list {
+    top: 34%;
     left: 16%;
     width: 68%;
-    gap: 20px;
+    gap: 18px;
+  }
+
+  .contact-item { height: 54px; }
+
+  .contact-icon {
+    width: 54px;
+    height: 54px;
+  }
+
+  .contact-icon-glyph {
+    width: 24px;
+    height: 24px;
   }
 
   .contact-item-text { font-size: 14px; }
+
+  .contact-item > .contact-item-text { margin-left: 24px; }
 
   .contact-item-link,
   .contact-item-placeholder { margin-left: 24px; }
@@ -1379,13 +1376,13 @@ img.skills-panel-title {
   .contact-heading-image { width: 70%; }
 
   .contact-list {
-    top: 42%;
+    top: 32%;
     left: 11%;
     width: 78%;
-    gap: 18px;
+    gap: 14px;
   }
 
-  .contact-item { height: 55px; }
+  .contact-item { height: 50px; }
 
   .contact-icon {
     width: 48px;
@@ -1404,18 +1401,19 @@ img.skills-panel-title {
     white-space: normal;
   }
 
+  .contact-item > .contact-item-text { margin-left: 18px; }
+
   .contact-item-link,
   .contact-item-placeholder { margin-left: 18px; }
 }
 .project-case-study-page {
-  width: 100vw;
   width: 100%;
-  height: 100vh;
+  height: auto;
   min-height: 100vh;
   margin: 0;
   padding: 0;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 /* ————————————————— Project 1 Hero Section (Full-Screen Luxury Fashion Portfolio Spread) ————————————————— */
@@ -3382,4 +3380,3602 @@ img.skills-panel-title {
 @media (max-width: 1024px) {
   .p1-hg-columns { flex-direction: column; }
   .p1-hg-col-1, .p1-hg-col-2, .p1-hg-col-3 { width: 100%; }
+}
+
+
+/* ————————————————— About section lower (integrated) ————————————————— */
+.about-lower-integrated {
+  position: absolute;
+  z-index: 6;
+  left: 5.5%;
+  right: 5.5%;
+  bottom: 32px;
+  color: #F7F5F0;
+  padding: 0 0 0 40px;
+  pointer-events: none;
+}
+.about-lower-integrated > * {
+  pointer-events: auto;
+}
+
+.about-lower-intro-small {
+  color: #F7F5F0;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: 0.1px;
+  max-width: 580px;
+  margin-bottom: 14px;
+}
+
+.about-lower-approach-small {
+  margin-bottom: 18px;
+}
+
+.about-lower-approach-header-small {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.about-lower-approach-title-small {
+  color: #F5F3EF;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.about-lower-approach-line-small {
+  flex: 1;
+  max-width: 320px;
+  height: 1px;
+  background: #D9E1E9;
+  opacity: 0.8;
+}
+
+.about-lower-approach-body-small {
+  color: #F4F3F0;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  max-width: 720px;
+}
+
+.about-lower-highlight-small {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding: 6px 0;
+}
+
+.about-lower-brush-small {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 480px;
+  height: 26px;
+  background: #B8D7F5;
+  opacity: 0.9;
+  border-radius: 18px 36px 36px 18px;
+  clip-path: polygon(
+    0% 40%,
+    5% 20%,
+    15% 10%,
+    30% 5%,
+    50% 8%,
+    70% 15%,
+    85% 25%,
+    95% 35%,
+    100% 50%,
+    95% 65%,
+    85% 75%,
+    70% 85%,
+    50% 92%,
+    30% 95%,
+    15% 90%,
+    5% 80%,
+    0% 60%
+  );
+  z-index: 1;
+}
+
+.about-lower-highlight-text-small {
+  position: relative;
+  color: #102E59;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 500;
+  z-index: 2;
+  padding-left: 14px;
+}
+
+.about-lower-swoosh-small {
+  position: relative;
+  width: 100px;
+  height: 30px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.about-lower-divider-small {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 16px 0 16px;
+  width: 100%;
+}
+
+.about-lower-divider-line-small {
+  flex: 1;
+  height: 1px;
+  background: #DCE5ED;
+  opacity: 0.85;
+}
+
+.about-lower-divider-sparkle-small {
+  width: 14px;
+  height: 14px;
+}
+
+.about-lower-info-small {
+  display: flex;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.about-lower-col-small {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.about-lower-col-small:first-child {
+  width: 38%;
+}
+
+.about-lower-col-small:last-child {
+  width: 52%;
+}
+
+.about-lower-icon-circle-small {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #E7EEF5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.about-lower-icon-small {
+  width: 24px;
+  height: 24px;
+}
+
+.about-lower-vdiv-small {
+  width: 1px;
+  height: 78px;
+  background: #F2F2EF;
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.about-lower-col-content-small {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.about-lower-heading-small {
+  color: #F5F3EF;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 12px;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+}
+
+.about-lower-text-small {
+  color: #F5F3EF;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 12px;
+  line-height: 1.4;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.about-lower-grid-small {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 24px;
+  row-gap: 10px;
+  margin-top: 4px;
+}
+
+.about-lower-item-small {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #F5F3EF;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.about-lower-interest-icon-small {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 1024px) {
+  .about-lower-brush-small {
+    width: 360px;
+    height: 24px;
+  }
+  .about-lower-highlight-text-small {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-lower-integrated {
+    position: relative;
+    bottom: auto;
+    left: 0;
+    right: 0;
+    margin: 40px auto 0;
+    padding: 0 16px;
+  }
+  .about-lower-info-small {
+    flex-direction: column;
+    gap: 28px;
+  }
+  .about-lower-col-small:first-child,
+  .about-lower-col-small:last-child {
+    width: 100%;
+  }
+  .about-lower-brush-small {
+    width: calc(100% + 16px);
+    left: -8px;
+    height: 24px;
+  }
+  .about-lower-grid-small {
+    grid-template-columns: 1fr;
+    row-gap: 10px;
+  }
+  .about-lower-vdiv-small {
+    height: 70px;
+  }
+}
+
+/* ============================================================
+   SHARED SECTION IMAGE (real asset or labelled placeholder)
+   ============================================================ */
+.section-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.section-img--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.55), rgba(0, 0, 0, 0.04)),
+    repeating-linear-gradient(
+      45deg,
+      rgba(0, 0, 0, 0.025) 0px,
+      rgba(0, 0, 0, 0.025) 1px,
+      transparent 1px,
+      transparent 9px
+    );
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+.section-img__label {
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.42);
+  max-width: 90%;
+}
+
+/* ============================================================
+   PROJECT 01 — SECTION 06 : "A LEARNING JOURNEY"
+   ============================================================ */
+.p1j {
+  position: relative;
+  overflow: hidden;
+  background-color: #f8f0e4;
+  background-image: radial-gradient(rgba(157, 134, 106, 0.06) 1px, transparent 1px);
+  background-size: 7px 7px;
+  padding: 72px 4.5% 84px;
+  font-family: 'Didot', 'Bodoni MT', 'Playfair Display', Georgia, serif;
+  color: #211a18;
+}
+.p1j__accent {
+  position: absolute;
+  background: #e8c8bf;
+  opacity: 0.7;
+  pointer-events: none;
+}
+.p1j__accent--tl {
+  top: 0;
+  left: 0;
+  width: 86px;
+  height: 22px;
+  transform: translate(-32px, -4px) rotate(-8deg);
+}
+.p1j__accent--bl {
+  bottom: 0;
+  left: 0;
+  width: 120px;
+  height: 46px;
+  opacity: 0.5;
+  transform: translate(-40px, 14px) rotate(6deg);
+}
+.p1j__botanical {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 132px;
+  height: 96px;
+  border-bottom-left-radius: 64px;
+  background:
+    radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.9), transparent 40%),
+    linear-gradient(140deg, #e8c8bf, #d9aaa2);
+  opacity: 0.75;
+  pointer-events: none;
+}
+.p1j__header {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-bottom: 52px;
+}
+.p1j__title {
+  margin: 0;
+  font-size: clamp(30px, 3.3vw, 62px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.p1j__rule {
+  flex: 1;
+  height: 1px;
+  background: #b9ada0;
+}
+.p1j__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+.p1j__col {
+  display: flex;
+  flex-direction: column;
+  padding: 0 3.2%;
+}
+.p1j__col:first-child {
+  padding-left: 0;
+}
+.p1j__col:last-child {
+  padding-right: 0;
+}
+.p1j__col + .p1j__col {
+  border-left: 1px solid #c9beb1;
+}
+.p1j__num {
+  font-size: clamp(46px, 5.4vw, 100px);
+  line-height: 0.9;
+  font-weight: 400;
+  display: block;
+}
+.p1j__num--blush {
+  color: #d9aaa2;
+}
+.p1j__num--gold {
+  color: #d9b665;
+}
+.p1j__colrule {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #4b4945;
+  margin: 16px 0 10px;
+}
+.p1j__colheading {
+  margin: 0 0 12px;
+  font-size: clamp(15px, 1.5vw, 27px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+.p1j__colheading span {
+  display: block;
+}
+.p1j__desc {
+  margin: 0 0 22px;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: clamp(11px, 1.05vw, 19px);
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+  color: #69615a;
+}
+.p1j__photo {
+  margin-top: auto;
+  aspect-ratio: 0.83 / 1;
+  border-radius: 0;
+}
+@media (max-width: 900px) {
+  .p1j {
+    padding: 48px 6% 56px;
+  }
+  .p1j__grid {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 40px;
+  }
+  .p1j__col {
+    padding: 0 5%;
+  }
+  .p1j__col:first-child {
+    padding-left: 5%;
+  }
+  .p1j__col:nth-child(odd) {
+    border-left: none;
+  }
+}
+@media (max-width: 560px) {
+  .p1j__grid {
+    grid-template-columns: 1fr;
+  }
+  .p1j__col,
+  .p1j__col:first-child {
+    border-left: none;
+    padding: 0;
+  }
+  .p1j__header {
+    gap: 16px;
+  }
+}
+
+/* ============================================================
+   PROJECT 02 — SECTION 01 : "THREADING THE TREND" hero
+   ============================================================ */
+.px2-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+}
+.px2-hero__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.px2-hero__overlay {
+  position: absolute;
+  top: 46%;
+  left: 65%;
+  width: 43%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+}
+.px2-hero__headline {
+  margin: 0;
+  font-family: 'Didot', 'Bodoni MT', 'Playfair Display', Georgia, serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 0.88;
+  letter-spacing: -0.01em;
+  font-size: clamp(38px, 5vw, 62px);
+}
+.px2-hero__line1 {
+  display: block;
+  color: #171613;
+}
+.px2-hero__line2 {
+  display: block;
+  color: #65644d;
+  font-style: italic;
+  text-transform: none;
+}
+.px2-hero__divider {
+  display: block;
+  width: 55px;
+  height: 1px;
+  margin: 22px auto;
+  background: #77715f;
+}
+.px2-hero__subtitle {
+  margin: 0 auto;
+  max-width: 420px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(14px, 1.5vw, 18px);
+  line-height: 1.45;
+  color: #37342e;
+}
+@media (max-width: 900px) {
+  .px2-hero__overlay {
+    left: 50%;
+    width: 80%;
+  }
+  .px2-hero__headline {
+    font-size: clamp(34px, 8vw, 48px);
+  }
+}
+
+/* ============================================================
+   PROJECT 02 — SECTION 02 : "UNDERSTANDING THE CONSUMER"
+   ============================================================ */
+.px2c {
+  display: grid;
+  grid-template-columns: 24% 1fr;
+  gap: 0;
+  background-color: #f4f1e9;
+  background-image: radial-gradient(rgba(120, 108, 88, 0.05) 1px, transparent 1px);
+  background-size: 7px 7px;
+  padding: 48px 0;
+}
+.px2c__rail {
+  position: relative;
+  min-height: 520px;
+}
+.px2c__rail .section-img {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+}
+.px2c__body {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 0 4% 0 3.5%;
+}
+.px2c__top {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 32px;
+}
+.px2c__rule {
+  display: block;
+  width: 100px;
+  height: 1px;
+  background: #a7a397;
+  margin-bottom: 18px;
+}
+.px2c__heading {
+  margin: 0;
+  font-family: 'Didot', 'Bodoni MT', 'Playfair Display', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(32px, 3.6vw, 54px);
+  line-height: 0.94;
+  color: #171713;
+}
+.px2c__heading em {
+  font-style: italic;
+  color: #64644f;
+}
+.px2c__eyebrow {
+  margin: 16px 0 12px;
+  font-family: system-ui, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #64644f;
+}
+.px2c__desc {
+  margin: 0;
+  max-width: 460px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(15px, 1.35vw, 19px);
+  line-height: 1.45;
+  color: #68665e;
+}
+.px2c__collage {
+  position: relative;
+  min-height: 300px;
+}
+.px2c__collage-main {
+  position: absolute;
+  inset: 0 22% 0 0;
+  height: 100%;
+}
+.px2c__collage-a,
+.px2c__collage-b {
+  position: absolute;
+  right: 0;
+  width: 30%;
+  border: 4px solid #f4f1e9;
+  box-sizing: border-box;
+}
+.px2c__collage-a {
+  top: 8%;
+  height: 40%;
+}
+.px2c__collage-b {
+  bottom: 6%;
+  height: 42%;
+}
+.px2c__mid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 34px;
+}
+.px2c__look-head,
+.px2d__whys-head,
+.px2d__ideas-head {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 22px;
+}
+.px2c__look-head h3,
+.px2d__whys-head h3,
+.px2d__ideas-head h3 {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #171713;
+  white-space: nowrap;
+}
+.px2c__look-rule,
+.px2d__rule {
+  flex: 1;
+  height: 1px;
+  background: #a7a397;
+}
+.px2c__look-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.px2c__look-item {
+  text-align: center;
+}
+.px2c__look-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #e8e3d9;
+  margin-bottom: 12px;
+}
+.px2c__look-icon svg {
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke: #25251f;
+  stroke-width: 1.3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.px2c__look-item h4 {
+  margin: 0 0 4px;
+  font-family: 'Didot', 'Bodoni MT', Georgia, serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #171713;
+}
+.px2c__look-item p {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  font-size: 10.5px;
+  line-height: 1.35;
+  color: #68665e;
+}
+.px2c__mindset {
+  position: relative;
+  border-left: 1px solid #a7a397;
+  padding-left: 26px;
+}
+.px2c__mindset-title {
+  margin: 0 0 10px;
+  font-family: system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #171713;
+}
+.px2c__quote-mark {
+  font-family: 'Didot', Georgia, serif;
+  font-size: 64px;
+  line-height: 0.7;
+  color: #d8d2c4;
+  display: block;
+}
+.px2c__quote {
+  margin: 0 0 16px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(16px, 1.5vw, 21px);
+  line-height: 1.3;
+  color: #37342e;
+}
+.px2c__quote em {
+  font-style: italic;
+}
+.px2c__mindset-rule {
+  display: block;
+  width: 70px;
+  height: 1px;
+  background: #a7a397;
+}
+.px2c__strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  height: 170px;
+}
+@media (max-width: 900px) {
+  .px2c {
+    grid-template-columns: 1fr;
+  }
+  .px2c__rail {
+    min-height: 300px;
+  }
+  .px2c__top,
+  .px2c__mid {
+    grid-template-columns: 1fr;
+  }
+  .px2c__collage {
+    min-height: 340px;
+  }
+  .px2c__look-list {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 22px;
+  }
+  .px2c__strip {
+    grid-template-columns: repeat(2, 1fr);
+    height: auto;
+  }
+  .px2c__strip .section-img {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* ============================================================
+   PROJECT 02 — SECTION 03 : "FROM EVERYDAY CHOICES TO DEEPER INSIGHTS"
+   ============================================================ */
+.px2b {
+  background-color: #f5f2ea;
+  background-image: linear-gradient(#f0ece2, #f5f2ea);
+  padding: 56px 4% 64px;
+}
+.px2b__header {
+  position: relative;
+  text-align: center;
+  padding: 30px 0 44px;
+}
+.px2b__note {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px 16px;
+  background: #f4ede0;
+  transform: rotate(4deg);
+  font-family: 'Caveat', 'Comic Sans MS', cursive;
+  font-size: 18px;
+  color: #333127;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+.px2b__heading {
+  margin: 0;
+  font-family: 'Didot', 'Bodoni MT', 'Playfair Display', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(34px, 5vw, 68px);
+  line-height: 0.96;
+  color: #171713;
+}
+.px2b__heading em {
+  font-style: italic;
+  color: #565646;
+}
+.px2b__subtitle {
+  margin: 20px 0 0;
+  font-family: system-ui, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #34332f;
+}
+.px2b__profiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5%;
+}
+.px2b__profile {
+  display: flex;
+  flex-direction: column;
+}
+.px2b__circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-family: 'Didot', Georgia, serif;
+  font-size: 18px;
+  color: #191916;
+}
+.px2b__connector {
+  width: 1px;
+  height: 22px;
+  margin-left: 23px;
+  background: #817d73;
+}
+.px2b__img-wrap {
+  position: relative;
+  aspect-ratio: 1.5 / 1;
+  margin-bottom: 22px;
+}
+.px2b__qcard {
+  position: absolute;
+  bottom: -18px;
+  left: -10px;
+  max-width: 74%;
+  padding: 10px 14px;
+  background: #f4ede0;
+  transform: rotate(-6deg);
+  font-family: 'Caveat', 'Comic Sans MS', cursive;
+  font-size: clamp(15px, 1.3vw, 19px);
+  line-height: 1.15;
+  color: #302e28;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.px2b__insights {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin: 0 0 18px;
+  padding: 0;
+  list-style: none;
+}
+.px2b__insights li {
+  text-align: center;
+}
+.px2b__ins-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 45% 55% 50% 50% / 55% 50% 55% 45%;
+  margin-bottom: 8px;
+}
+.px2b__ins-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: #25251f;
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.px2b__insights h4 {
+  margin: 0 0 3px;
+  font-family: 'Didot', Georgia, serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #191916;
+}
+.px2b__insights p {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  font-size: 9.5px;
+  line-height: 1.3;
+  color: #69675f;
+}
+.px2b__banner {
+  margin-top: auto;
+  padding: 7px 10px;
+  text-align: center;
+  font-family: system-ui, sans-serif;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #fff;
+}
+.px2b__bottom {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 0.6fr;
+  gap: 40px;
+  align-items: start;
+  margin-top: 56px;
+}
+.px2b__sec-label {
+  margin: 0 0 20px;
+  font-family: system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #393832;
+}
+.px2b__truth-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.px2b__truth-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+.px2b__truth-circle {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.px2b__truth-item span {
+  font-family: system-ui, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #393832;
+  max-width: 100px;
+}
+.px2b__truth-arrow {
+  font-size: 20px;
+  color: #24241f;
+}
+.px2b__insight {
+  position: relative;
+  border-left: 1px solid #8b887e;
+  padding-left: 30px;
+}
+.px2b__insight-quote {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(18px, 1.8vw, 22px);
+  line-height: 1.28;
+  color: #35342e;
+}
+.px2b__insight::after {
+  content: '';
+  position: absolute;
+  inset: 40px -10px auto 18px;
+  height: 60%;
+  background: #e5e4d8;
+  opacity: 0.75;
+  z-index: 0;
+  border-radius: 40% 60% 45% 55%;
+}
+.px2b__qmark {
+  position: absolute;
+  font-family: 'Didot', Georgia, serif;
+  font-size: 56px;
+  line-height: 0.7;
+  color: #a2a28e;
+  z-index: 1;
+}
+.px2b__qmark--open {
+  top: 34px;
+  left: 22px;
+}
+.px2b__qmark--close {
+  bottom: -6px;
+  right: 4px;
+}
+.px2b__botanical {
+  aspect-ratio: 0.82 / 1;
+}
+@media (max-width: 900px) {
+  .px2b__profiles,
+  .px2b__bottom {
+    grid-template-columns: 1fr;
+    gap: 46px;
+  }
+  .px2b__insights {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 16px;
+  }
+}
+
+/* ============================================================
+   PROJECT 02 — SECTION 04 : "SAME SIMPLICITY, NEW POSSIBILITIES"
+   ============================================================ */
+.px2d {
+  background-color: #f5f2ea;
+  padding: 54px 3% 64px;
+}
+.px2d__header {
+  text-align: center;
+  padding: 24px 0 44px;
+}
+.px2d__heading {
+  margin: 0;
+  font-family: 'Didot', 'Bodoni MT', 'Playfair Display', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(36px, 5.4vw, 72px);
+  line-height: 0.95;
+  color: #171714;
+}
+.px2d__heading em {
+  font-style: italic;
+  color: #536e8a;
+}
+.px2d__cols {
+  display: grid;
+  grid-template-columns: 35% 30% 35%;
+  gap: 2.5%;
+  align-items: start;
+}
+.px2d__whys-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.px2d__why {
+  position: relative;
+  display: grid;
+  grid-template-columns: 39% 61%;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 0;
+}
+.px2d__why-left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.px2d__why-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 22px;
+  color: #25241f;
+}
+.px2d__why-left p {
+  margin: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 15px;
+  line-height: 1.2;
+  color: #39372f;
+}
+.px2d__why-img {
+  aspect-ratio: 1.6 / 1;
+}
+.px2d__why-arrow {
+  position: absolute;
+  bottom: -10px;
+  left: 20px;
+  font-size: 15px;
+  color: #55534b;
+}
+.px2d__question {
+  padding-top: 6px;
+}
+.px2d__paper {
+  position: relative;
+  min-height: 420px;
+}
+.px2d__paper-layer {
+  position: absolute;
+  border-radius: 3px;
+}
+.px2d__paper-layer--a {
+  inset: 6% 10% 6% 0;
+  background: #dde6f0;
+  transform: rotate(-3deg);
+}
+.px2d__paper-layer--b {
+  inset: 2% 4% 10% 8%;
+  background: #d9d0e5;
+  transform: rotate(2.5deg);
+}
+.px2d__paper-layer--c {
+  inset: 10% 0 2% 4%;
+  background: #f1ebdd;
+  transform: rotate(-1.5deg);
+}
+.px2d__paper-card {
+  position: relative;
+  z-index: 2;
+  margin: 8% 6%;
+  padding: 30px 26px;
+  background: #f6f1e4;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+}
+.px2d__question-label {
+  margin: 0;
+  text-align: center;
+  font-family: system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #292821;
+}
+.px2d__question-rule {
+  display: block;
+  width: 50px;
+  height: 1px;
+  margin: 12px auto 20px;
+  background: #4b4940;
+}
+.px2d__question-text {
+  margin: 0;
+  text-align: center;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(19px, 1.9vw, 28px);
+  line-height: 1.12;
+  color: #191914;
+}
+.px2d__hl {
+  background: transparent;
+  padding: 0 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.px2d__hl--lav {
+  background: linear-gradient(transparent 55%, #d9d0e5 55%);
+}
+.px2d__hl--sage {
+  background: linear-gradient(transparent 55%, #d8e0cb 55%);
+}
+.px2d__arrows {
+  position: absolute;
+  right: -30px;
+  top: 20%;
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+.px2d__arrow {
+  width: 60px;
+  height: 24px;
+  fill: none;
+  stroke: #6a685d;
+  stroke-width: 1.3;
+}
+.px2d__ideas-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.px2d__idea {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f0ede5;
+  padding: 8px;
+}
+.px2d__idea-img {
+  width: 34%;
+  aspect-ratio: 1.5 / 1;
+  flex-shrink: 0;
+}
+.px2d__idea-text {
+  flex: 1;
+}
+.px2d__idea-text h4 {
+  margin: 0 0 4px;
+  font-family: system-ui, sans-serif;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #292821;
+}
+.px2d__idea-text p {
+  margin: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 12.5px;
+  line-height: 1.3;
+  color: #4b4b43;
+}
+.px2d__swatches {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.px2d__swatches span {
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+}
+@media (max-width: 900px) {
+  .px2d__cols {
+    grid-template-columns: 1fr;
+    gap: 46px;
+  }
+  .px2d__arrows {
+    display: none;
+  }
+}
+
+/* ============================================================
+   PROJECT 02 — SECTION 05 : "BOTANICAL WHISPERS"
+   ============================================================ */
+.px2e {
+  background-color: #f7f4ec;
+  padding: 44px 3% 40px;
+}
+.px2e__header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: start;
+  gap: 20px;
+  padding-bottom: 26px;
+}
+.px2e__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.px2e__logo {
+  font-family: system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: #e60012;
+  letter-spacing: -0.02em;
+}
+.px2e__lifewear {
+  font-family: system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #171713;
+}
+.px2e__titles {
+  text-align: center;
+}
+.px2e__heading {
+  margin: 0;
+  font-family: 'Didot', 'Bodoni MT', 'Playfair Display', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(32px, 4.2vw, 56px);
+  line-height: 1;
+  color: #171713;
+}
+.px2e__heading em {
+  font-style: italic;
+  color: #536e8a;
+}
+.px2e__subtitle {
+  margin: 10px 0 4px;
+  font-family: system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: #55534d;
+}
+.px2e__collection {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  font-size: 9.5px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #8a877e;
+}
+.px2e__header-botanical {
+  justify-self: end;
+  width: 190px;
+  height: 130px;
+  align-self: start;
+}
+.px2e__main {
+  display: grid;
+  grid-template-columns: 48% 52%;
+  gap: 2.5%;
+}
+.px2e__sec-label {
+  margin: 0 0 14px;
+  font-family: system-ui, sans-serif;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #171713;
+}
+.px2e__mood {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 92px;
+  gap: 6px;
+}
+.px2e__mood-img.portrait {
+  grid-row: span 2;
+}
+.px2e__mood-img.landscape {
+  grid-column: span 2;
+}
+.px2e__mood-img.square {
+  grid-row: span 1;
+}
+.px2e__mood-note {
+  margin: 14px 0 0;
+  font-family: 'Caveat', 'Comic Sans MS', cursive;
+  font-size: 17px;
+  color: #302e28;
+}
+.px2e__right {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+.px2e__concept {
+  padding: 18px 20px;
+  background: #f4e6e1;
+}
+.px2e__concept p {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #4b4b43;
+}
+.px2e__embroidery-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.px2e__embroidery-row li {
+  text-align: center;
+}
+.px2e__embroidery-row .section-img {
+  aspect-ratio: 1 / 1;
+  margin-bottom: 8px;
+}
+.px2e__embroidery-row span {
+  font-family: system-ui, sans-serif;
+  font-size: 8.5px;
+  line-height: 1.3;
+  color: #55534d;
+  display: block;
+}
+.px2e__product-head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+.px2e__product-sub {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 14px;
+  color: #8a877e;
+}
+.px2e__product-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 0.7fr;
+  gap: 12px;
+}
+.px2e__product-hero {
+  aspect-ratio: 4 / 3;
+}
+.px2e__principles {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.px2e__principles h4 {
+  margin: 0 0 2px;
+  font-family: 'Didot', Georgia, serif;
+  font-size: 12.5px;
+  font-weight: 400;
+  color: #171713;
+}
+.px2e__principles p {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  font-size: 9px;
+  line-height: 1.35;
+  color: #55534d;
+}
+.px2e__product-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.px2e__product-details .section-img {
+  flex: 1;
+}
+.px2e__bottom {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  gap: 34px;
+  margin-top: 30px;
+  padding-top: 26px;
+  border-top: 1px solid #c9c4b8;
+}
+.px2e__feedback-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.px2e__feedback-row li {
+  text-align: center;
+  border-left: 1px solid #d8d3c7;
+  padding-left: 14px;
+}
+.px2e__feedback-row li:first-child {
+  border-left: none;
+  padding-left: 0;
+}
+.px2e__ring {
+  width: 80px;
+  height: 80px;
+}
+.px2e__ring-track {
+  fill: none;
+  stroke: #e2ddd0;
+  stroke-width: 3;
+}
+.px2e__ring-value {
+  font-family: system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  fill: #171713;
+  text-anchor: middle;
+}
+.px2e__feedback-row p {
+  margin: 8px 0 0;
+  font-family: system-ui, sans-serif;
+  font-size: 9.5px;
+  line-height: 1.35;
+  color: #55534d;
+}
+.px2e__takeaway {
+  position: relative;
+  padding: 20px 22px;
+  background: linear-gradient(120deg, #f0ddda, #f6ebe9 70%);
+}
+.px2e__takeaway p {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #35342e;
+}
+.px2e__takeaway-botanical {
+  position: absolute;
+  right: 8px;
+  bottom: 6px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50% 50% 50% 0;
+  background: radial-gradient(circle at 30% 30%, #e8c4c6, #c7cfb5);
+  opacity: 0.6;
+}
+@media (max-width: 900px) {
+  .px2e__header {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+  .px2e__header-botanical {
+    width: 100%;
+    height: 140px;
+  }
+  .px2e__main,
+  .px2e__bottom {
+    grid-template-columns: 1fr;
+  }
+  .px2e__embroidery-row,
+  .px2e__feedback-row {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 18px;
+  }
+  .px2e__product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   PROJECT 02 — SECTION 06 : "KEY LEARNINGS"
+   ============================================================ */
+.px2f {
+  position: relative;
+  background-color: #f5f3ec;
+  background-image: linear-gradient(115deg, #f5f3ec 55%, #e9eff1 55%);
+  padding: 60px 3% 40px;
+}
+.px2f__header {
+  margin-bottom: 40px;
+}
+.px2f__rule {
+  display: block;
+  height: 1px;
+}
+.px2f__rule--top {
+  width: 150px;
+  background: #15364a;
+  margin-bottom: 18px;
+}
+.px2f__rule--bottom {
+  width: 100px;
+  background: #9aa4a2;
+  margin-top: 16px;
+}
+.px2f__heading {
+  margin: 0;
+  font-family: 'Didot', 'Bodoni MT', 'Playfair Display', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(44px, 6vw, 90px);
+  line-height: 0.9;
+  text-align: left;
+}
+.px2f__key {
+  display: block;
+  color: #15364a;
+}
+.px2f__learn {
+  display: block;
+  font-style: italic;
+  color: #696951;
+}
+.px2f__cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.px2f__card {
+  border-radius: 20px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  min-height: 470px;
+}
+.px2f__img {
+  height: 190px;
+  border-radius: 50% / 30%;
+  margin-bottom: 22px;
+}
+.px2f__num-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.px2f__num {
+  font-family: 'Didot', Georgia, serif;
+  font-style: italic;
+  font-size: 42px;
+  color: #15364a;
+  line-height: 1;
+}
+.px2f__num-rule {
+  flex: 1;
+  height: 1px;
+  background: #9aa4a2;
+}
+.px2f__card-title {
+  margin: 0 0 14px;
+  font-family: 'Didot', Georgia, serif;
+  font-size: clamp(22px, 1.95vw, 31px);
+  font-weight: 400;
+  line-height: 1.05;
+  color: #15364a;
+}
+.px2f__card-title span {
+  display: block;
+}
+.px2f__card-desc {
+  margin: auto 0 0;
+  font-family: system-ui, sans-serif;
+  font-size: clamp(14px, 1.15vw, 18px);
+  line-height: 1.3;
+  color: #626c6c;
+}
+.px2f__divider {
+  display: block;
+  height: 1px;
+  background: #9aa4a2;
+  margin-top: 40px;
+}
+@media (max-width: 1000px) {
+  .px2f__cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 620px) {
+  .px2f__cards {
+    grid-template-columns: 1fr;
+  }
+  .px2f__card {
+    min-height: auto;
+  }
+}
+
+/* ============================================================
+   PROJECT 3 — Cover Story × Future Florals (visual merchandising)
+   ============================================================ */
+
+/* --- Section 01: Hero "BEYOND THE FLORAL" --- */
+.px3-hero {
+  position: relative;
+  min-height: 90vh;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  background: #F7F0E9;
+}
+.px3-hero__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.px3-hero__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 760px;
+  padding: clamp(28px, 5vw, 80px);
+  color: #292625;
+}
+.px3-hero__headline {
+  margin: 0 0 18px;
+  font-family: 'Didot', 'Bodoni MT', 'Playfair Display', Georgia, serif;
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+}
+.px3-hero__beyond {
+  display: block;
+  font-size: clamp(46px, 8vw, 120px);
+}
+.px3-hero__floral {
+  display: block;
+  font-style: italic;
+  color: #9B91B3;
+  font-size: clamp(38px, 6.5vw, 100px);
+}
+.px3-hero__label {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #817B79;
+}
+.px3-hero__divider {
+  display: block;
+  width: 84px;
+  height: 1px;
+  background: #B8ACB5;
+  margin: 16px 0 18px;
+}
+.px3-hero__statement {
+  margin: 0 0 14px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(22px, 2.4vw, 34px);
+  line-height: 1.15;
+  color: #292625;
+}
+.px3-hero__desc {
+  margin: 0 0 22px;
+  max-width: 460px;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #817B79;
+}
+.px3-hero__meta {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 28px;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #6E6988;
+}
+.px3-hero__meta li {
+  position: relative;
+  padding-left: 16px;
+}
+.px3-hero__meta li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border: 1px solid #A5A0C8;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+/* --- Shared background layer for stacked P3 spreads --- */
+.px3r__bg,
+.px3e__bg,
+.px3w__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.5;
+  z-index: 0;
+}
+
+/* --- Section 02: "FLORALS REIMAGINED" --- */
+.px3r {
+  position: relative;
+  overflow: hidden;
+  min-height: 650px;
+  padding: clamp(24px, 3vw, 40px);
+  background: #F7F3F5;
+}
+.px3r__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 40% 1fr;
+  gap: 12px;
+}
+.px3r__left {
+  padding: 16px 8px 12px;
+}
+.px3r__heading {
+  margin: 0;
+  font-family: 'Didot', 'Bodoni MT', 'Playfair Display', Georgia, serif;
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+}
+.px3r__l1 {
+  display: block;
+  font-size: clamp(38px, 4.4vw, 66px);
+  color: #292625;
+}
+.px3r__l2 {
+  display: block;
+  font-style: italic;
+  font-size: clamp(34px, 4vw, 60px);
+  color: #9B91B3;
+}
+.px3r__label {
+  margin: 14px 0 0;
+  font-family: system-ui, sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #817B79;
+}
+.px3r__divider {
+  display: block;
+  width: 64px;
+  height: 1px;
+  background: #C4BBD7;
+  margin: 14px 0;
+}
+.px3r__intro {
+  margin: 0 0 22px;
+  max-width: 340px;
+  font-family: system-ui, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #817B79;
+}
+.px3r__insights {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+.px3r__insights li {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 12px;
+  align-items: start;
+}
+.px3r__ins-img,
+.px3r__ins-img.section-img {
+  min-height: 64px;
+  height: 64px;
+}
+.px3r__insights h3 {
+  margin: 0 0 4px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: #6E6988;
+}
+.px3r__insights p {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: #817B79;
+}
+.px3r__keywords {
+  margin-top: 22px;
+}
+.px3r__keywords h3 {
+  margin: 0 0 10px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  color: #6E6988;
+}
+.px3r__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.px3r__pill {
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-family: system-ui, sans-serif;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #4A4750;
+}
+.px3r__right {
+  display: grid;
+  gap: 12px;
+}
+.px3r__panel {
+  background: rgba(255, 255, 255, 0.62);
+  padding: 16px;
+}
+.px3r__panel-label {
+  margin: 0 0 12px;
+  font-family: system-ui, sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #6E6988;
+}
+.px3r__mood {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 92px;
+  gap: 8px;
+}
+.px3r__mood-img--a {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+.px3r__mood-img--c {
+  grid-column: span 2;
+}
+.px3r__mood-img--g {
+  grid-column: span 2;
+}
+.px3r__bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.px3r__swatch-tall {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  height: 80px;
+}
+.px3r__swatch-tall span {
+  display: block;
+}
+.px3r__palette-refs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 8px;
+}
+.px3r__palette-refs .section-img {
+  height: 72px;
+}
+.px3r__swatch-labels {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 12px;
+  font-family: system-ui, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  color: #817B79;
+}
+.px3r__swatch-labels li {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.px3r__swatch-labels span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+.px3r__trend-sub {
+  margin: -6px 0 10px;
+  font-family: system-ui, sans-serif;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #A5A0C8;
+}
+.px3r__trend-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+.px3r__trend-list h4 {
+  margin: 0 0 3px;
+  font-family: system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #4A4750;
+}
+.px3r__trend-list p {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  font-size: 10.5px;
+  line-height: 1.45;
+  color: #817B79;
+}
+.px3r__materials {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 14px 0;
+}
+.px3r__materials span {
+  height: 34px;
+  display: block;
+}
+.px3r__closing {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  font-size: 10.5px;
+  line-height: 1.5;
+  color: #817B79;
+}
+
+/* --- Section 03: "EXPERIENCE IN BLOOM" --- */
+.px3e {
+  position: relative;
+  overflow: hidden;
+  min-height: 650px;
+  padding: clamp(24px, 3vw, 32px);
+  background: #F7F0E9;
+  display: flex;
+  flex-direction: column;
+}
+.px3e__grid {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: grid;
+  grid-template-columns: 24fr 32fr 25fr 19fr;
+  grid-template-rows: 1fr auto;
+  gap: 12px;
+}
+.px3e__intro {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  padding: 16px 8px 12px;
+  display: flex;
+  flex-direction: column;
+}
+.px3e__divider {
+  width: 84px;
+  height: 1px;
+  background: #B8ACB5;
+  margin-bottom: 38px;
+}
+.px3e__heading {
+  margin: 0 0 18px;
+  font-family: 'Didot', 'Bodoni MT', 'Playfair Display', Georgia, serif;
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+}
+.px3e__l1 {
+  display: block;
+  font-size: clamp(38px, 4vw, 58px);
+  color: #292625;
+}
+.px3e__l2 {
+  display: block;
+  font-style: italic;
+  color: #9B91B3;
+}
+.px3e__desc {
+  margin: 0 0 20px;
+  max-width: 250px;
+  font-family: system-ui, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #817B79;
+}
+.px3e__decor,
+.px3e__decor.section-img {
+  margin-top: auto;
+  height: 200px;
+  border-radius: 50%;
+}
+.px3e__main {
+  grid-column: 2;
+  grid-row: 1;
+}
+.px3e__main-img,
+.px3e__main-img.section-img {
+  height: 100%;
+  min-height: 380px;
+}
+.px3e__completed {
+  grid-column: 3;
+  grid-row: 1;
+}
+.px3e__completed-img,
+.px3e__completed-img.section-img {
+  height: 100%;
+  min-height: 380px;
+}
+.px3e__details {
+  grid-column: 4;
+  grid-row: 1 / span 2;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.px3e__detail {
+  margin: 0;
+}
+.px3e__detail-img,
+.px3e__detail-img.section-img {
+  height: 175px;
+}
+.px3e__detail figcaption,
+.px3e__bottom-item figcaption {
+  display: block;
+  margin-top: 6px;
+}
+.px3e__detail-label {
+  display: block;
+  font-family: system-ui, sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #6E6988;
+}
+.px3e__detail-cap {
+  display: block;
+  font-family: system-ui, sans-serif;
+  font-size: 10px;
+  line-height: 1.4;
+  color: #817B79;
+}
+.px3e__features {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 8px;
+  text-align: center;
+}
+.px3e__features li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+.px3e__feat-icon {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.px3e__feat-title {
+  font-family: system-ui, sans-serif;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #817B79;
+}
+.px3e__feat-desc {
+  font-family: system-ui, sans-serif;
+  font-size: 9px;
+  line-height: 1.3;
+  color: #817B79;
+}
+.px3e__bottom {
+  grid-column: 2 / span 2;
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  gap: 12px;
+  margin-top: 12px;
+}
+.px3e__bottom-item {
+  margin: 0;
+}
+.px3e__bottom-item--wide .px3e__bottom-img.section-img {
+  aspect-ratio: 16 / 9;
+  height: auto;
+}
+.px3e__bottom-item .px3e__bottom-img,
+.px3e__bottom-item .px3e__bottom-img.section-img {
+  height: auto;
+  aspect-ratio: 4 / 3;
+}
+.px3e__bottom-item--wide .px3e__bottom-img {
+  aspect-ratio: 16 / 9;
+}
+
+/* --- Section 04: "A WINDOW INTO THE FUTURE" --- */
+.px3w {
+  position: relative;
+  overflow: hidden;
+  min-height: 650px;
+  padding: 12px;
+  background: #F7F3F5;
+}
+.px3w__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 46fr 33fr 19fr;
+  grid-template-rows: 1fr auto;
+  gap: 12px;
+}
+.px3w__main {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+.px3w__main-img,
+.px3w__main-img.section-img {
+  height: 100%;
+  min-height: 540px;
+}
+.px3w__middle {
+  grid-column: 2;
+  grid-row: 1;
+  padding: 8px;
+}
+.px3w__heading {
+  margin: 0 0 5px;
+  font-family: 'Didot', 'Bodoni MT', 'Playfair Display', Georgia, serif;
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+}
+.px3w__l1 {
+  display: block;
+  font-size: clamp(34px, 3.4vw, 48px);
+  color: #191821;
+}
+.px3w__l2 {
+  display: block;
+  font-style: italic;
+  font-size: clamp(29px, 3vw, 42px);
+  color: #8984B2;
+}
+.px3w__subtitle {
+  margin: 0 0 12px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 15px;
+  color: #777487;
+}
+.px3w__divider {
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: #A7A1B1;
+  margin-bottom: 14px;
+}
+.px3w__block {
+  margin-bottom: 15px;
+}
+.px3w__block > h3 {
+  margin: 0 0 6px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #6E6988;
+}
+.px3w__block > p {
+  margin: 0;
+  padding-left: 10px;
+  border-left: 2px solid #C4BBD7;
+  font-family: system-ui, sans-serif;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #777487;
+}
+.px3w__principles {
+  list-style: none;
+  margin: 7px 0 0;
+  padding: 0 0 0 10px;
+  border-left: 2px solid #C4BBD7;
+  display: grid;
+  gap: 8px;
+}
+.px3w__principles li {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 8px;
+  align-items: start;
+}
+.px3w__pr-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #E9E4F7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.px3w__pr-text {
+  display: block;
+  font-family: system-ui, sans-serif;
+  font-size: 10px;
+  line-height: 1.35;
+  color: #777487;
+}
+.px3w__pr-text strong {
+  display: block;
+  font-weight: 600;
+  color: #6E6988;
+}
+.px3w__details {
+  grid-column: 3;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.px3w__detail {
+  margin: 0;
+}
+.px3w__detail-img,
+.px3w__detail-img.section-img {
+  height: 235px;
+}
+.px3w__detail-img--square {
+  aspect-ratio: 1 / 1;
+  height: 250px;
+}
+.px3w__detail figcaption {
+  display: block;
+  margin-top: 6px;
+  font-family: system-ui, sans-serif;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #777487;
+}
+.px3w__learn {
+  grid-column: 2 / span 2;
+  grid-row: 2;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(224, 218, 250, 0.75);
+  padding: 12px 16px;
+}
+.px3w__learn-icon {
+  flex: 0 0 52px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #D4CBF5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.px3w__learn-icon svg {
+  width: 25px;
+  height: 25px;
+  stroke: #716A96;
+}
+.px3w__learn-copy h3 {
+  margin: 0 0 3px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 2px;
+  color: #625B7C;
+}
+.px3w__learn-copy p {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  font-size: 10px;
+  line-height: 1.4;
+  color: #777487;
+}
+
+@media (max-width: 1024px) {
+  .px3r__grid {
+    grid-template-columns: 1fr;
+  }
+  .px3e__grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+  .px3e__intro,
+  .px3e__details {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+  .px3e__main,
+  .px3e__completed,
+  .px3e__bottom {
+    grid-column: auto;
+    grid-row: auto;
+  }
+  .px3e__bottom {
+    grid-column: 1 / -1;
+  }
+  .px3e__decor {
+    margin-top: 16px;
+    height: 160px;
+  }
+  .px3w__grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+  .px3w__main {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+  .px3w__middle {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .px3w__details {
+    grid-column: 2;
+    grid-row: auto;
+  }
+  .px3w__learn {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+  .px3w__main-img,
+  .px3w__main-img.section-img {
+    min-height: 340px;
+  }
+}
+@media (max-width: 640px) {
+  .px3-hero {
+    aspect-ratio: auto;
+    min-height: 88vh;
+    align-items: center;
+  }
+  .px3r__mood {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .px3r__mood-img--a,
+  .px3r__mood-img--c,
+  .px3r__mood-img--g {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  .px3r__bottom {
+    grid-template-columns: 1fr;
+  }
+  .px3e__grid {
+    grid-template-columns: 1fr;
+  }
+  .px3e__features {
+    grid-template-columns: 1fr 1fr;
+  }
+  .px3e__bottom {
+    grid-template-columns: 1fr;
+  }
+  .px3w__grid {
+    grid-template-columns: 1fr;
+  }
+  .px3w__middle,
+  .px3w__details {
+    grid-column: 1;
+  }
+  .px3w__learn {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ============================================================
+   PROJECT 4 — UNIQLO Fragrances
+   ============================================================ */
+
+/* --- Shared UNIQLO logo mark --- */
+.uniqlo-logo {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #E60012;
+  color: #FFFFFF;
+  font-family: 'Arial Narrow', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.35em;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+.uniqlo-logo span {
+  display: block;
+}
+
+/* --- Section 01: Hero "BEYOND THE EVERYDAY" --- */
+.px4-hero {
+  position: relative;
+  aspect-ratio: 1.6 / 1;
+  min-height: 72vh;
+  overflow: hidden;
+  background: #E9E4DA;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.px4-hero__bg,
+.px4-hero__bg.section-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.px4-hero__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 4% 4% 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 54px;
+}
+.px4-hero .uniqlo-logo {
+  font-size: 19px;
+}
+.px4-hero__title {
+  margin: 12px 0 5px;
+  max-width: 650px;
+  font-family: 'Helvetica Neue', system-ui, -apple-system, sans-serif;
+  font-weight: 300;
+  font-size: clamp(36px, 4vw, 46px);
+  line-height: 1.12;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #283238;
+}
+.px4-hero__title span {
+  display: block;
+}
+.px4-hero__subtitle {
+  margin: 3px 0 12px;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #4B5153;
+}
+.px4-hero__divider {
+  width: 35px;
+  height: 1px;
+  background: #555B59;
+  opacity: 0.8;
+  margin: 10px 0 12px;
+}
+.px4-hero__tagline {
+  margin: 0;
+  max-width: 500px;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 9px;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+  line-height: 1.6;
+  color: #51585A;
+}
+
+/* --- Section 02: "WHY FRAGRANCES NOW?" --- */
+.px4w {
+  display: grid;
+  grid-template-columns: 38% 62%;
+  aspect-ratio: 1.78 / 1;
+  min-height: 620px;
+  background: #F5F2EA;
+}
+.px4w__left {
+  position: relative;
+  overflow: hidden;
+}
+.px4w__left-img,
+.px4w__left-img.section-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.px4w__left-overlay {
+  position: relative;
+  z-index: 2;
+  padding: 40px 32px;
+}
+.px4w__headline {
+  margin: 0;
+  font-family: 'Didot', 'Bodoni MT', 'Playfair Display', Georgia, serif;
+  font-weight: 400;
+  line-height: 0.94;
+  letter-spacing: -1.5px;
+  text-transform: uppercase;
+}
+.px4w__h-primary {
+  display: block;
+  font-size: clamp(44px, 4.6vw, 68px);
+  color: #17262A;
+}
+.px4w__h-accent {
+  display: block;
+  font-style: italic;
+  font-size: clamp(44px, 4.6vw, 68px);
+  color: #68899D;
+}
+.px4w__subtitle {
+  margin: 18px 0 0;
+  max-width: 250px;
+  font-family: system-ui, sans-serif;
+  font-size: 14px;
+  letter-spacing: 3px;
+  line-height: 1.7;
+  text-transform: uppercase;
+  color: #354247;
+}
+.px4w__ldivider {
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: #58635E;
+  margin: 20px 0 0 auto;
+}
+.px4w__vcap {
+  position: absolute;
+  z-index: 2;
+  left: 32px;
+  bottom: 32px;
+  margin: 0;
+  max-width: 120px;
+  font-family: system-ui, sans-serif;
+  font-size: 12px;
+  letter-spacing: 2.5px;
+  line-height: 1.65;
+  text-transform: uppercase;
+  color: #444B47;
+}
+.px4w__right {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.px4w__row {
+  display: grid;
+  gap: 10px;
+}
+.px4w__row--1 {
+  grid-template-columns: 1fr 1fr;
+  flex: 0 0 auto;
+}
+.px4w__row--2 {
+  grid-template-columns: 56fr 44fr;
+  flex: 0 0 auto;
+}
+.px4w__row--3 {
+  grid-template-columns: 1fr;
+  flex: 1;
+  border-top: 1px solid #E4DED3;
+  padding-top: 14px;
+}
+.px4w__panel {
+  background: #F8F5ED;
+  border: 1px solid #E7E1D7;
+  padding: 15px;
+}
+.px4w__sh {
+  margin: 0 0 12px;
+  font-family: system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #414440;
+}
+.px4w__sh--opp {
+  margin-bottom: 14px;
+}
+.px4w__market {
+  display: grid;
+  grid-template-columns: 48% 1fr;
+  gap: 14px;
+  align-items: center;
+}
+.px4w__market-img,
+.px4w__market-img.section-img {
+  height: 215px;
+}
+.px4w__stats {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.px4w__stat-value {
+  display: block;
+  font-family: 'Didot', 'Bodoni MT', Georgia, serif;
+  font-size: 35px;
+  color: #242622;
+}
+.px4w__stat-label {
+  display: block;
+  margin-top: 4px;
+  font-family: system-ui, sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  line-height: 1.6;
+  text-transform: uppercase;
+  color: #65645E;
+}
+.px4w__consumer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.px4w__consumer figure {
+  margin: 0;
+  padding-right: 8px;
+  border-right: 1px solid #E4DED3;
+}
+.px4w__consumer figure:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+.px4w__consumer-img,
+.px4w__consumer-img.section-img {
+  height: 180px;
+}
+.px4w__consumer figcaption {
+  margin-top: 8px;
+  font-family: system-ui, sans-serif;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  text-align: center;
+  color: #53544F;
+}
+.px4w__white {
+  display: grid;
+  grid-template-columns: 52% 1fr;
+  gap: 12px;
+}
+.px4w__white-img,
+.px4w__white-img.section-img {
+  height: 188px;
+}
+.px4w__quote {
+  position: relative;
+  margin: 0;
+  background: #F8F5ED;
+  padding: 16px;
+  font-family: system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.45;
+  color: #454640;
+}
+.px4w__quote-mark {
+  display: block;
+  font-family: 'Didot', Georgia, serif;
+  font-size: 48px;
+  line-height: 0.6;
+  color: #8AA8B5;
+}
+.px4w__competitors {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.px4w__competitor-img,
+.px4w__competitor-img.section-img {
+  aspect-ratio: 1.35 / 1;
+  height: auto;
+}
+.px4w__competitor-brand {
+  display: block;
+  margin: 8px 0 4px;
+  font-family: system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #353631;
+}
+.px4w__competitor p {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  font-size: 11px;
+  line-height: 1.45;
+  color: #696861;
+}
+.px4w__opp-wrap {
+  display: grid;
+  grid-template-columns: 1fr 28%;
+  gap: 12px;
+  align-items: center;
+}
+.px4w__opps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  text-align: center;
+}
+.px4w__opps li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.px4w__opp-icon {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.px4w__opps p {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  font-size: 11px;
+  line-height: 1.45;
+  color: #5B5B54;
+}
+.px4w__opp-img,
+.px4w__opp-img.section-img {
+  height: 175px;
+}
+
+/* --- Section 03: "THE FRAGRANCE EXPRESSION" --- */
+.px4e {
+  background: #F5F0E6;
+  display: flex;
+  flex-direction: column;
+}
+.px4e__hero {
+  display: grid;
+  grid-template-columns: 28% 1fr;
+  min-height: 58vh;
+}
+.px4e__title {
+  padding: 40px;
+  background: linear-gradient(160deg, #F1EADD, #EAE1D1);
+}
+.px4e__eyebrow {
+  margin: 0 0 6px;
+  font-family: system-ui, sans-serif;
+  font-size: 20px;
+  letter-spacing: 5px;
+  color: #292B28;
+}
+.px4e__headline {
+  margin: 0;
+  font-family: 'Didot', 'Bodoni MT', 'Playfair Display', Georgia, serif;
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -1.5px;
+  text-transform: uppercase;
+}
+.px4e__h1 {
+  display: block;
+  font-size: clamp(40px, 4.2vw, 56px);
+  color: #202A2D;
+}
+.px4e__h2 {
+  display: block;
+  font-style: italic;
+  font-size: clamp(40px, 4.2vw, 56px);
+  color: #648391;
+}
+.px4e__divider {
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: #7D8177;
+  margin: 16px 0;
+}
+.px4e__desc {
+  margin: 0;
+  max-width: 270px;
+  font-family: system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #41433E;
+}
+.px4e__products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+.px4e__product {
+  margin: 0;
+  position: relative;
+}
+.px4e__product-img,
+.px4e__product-img.section-img {
+  height: 100%;
+  min-height: 46vh;
+}
+.px4e__product figcaption {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+}
+.px4e__pname {
+  display: block;
+  font-family: 'Didot', Georgia, serif;
+  font-size: 22px;
+  letter-spacing: 2px;
+  color: #292B28;
+}
+.px4e__pmeaning {
+  display: block;
+  font-family: system-ui, sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #5E6059;
+}
+.px4e__strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  background: #F5F0E6;
+  padding: 10px 20px;
+}
+.px4e__card {
+  padding: 6px 16px;
+  border-right: 1px solid #E4DED3;
+}
+.px4e__card:last-child {
+  border-right: none;
+}
+.px4e__card-top {
+  display: grid;
+  grid-template-columns: 42fr 58fr;
+  gap: 10px;
+  align-items: center;
+}
+.px4e__card-name {
+  font-family: 'Didot', Georgia, serif;
+  font-size: 19px;
+  letter-spacing: 1.5px;
+  color: #292B28;
+}
+.px4e__card-name em {
+  font-style: normal;
+  font-size: 15px;
+  color: #6A6A60;
+}
+.px4e__card-img {
+  display: block;
+  height: 48px;
+}
+.px4e__card-desc {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+  font-family: system-ui, sans-serif;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #6A6A60;
+}
+.px4e__process {
+  display: grid;
+  grid-template-columns: 15% 1fr;
+  gap: 20px;
+  align-items: center;
+  background: #F7F2E8;
+  padding: 16px 28px;
+}
+.px4e__intro h3 {
+  margin: 0;
+  font-family: 'Didot', Georgia, serif;
+  font-size: clamp(20px, 2vw, 28px);
+  font-weight: 400;
+  line-height: 1.05;
+  color: #58717A;
+}
+.px4e__pdivider {
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: #7D8177;
+  margin-top: 12px;
+}
+.px4e__stages {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.px4e__stage {
+  margin: 0;
+  flex: 1;
+}
+.px4e__stage-img {
+  display: grid;
+  gap: 2px;
+  height: 110px;
+  width: 100%;
+}
+.px4e__stage-img--map {
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
+}
+.px4e__stage-img--map span {
+  display: block;
+}
+.px4e__stage figcaption {
+  margin-top: 8px;
+  text-align: center;
+  font-family: system-ui, sans-serif;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #5E6059;
+}
+.px4e__stage-n {
+  display: block;
+  color: #A79F90;
+}
+.px4e__arrow {
+  flex: 0 0 auto;
+}
+
+/* --- Section 04: "REAL PEOPLE, REAL INSIGHTS" --- */
+.px4r {
+  background: #F3EDE2;
+  aspect-ratio: 1.6 / 1;
+  min-height: 640px;
+}
+.px4r__grid {
+  display: grid;
+  grid-template-columns: 35% 36% 29%;
+  gap: 0;
+  height: 100%;
+}
+.px4r__left {
+  padding: 40px 28px;
+  background: linear-gradient(150deg, #F3EDE2, #E9E1D2);
+}
+.px4r__headline {
+  margin: 0;
+  font-family: 'Didot', 'Bodoni MT', 'Playfair Display', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(40px, 4.4vw, 57px);
+  line-height: 0.86;
+  letter-spacing: -1.5px;
+  text-transform: uppercase;
+  color: #171916;
+}
+.px4r__headline span {
+  display: block;
+}
+.px4r__accent {
+  font-style: italic;
+  color: #718B97;
+}
+.px4r__subtitle {
+  margin: 22px 0 0;
+  max-width: 310px;
+  font-family: system-ui, sans-serif;
+  font-size: 12px;
+  letter-spacing: 2.1px;
+  line-height: 1.65;
+  text-transform: uppercase;
+  color: #4E504A;
+}
+.px4r__divider {
+  display: block;
+  width: 66px;
+  height: 2px;
+  background: #8D9887;
+  margin: 20px 0;
+}
+.px4r__stills {
+  position: relative;
+}
+.px4r__bottle,
+.px4r__bottle.section-img {
+  height: 190px;
+  width: 62%;
+}
+.px4r__strips {
+  position: absolute;
+  left: 30%;
+  top: 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.px4r__strip {
+  display: block;
+  width: 96px;
+  padding: 8px 10px;
+  background: #FAF8F3;
+  box-shadow: 0 2px 6px rgba(60, 50, 30, 0.14);
+  font-family: system-ui, sans-serif;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  color: #2A2A26;
+}
+.px4r__center {
+  position: relative;
+  padding: 30px 20px;
+  display: flex;
+  justify-content: center;
+}
+.px4r__support-photo,
+.px4r__support-photo.section-img {
+  position: absolute;
+  left: 8px;
+  bottom: 22px;
+  width: 110px;
+  height: 140px;
+  z-index: 3;
+  box-shadow: 0 4px 12px rgba(60, 50, 30, 0.18);
+  transform: rotate(-3deg);
+}
+.px4r__form {
+  width: 100%;
+  max-width: 340px;
+  background: #FAF8F3;
+  padding: 18px;
+  box-shadow: 0 8px 22px rgba(60, 50, 30, 0.16);
+  transform: rotate(5deg);
+  font-family: system-ui, sans-serif;
+}
+.px4r__form-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.px4r__form-title {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #22231F;
+}
+.px4r__form-logo {
+  display: flex;
+  gap: 4px;
+}
+.px4r__form-logo i {
+  width: 20px;
+  height: 16px;
+  background: #E60012;
+}
+.px4r__form-rule {
+  border: none;
+  border-top: 1px solid #C9C4B8;
+  margin: 8px 0;
+}
+.px4r__form-intro {
+  margin: 0 0 8px;
+  font-size: 6px;
+  color: #3D3D38;
+}
+.px4r__respondent {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin-bottom: 8px;
+  font-size: 7px;
+  color: #3D3D38;
+}
+.px4r__respondent em {
+  font-style: normal;
+  color: #6A6A60;
+  margin-right: 3px;
+}
+.px4r__questions {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+.px4r__questions li {
+  display: grid;
+  grid-template-columns: 12px 1fr;
+  gap: 4px;
+  font-size: 6px;
+  line-height: 1.35;
+  color: #33332F;
+}
+.px4r__q-text {
+  display: block;
+}
+.px4r__q-boxes {
+  grid-column: 2;
+  display: flex;
+  gap: 4px;
+  margin-top: 2px;
+}
+.px4r__q-boxes i {
+  width: 7px;
+  height: 7px;
+  border: 1px solid #4A4A44;
+  display: block;
+}
+.px4r__q-boxes i.is-checked {
+  background: #5A6E80;
+  border-color: #5A6E80;
+}
+.px4r__open {
+  margin-top: 10px;
+  border: 1px solid #C9C4B8;
+  padding: 6px 8px;
+  font-size: 6px;
+  color: #3D3D38;
+}
+.px4r__open p {
+  margin: 4px 0 0;
+  font-family: 'Segoe Script', 'Bradley Hand', cursive;
+  font-size: 9px;
+  color: #61758A;
+}
+.px4r__note {
+  font-family: 'Segoe Script', 'Bradley Hand', cursive;
+  background: #EAE0CF;
+  color: #59687D;
+  box-shadow: 0 6px 16px rgba(60, 50, 30, 0.16);
+}
+.px4r__note--research {
+  position: absolute;
+  right: 16px;
+  bottom: 18px;
+  width: 150px;
+  padding: 14px;
+  font-size: 12px;
+  line-height: 1.4;
+  transform: rotate(2deg);
+  z-index: 3;
+}
+.px4r__right {
+  position: relative;
+  background: #F3EDE2;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+.px4r__insights {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.px4r__insights li {
+  display: grid;
+  grid-template-columns: 108px 1fr;
+  gap: 18px;
+  align-items: center;
+  padding: 18px 0;
+  border-bottom: 1px solid #DDD3C1;
+}
+.px4r__insights li:nth-child(2) {
+  border-top: 1px solid #DDD3C1;
+}
+.px4r__insight-img,
+.px4r__insight-img.section-img {
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+}
+.px4r__insight-headline {
+  display: block;
+  font-family: system-ui, sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #3D3E39;
+}
+.px4r__pct {
+  display: block;
+  margin: 2px 0;
+  font-family: 'Didot', 'Bodoni MT', Georgia, serif;
+  font-style: italic;
+  font-size: 42px;
+  line-height: 1;
+  color: #728E9A;
+}
+.px4r__insights p {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  font-size: 12px;
+  line-height: 1.35;
+  color: #3D3E39;
+}
+.px4r__note--takeaways {
+  margin-top: auto;
+  padding: 18px;
+  transform: rotate(1.5deg);
+}
+.px4r__note--takeaways h3 {
+  margin: 0 0 12px;
+  text-align: center;
+  font-size: 19px;
+  color: #64758B;
+}
+.px4r__note--takeaways ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+.px4r__note--takeaways li {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 8px;
+  align-items: start;
+  font-size: 12px;
+  line-height: 1.35;
+  color: #59687D;
+}
+.px4r__tk-icon {
+  display: flex;
+}
+
+/* --- Section 05: "TURNING INSIGHTS INTO IMPACT" --- */
+.px4t {
+  background: #F4EDE1;
+  padding: 4% 6% 4% 4%;
+  aspect-ratio: 16 / 9;
+  min-height: 620px;
+  display: flex;
+  flex-direction: column;
+}
+.px4t__upper {
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: 23% 1fr;
+  gap: 24px;
+  align-items: center;
+}
+.px4t__headline {
+  margin: 0;
+  font-family: 'Didot', 'Bodoni MT', 'Playfair Display', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(38px, 4vw, 56px);
+  line-height: 0.88;
+  letter-spacing: -1px;
+  color: #171A18;
+}
+.px4t__headline span {
+  display: block;
+}
+.px4t__headline--lower {
+  font-size: clamp(34px, 3.5vw, 49px);
+  line-height: 0.9;
+}
+.px4t__accent {
+  font-style: italic;
+  color: #8295A0;
+}
+.px4t__cols {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+.px4t__col {
+  border-left: 1px solid #D9D2C5;
+  padding-left: 16px;
+}
+.px4t__col:first-child {
+  border-left: none;
+  padding-left: 0;
+}
+.px4t__col-imgwrap {
+  position: relative;
+  margin-bottom: 18px;
+}
+.px4t__arch,
+.px4t__arch.section-img {
+  height: 190px;
+  border-radius: 90px 90px 0 0;
+}
+.px4t__badge {
+  position: absolute;
+  left: 50%;
+  bottom: -22px;
+  transform: translateX(-50%);
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 8px rgba(60, 50, 30, 0.12);
+}
+.px4t__col-heading {
+  margin: 30px 0 8px;
+  font-family: system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: #252A28;
+}
+.px4t__col-body {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.px4t__col-body li {
+  position: relative;
+  padding-left: 12px;
+  font-family: system-ui, sans-serif;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #484A45;
+}
+.px4t__col-body li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #252A28;
+}
+.px4t__divider {
+  display: block;
+  height: 1px;
+  background: #B9B3A8;
+  margin: 3% 2% 3% 0;
+}
+.px4t__lower {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 24% 1fr;
+  gap: 24px;
+  align-items: center;
+}
+.px4t__skills {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+}
+.px4t__skills li {
+  text-align: center;
+  padding: 0 6px;
+  border-left: 1px solid #D9D2C5;
+}
+.px4t__skills li:first-child {
+  border-left: none;
+}
+.px4t__skill-img,
+.px4t__skill-img.section-img {
+  width: 102px;
+  height: 102px;
+  border-radius: 50%;
+  margin: 0 auto 10px;
+  border: 1px solid #E4DECF;
+}
+.px4t__skills h3 {
+  margin: 0 0 6px;
+  font-family: system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: #282C29;
+}
+.px4t__skills p {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  font-size: 10px;
+  line-height: 1.4;
+  color: #444740;
+}
+
+@media (max-width: 1024px) {
+  .px4w {
+    grid-template-columns: 1fr;
+    aspect-ratio: auto;
+  }
+  .px4w__left {
+    min-height: 460px;
+  }
+  .px4r {
+    aspect-ratio: auto;
+  }
+  .px4r__grid {
+    grid-template-columns: 1fr 1fr;
+    height: auto;
+  }
+  .px4r__left {
+    grid-column: 1 / -1;
+  }
+  .px4t {
+    aspect-ratio: auto;
+  }
+  .px4t__upper,
+  .px4t__lower {
+    grid-template-columns: 1fr;
+  }
+  .px4t__cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .px4t__skills {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .px4t__skills li:nth-child(4) {
+    border-left: none;
+  }
+  .px4e__hero {
+    grid-template-columns: 1fr;
+  }
+  .px4e__products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .px4e__process {
+    grid-template-columns: 1fr;
+  }
+  .px4e__stages {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 680px) {
+  .px4-hero {
+    aspect-ratio: auto;
+    min-height: 88vh;
+  }
+  .px4w__row--1,
+  .px4w__row--2 {
+    grid-template-columns: 1fr;
+  }
+  .px4w__market,
+  .px4w__white {
+    grid-template-columns: 1fr;
+  }
+  .px4w__consumer {
+    grid-template-columns: 1fr;
+  }
+  .px4w__consumer figure {
+    border-right: none;
+    padding-right: 0;
+  }
+  .px4w__opp-wrap {
+    grid-template-columns: 1fr;
+  }
+  .px4w__opps {
+    grid-template-columns: 1fr 1fr;
+  }
+  .px4e__products {
+    grid-template-columns: 1fr;
+  }
+  .px4e__strip {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .px4e__card {
+    border-right: none;
+    border-bottom: 1px solid #E4DED3;
+  }
+  .px4r__grid {
+    grid-template-columns: 1fr;
+  }
+  .px4r__insights li {
+    grid-template-columns: 88px 1fr;
+  }
+  .px4r__insight-img,
+  .px4r__insight-img.section-img {
+    width: 88px;
+    height: 88px;
+  }
+  .px4t__cols {
+    grid-template-columns: 1fr;
+  }
+  .px4t__col {
+    border-left: none;
+    padding-left: 0;
+  }
+  .px4t__skills {
+    grid-template-columns: 1fr 1fr;
+  }
 }

@@ -1,20 +1,26 @@
-import { PageShell } from '../components/PageShell';
-import { HunkyHideawayPage } from '../components/marketing/HunkyHideawayPage';
-import { WhatITookAwayPage } from '../components/marketing/WhatITookAwayPage';
-import { WireBlock } from '../components/WireBlock';
+import React from 'react';
+import { FragrancesHero } from '../components/marketing/FragrancesHero';
+import { WhyFragrancesNow } from '../components/marketing/WhyFragrancesNow';
+import { FragranceExpression } from '../components/marketing/FragranceExpression';
+import { RealPeopleRealInsights } from '../components/marketing/RealPeopleRealInsights';
+import { TurningInsightsIntoImpact } from '../components/marketing/TurningInsightsIntoImpact';
 
-/** Mirrors lavanaya ProjectFourPage — Hunky Hideaway activation (wireframe). */
+/**
+ * Project 4 Case Study Page — UNIQLO Fragrances.
+ * Section 1: Hero — "BEYOND THE EVERYDAY"
+ * Section 2: "02 — WHY FRAGRANCES NOW?"
+ * Section 3: "03 — THE FRAGRANCE EXPRESSION"
+ * Section 4: "04 — REAL PEOPLE, REAL INSIGHTS"
+ * Section 5: "05 — TURNING INSIGHTS INTO IMPACT"
+ */
 export function ProjectFourPage() {
   return (
-    <PageShell
-      breadcrumb="PROJECTS / 04 ACTIVATION"
-      eyebrow="CUSTOMER EXPERIENCE — PROJECT 04"
-      title="[Hunky Hideaway]"
-      intro="[Activation intro]"
-    >
-      <HunkyHideawayPage />
-      <WhatITookAwayPage />
-      <WireBlock label="Project 4 — footer (onward → /projects/marketing)" minHeight={80} />
-    </PageShell>
+    <main className="project-case-study-page">
+      <FragrancesHero />
+      <WhyFragrancesNow />
+      <FragranceExpression />
+      <RealPeopleRealInsights />
+      <TurningInsightsIntoImpact />
+    </main>
   );
 }

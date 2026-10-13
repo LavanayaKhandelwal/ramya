@@ -43,9 +43,9 @@
  */
 
 const INTRO = [
-  'Hi, I’m Ramya! I’m a Fashion and Lifestyle Management student with a deep passion for fashion, retail, and brand strategy. I enjoy understanding consumer behaviour, exploring trends, and turning creative ideas into meaningful products and experiences.',
-  'With a background in fashion design, I have a strong aesthetic sense and a curiosity for the business side of fashion — from merchandising and product development to brand management and marketing. I love working on projects that combine creativity with data-driven insights to create relevant and impactful solutions.',
-  'I’m always eager to learn, experiment, and take on new challenges, with the goal of building a career in the fashion and lifestyle industry and being a part of brands that create value, inspire people, and make a positive impact.',
+  'I’m a fashion design graduate currently pursuing Fashion & Lifestyle Management. I’m someone who enjoys exploring fashion, trends, brands and new ideas, with a particular interest in fashion merchandising and visual merchandising.',
+  'I enjoy working on creative projects, researching brands and understanding how products are planned, selected and presented. I also like creating visual content and experimenting with different ideas through my projects.',
+  'I would describe myself as creative, curious and detail-oriented. I’m still exploring different areas of fashion, but I know I enjoy work where I can combine my creative side with my understanding of fashion and products.',
 ];
 
 const SHEET = '/ramya-portfolio-images/design-elements-flower-ribbon-star.png';
@@ -112,6 +112,182 @@ export function AboutSection() {
           <img src={SHEET} alt="" aria-hidden draggable={false} />
         </div>
       </section>
+
+      {/* Lower portion - integrated into existing section */}
+      <div className="about-lower-integrated">
+        <div className="about-lower-intro-small">
+          building a career in the fashion and lifestyle industry and being a part
+          of brands that create value, inspire people, and make a positive impact.
+        </div>
+
+        <div className="about-lower-approach-small">
+          <div className="about-lower-approach-header-small">
+            <span className="about-lower-approach-title-small">MY APPROACH</span>
+            <div className="about-lower-approach-line-small" />
+          </div>
+          <div className="about-lower-approach-body-small">
+            I believe the best ideas come from understanding people, products and
+            the world around us.
+            <br />
+            I enjoy combining creativity with research and a practical
+            understanding of fashion to create
+            <br />
+            ideas that are both relevant and visually engaging.
+          </div>
+        </div>
+
+        <div className="about-lower-highlight-small">
+          <div className="about-lower-brush-small" aria-hidden />
+          <span className="about-lower-highlight-text-small">
+            Curious by nature. Creative by instinct. Detail-driven by choice.
+          </span>
+          <div className="about-lower-swoosh-small" aria-hidden>
+            <svg viewBox="0 0 120 40" preserveAspectRatio="none">
+              <path
+                d="M 10 22 C 40 8, 80 8, 110 25"
+                fill="none"
+                stroke="#B7D2F0"
+                strokeWidth="1"
+                opacity="0.85"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <div className="about-lower-divider-small">
+          <div className="about-lower-divider-line-small" />
+          <div className="about-lower-divider-sparkle-small" aria-hidden>
+            <svg viewBox="0 0 14 14">
+              <g
+                stroke="#F5F4F0"
+                strokeWidth="1.2"
+                fill="none"
+                strokeLinecap="round"
+              >
+                <line x1="7" y1="2" x2="7" y2="12" />
+                <line x1="2" y1="7" x2="12" y2="7" />
+                <line x1="3" y1="3" x2="11" y2="11" />
+                <line x1="3" y1="11" x2="11" y2="3" />
+              </g>
+            </svg>
+          </div>
+          <div className="about-lower-divider-line-small" />
+        </div>
+
+        <div className="about-lower-info-small">
+          <div className="about-lower-col-small">
+            <div className="about-lower-icon-circle-small">
+              <svg
+                className="about-lower-icon-small"
+                viewBox="0 0 20 20"
+                stroke="#123A70"
+                fill="none"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M2 3h5a3 3 0 0 1 3 3v11a2 2 0 0 0-2-2H2z" />
+                <path d="M18 3h-5a3 3 0 0 0-3 3v11a2 2 0 0 1 2-2h6z" />
+              </svg>
+            </div>
+            <div className="about-lower-vdiv-small" />
+            <div className="about-lower-col-content-small">
+              <div className="about-lower-heading-small">EDUCATION</div>
+              <div className="about-lower-text-small">
+                <div>Master's in Fashion & Lifestyle</div>
+                <div>Business Management</div>
+                <div>Pearl Academy | 2025 – 2027</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="about-lower-col-small">
+            <div className="about-lower-icon-circle-small">
+              <svg
+                className="about-lower-icon-small"
+                viewBox="0 0 20 20"
+                stroke="#123A70"
+                fill="none"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <circle cx="10" cy="10" r="8" />
+                <circle cx="10" cy="10" r="4" />
+                <circle cx="10" cy="10" r="1.5" />
+              </svg>
+            </div>
+            <div className="about-lower-vdiv-small" />
+            <div className="about-lower-col-content-small">
+              <div className="about-lower-heading-small">WHAT I'M INTERESTED IN</div>
+              <div className="about-lower-grid-small">
+                <div className="about-lower-item-small">
+                  <svg
+                    className="about-lower-interest-icon-small"
+                    viewBox="0 0 16 16"
+                    stroke="#F5F3EF"
+                    fill="none"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M5 1L3 4v8a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4l-2-3H5z" />
+                    <line x1="3" y1="4" x2="13" y2="4" />
+                    <path d="M10 6a2 2 0 0 1-4 0" />
+                  </svg>
+                  <span>Fashion Buying & Merchandising</span>
+                </div>
+                <div className="about-lower-item-small">
+                  <svg
+                    className="about-lower-interest-icon-small"
+                    viewBox="0 0 16 16"
+                    stroke="#F5F3EF"
+                    fill="none"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M14 7H2M14 4H2M14 10H2M14 13H2" />
+                  </svg>
+                  <span>Visual Merchandising</span>
+                </div>
+                <div className="about-lower-item-small">
+                  <svg
+                    className="about-lower-interest-icon-small"
+                    viewBox="0 0 16 16"
+                    stroke="#F5F3EF"
+                    fill="none"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M2 6l6-4 6 4v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6z" />
+                    <polyline points="6 14 6 9 10 9 10 14" />
+                  </svg>
+                  <span>Retail Merchandising</span>
+                </div>
+                <div className="about-lower-item-small">
+                  <svg
+                    className="about-lower-interest-icon-small"
+                    viewBox="0 0 16 16"
+                    stroke="#F5F3EF"
+                    fill="none"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M14 10V5a2 2 0 0 0-1-1.73l-4-2.5a2 2 0 0 0-2 0l-4 2.5A2 2 0 0 0 2 5v5a2 2 0 0 0 1 1.73l4 2.5a2 2 0 0 0 2 0l4-2.5A2 2 0 0 0 14 10z" />
+                    <polyline points="2.27 4.8 8 7.76 13.73 4.8" />
+                    <line x1="8" y1="13.6" x2="8" y2="7.76" />
+                  </svg>
+                  <span>Product Development</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </section>
   );
 }

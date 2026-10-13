@@ -1,20 +1,23 @@
-import { PageShell } from '../components/PageShell';
-import { EverydayAthleisurePageOne } from '../components/marketing/EverydayAthleisurePageOne';
-import { EverydayAthleisurePageTwo } from '../components/marketing/EverydayAthleisurePageTwo';
-import { WireBlock } from '../components/WireBlock';
+import React from 'react';
+import { FutureFloralsHero } from '../components/marketing/FutureFloralsHero';
+import { FloralsReimagined } from '../components/marketing/FloralsReimagined';
+import { ExperienceInBloom } from '../components/marketing/ExperienceInBloom';
+import { WindowIntoTheFuture } from '../components/marketing/WindowIntoTheFuture';
 
-/** Mirrors lavanaya ProjectThreePage — everyday athleisure startup (wireframe). */
+/**
+ * Project 3 Case Study Page — Visual Merchandising.
+ * Section 1: "BEYOND THE FLORAL" hero
+ * Section 2: "01 — FLORALS REIMAGINED"
+ * Section 3: "EXPERIENCE IN BLOOM"
+ * Section 4: "A WINDOW INTO THE FUTURE"
+ */
 export function ProjectThreePage() {
   return (
-    <PageShell
-      breadcrumb="PROJECTS / 03 STARTUP"
-      eyebrow="STARTUP — PROJECT 03"
-      title="[Everyday Athleisure]"
-      intro="[Consumer research → physical MVP intro]"
-    >
-      <EverydayAthleisurePageOne />
-      <EverydayAthleisurePageTwo />
-      <WireBlock label="Project 3 — footer (marks + next → /projects/project-4)" minHeight={80} />
-    </PageShell>
+    <main className="project-case-study-page">
+      <FutureFloralsHero />
+      <FloralsReimagined />
+      <ExperienceInBloom />
+      <WindowIntoTheFuture />
+    </main>
   );
 }

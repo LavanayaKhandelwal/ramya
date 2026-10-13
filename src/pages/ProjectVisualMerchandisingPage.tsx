@@ -1,24 +1,29 @@
-import { PageShell } from '../components/PageShell';
-import { ConceptToShapeSection } from '../components/marketing/ConceptToShapeSection';
-import { FutureInBloomCover } from '../components/marketing/FutureInBloomCover';
-import { LearningThroughProcessSection } from '../components/marketing/LearningThroughProcessSection';
-import { MakingTheUnexpectedSection } from '../components/marketing/MakingTheUnexpectedSection';
-import { WireBlock } from '../components/WireBlock';
+import React from 'react';
+import { ThreadingTheTrendHero } from '../components/marketing/ThreadingTheTrendHero';
+import { WhatConsumersLookFor } from '../components/marketing/WhatConsumersLookFor';
+import { EverydayChoicesToInsights } from '../components/marketing/EverydayChoicesToInsights';
+import { SameSimplicityNewPossibilities } from '../components/marketing/SameSimplicityNewPossibilities';
+import { BotanicalWhispers } from '../components/marketing/BotanicalWhispers';
+import { KeyLearnings } from '../components/marketing/KeyLearnings';
 
-/** Mirrors lavanaya ProjectVisualMerchandisingPage (wireframe). */
+/**
+ * Project 2 — UNIQLO "Threading the Trend".
+ * Section 01: Hero — "THREADING THE TREND"
+ * Section 02: Understanding the Consumer
+ * Section 03: From Everyday Choices to Deeper Insights
+ * Section 04: Same Simplicity, New Possibilities
+ * Section 05: From Insight to Everyday — Botanical Whispers
+ * Section 06: Key Learnings
+ */
 export function ProjectVisualMerchandisingPage() {
   return (
-    <PageShell
-      breadcrumb="PROJECTS / 02 VISUAL MERCHANDISING"
-      eyebrow="VISUAL MERCHANDISING — PROJECT 02"
-      title="[Future in Bloom]"
-      intro="[Cover Story × Future Florals intro]"
-    >
-      <FutureInBloomCover />
-      <ConceptToShapeSection />
-      <MakingTheUnexpectedSection />
-      <LearningThroughProcessSection />
-      <WireBlock label="Project 2 — footer (marks + next → /projects/project-3)" minHeight={80} />
-    </PageShell>
+    <main className="project-case-study-page">
+      <ThreadingTheTrendHero />
+      <WhatConsumersLookFor />
+      <EverydayChoicesToInsights />
+      <SameSimplicityNewPossibilities />
+      <BotanicalWhispers />
+      <KeyLearnings />
+    </main>
   );
 }
