@@ -12,7 +12,7 @@ export function Project1BeginningSection() {
       {/* LEFT PAGE — Full-bleed photographic editorial hero */}
       <div className="p1-spread-left">
         <img
-          src="/ramya-portfolio-images/placeholders/1B.png"
+          src="/Project%201/1B.jpg"
           alt="Mediterranean coastal resort scene with woman in light cream resort outfit"
           className="p1-left-bg-img"
           draggable={false}
@@ -53,7 +53,7 @@ export function Project1BeginningSection() {
             </div>
             <div className="p1-brief-img-wrap">
               <img
-                src="/ramya-portfolio-images/placeholders/1C.png"
+                src="/Project%201/1C.png"
                 alt="Resort flat-lay with straw hat, sunglasses, palm leaf, and note"
                 className="p1-brief-img"
               />
@@ -188,7 +188,7 @@ export function Project1BeginningSection() {
 
             <div className="p1-question-img-wrap">
               <img
-                src="/ramya-portfolio-images/placeholders/1D.png"
+                src="/Project%201/1D.jpg"
                 alt="Mediterranean beach with straw parasol and lounge chair"
                 className="p1-question-img"
               />

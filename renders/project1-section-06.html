@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Project 1 — Section 06 — A LEARNING JOURNEY</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: #fff; }
+.canvas {
+  position: relative;
+  width: 997px;
+  height: 561px;
+  background: #F7F0E5;
+  overflow: hidden;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- header ---------- */
+.title {
+  position: absolute; left: 26px; top: 6px;
+  font-family: 'Didot', 'Bodoni MT', 'Playfair Display', Georgia, serif;
+  font-size: 50px; font-weight: 400; letter-spacing: -1.5px; line-height: 1;
+  color: #15100F; white-space: nowrap; text-transform: uppercase;
+}
+.header-rule {
+  position: absolute; left: 586px; top: 50px; width: 315px; height: 1px;
+  background: #8E8579;
+}
+
+/* ---------- decorative corner accents ---------- */
+.accent-tl {
+  position: absolute; left: -6px; top: 6px; width: 22px; height: 42px;
+  background: #E7C9C3;
+}
+.accent-bl {
+  position: absolute; left: -10px; bottom: -8px; width: 176px; height: 44px;
+  background: #E4C3BC;
+  clip-path: polygon(0 34%, 62% 62%, 100% 100%, 0 100%);
+}
+.botanical { position: absolute; right: 0; top: 0; width: 160px; height: 74px; }
+
+/* ---------- column grid ---------- */
+.sep { position: absolute; top: 86px; width: 1px; height: 437px; background: #C9BFAF; }
+
+.num {
+  position: absolute;
+  font-family: 'Didot', 'Bodoni MT', 'Playfair Display', Georgia, serif;
+  font-size: 65px; font-weight: 400; line-height: 0.9; letter-spacing: 0;
+}
+.num.rose { color: #D6A59D; }
+.num.gold { color: #DDB766; }
+
+.head {
+  position: absolute;
+  font-family: 'Didot', 'Bodoni MT', 'Playfair Display', Georgia, serif;
+  font-size: 14.5px; font-weight: 400; color: #17130F;
+  text-transform: uppercase; letter-spacing: 0.2px; line-height: 16px;
+}
+.head-rule { position: absolute; height: 1px; background: #81796D; }
+
+.desc {
+  position: absolute;
+  font-size: 12px; line-height: 15px; color: #655E55; letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+
+.photo { position: absolute; top: 229px; height: 294px; background-repeat: no-repeat; background-color: #EFE3D2; }
+.photo-1 { left: 15px; width: 242px;
+  background-image: url('../public/ramya-portfolio-images/project1-flatlay-brief.jpg');
+  background-size: cover; background-position: 46% 50%; }
+.photo-2 { left: 274px; width: 219px;
+  background-image: url('../public/ramya-portfolio-images/project3-research-rack.jpg');
+  background-size: cover; background-position: 50% 46%; }
+.photo-3 { left: 511px; width: 234px;
+  background-image: url('../public/ramya-portfolio-images/project3-fabric-linen.jpg');
+  background-size: cover; background-position: 50% 50%; }
+.photo-4 { left: 763px; width: 222px;
+  background-image: url('../public/ramya-portfolio-images/project1-hero-section-background.png');
+  background-size: auto 175%; background-position: 58% 78%; }
+</style>
+</head>
+<body>
+<div class="canvas">
+
+  <!-- decorative corner accents -->
+  <div class="accent-tl"></div>
+  <div class="accent-bl"></div>
+  <svg class="botanical" width="160" height="74" viewBox="0 0 160 74" fill="none">
+    <path d="M40 0 L160 0 L160 74 L86 74 C70 52 56 26 40 0 Z" fill="#E6C8C2" opacity="0.85"/>
+    <g stroke="#766B59" stroke-width="0.8" opacity="0.9">
+      <path d="M150 6 C132 18 118 30 106 46"/>
+      <path d="M126 22 C118 20 110 22 103 27"/>
+      <path d="M112 38 C105 36 97 39 91 44"/>
+      <path d="M140 12 C136 20 133 28 132 37"/>
+    </g>
+    <g fill="#F9F3E7" stroke="#B8A18A" stroke-width="0.4">
+      <circle cx="104" cy="28" r="2.6"/>
+      <circle cx="90" cy="45" r="2.2"/>
+      <circle cx="132" cy="38" r="2.4"/>
+      <circle cx="118" cy="16" r="2"/>
+      <circle cx="147" cy="9" r="2.1"/>
+    </g>
+    <g fill="#B8A18A" opacity="0.75">
+      <ellipse cx="120" cy="30" rx="4.5" ry="1.6" transform="rotate(28 120 30)"/>
+      <ellipse cx="100" cy="38" rx="4" ry="1.5" transform="rotate(-14 100 38)"/>
+      <ellipse cx="138" cy="24" rx="4.2" ry="1.5" transform="rotate(52 138 24)"/>
+    </g>
+  </svg>
+
+  <!-- header -->
+  <h1 class="title">A LEARNING JOURNEY</h1>
+  <span class="header-rule"></span>
+
+  <!-- column separators -->
+  <span class="sep" style="left:263px"></span>
+  <span class="sep" style="left:501px"></span>
+  <span class="sep" style="left:752px"></span>
+
+  <!-- 01 TREND TO PRODUCT -->
+  <span class="num rose" style="left:24px; top:79px;">01</span>
+  <span class="head-rule" style="left:100px; top:86px; width:157px;"></span>
+  <h3 class="head" style="left:100px; top:92px;">TREND TO PRODUCT</h3>
+  <p class="desc" style="left:27px; top:157px; width:230px;">Learnt to translate macro<br>trends into a clear product<br>direction and relevant<br>micro trends.</p>
+  <div class="photo photo-1"></div>
+
+  <!-- 02 CUSTOMER-FIRST THINKING -->
+  <span class="num gold" style="left:276px; top:79px;">02</span>
+  <span class="head-rule" style="left:352px; top:86px; width:141px;"></span>
+  <h3 class="head" style="left:352px; top:92px;">CUSTOMER-FIRST<br>THINKING</h3>
+  <p class="desc" style="left:279px; top:163px; width:214px;">Learnt to connect consumer<br>needs, lifestyle and occasion<br>with product decisions.</p>
+  <div class="photo photo-2"></div>
+
+  <!-- 03 RANGE & PRODUCT DIRECTION -->
+  <span class="num rose" style="left:516px; top:79px;">03</span>
+  <span class="head-rule" style="left:594px; top:86px; width:151px;"></span>
+  <h3 class="head" style="left:594px; top:92px;">RANGE &amp; PRODUCT<br>DIRECTION</h3>
+  <p class="desc" style="left:518px; top:163px; width:227px;">Learnt how silhouette, versatility,<br>fabric and details work together<br>to shape a commercially<br>relevant garment.</p>
+  <div class="photo photo-3"></div>
+
+  <!-- 04 PRODUCT DEVELOPMENT -->
+  <span class="num gold" style="left:768px; top:79px;">04</span>
+  <span class="head-rule" style="left:844px; top:86px; width:141px;"></span>
+  <h3 class="head" style="left:844px; top:92px;">PRODUCT<br>DEVELOPMENT</h3>
+  <p class="desc" style="left:770px; top:163px; width:215px;">Learnt to move from concept<br>and fabric exploration to sampling,<br>construction details and a final<br>product.</p>
+  <div class="photo photo-4"></div>
+
+</div>
+</body>
+</html>

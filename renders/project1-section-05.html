@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Project 1 — Section 05 — ONE BASE, TWO LENGTHS.</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500&family=Mrs+Saint+Delafield&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: #fff; }
+.canvas {
+  position: relative;
+  width: 1062px;
+  height: 708px;
+  background: #FFF6E5;
+  overflow: hidden;
+  font-family: 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #554D42;
+  -webkit-font-smoothing: antialiased;
+}
+.serif { font-family: 'Cormorant Garamond', 'Didot', 'Bodoni MT', Georgia, serif; }
+.ink { color: #14203F; }
+
+/* ---------- decorations ---------- */
+.deco { position: absolute; inset: 0; pointer-events: none; }
+
+/* ---------- header ---------- */
+.title {
+  position: absolute; left: 36px; top: 28px;
+  font-family: 'Didot', 'Bodoni MT', 'Cormorant Garamond', Georgia, serif;
+  font-size: 44px; font-weight: 400; letter-spacing: -0.7px;
+  color: #14203F; line-height: 1; white-space: nowrap;
+}
+.subtitle {
+  position: absolute; left: 37px; top: 84px;
+  font-size: 10.5px; line-height: 1.45; color: #554D42; letter-spacing: 0.1px;
+}
+.annotation {
+  position: absolute; right: 34px; top: 24px;
+  font-family: 'Mrs Saint Delafield', 'Snell Roundhand', 'Pinyon Script', cursive;
+  font-size: 34px; line-height: 1.05; color: #14203F;
+  text-align: center; transform: rotate(-8deg); transform-origin: center;
+}
+
+/* ---------- column dividers ---------- */
+.vdiv { position: absolute; top: 152px; width: 1px; height: 496px; background: #BCA36F; opacity: 0.85; }
+
+/* ---------- section headers ---------- */
+.sec-head { position: absolute; display: flex; align-items: center; gap: 10px; }
+.badge {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: #EADCC1; color: #14203F;
+  font-family: 'Cormorant Garamond', Georgia, serif; font-size: 24px;
+  display: flex; align-items: center; justify-content: center; flex: none;
+}
+.sec-head h3 {
+  font-family: 'Cormorant Garamond', 'Didot', Georgia, serif;
+  font-size: 20px; font-weight: 500; color: #14203F; letter-spacing: 0.6px;
+  white-space: nowrap; line-height: 1;
+}
+.rule { flex: 1; height: 1px; background: #BCA36F; }
+
+/* ---------- column 1 : THE HERO ---------- */
+.col1-sub {
+  position: absolute; left: 36px; top: 200px;
+  font-size: 8.5px; letter-spacing: 1.3px; color: #554D42;
+}
+.photos { position: absolute; left: 36px; top: 216px; display: flex; gap: 7px; }
+.ph { width: 148px; height: 347px; background-repeat: no-repeat; background-color: #EFE0C7; }
+.ph-mini   { background-image: url('../public/ramya-portfolio-images/project1-hero-section-background.png');
+             background-size: auto 200%; background-position: 72% 40%; }
+.ph-maxi   { background-image: url('../public/ramya-portfolio-images/project1-hero-section-background.png');
+             background-size: cover; background-position: 70% 50%; }
+
+.caps { position: absolute; left: 36px; top: 570px; display: flex; gap: 7px; }
+.cap { width: 148px; text-align: center; }
+.cap h4 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 13.5px; font-weight: 600; color: #14203F; letter-spacing: 1.2px; line-height: 1;
+}
+.cap .sub { font-size: 8px; color: #554D42; letter-spacing: 0.2px; margin-top: 3px; font-style: italic; }
+.cap p { font-size: 8px; line-height: 1.45; color: #554D42; margin-top: 3px; }
+
+/* ---------- column 2 : THE TRANSFORMATION ---------- */
+.col2-proc { position: absolute; left: 361px; top: 198px; width: 158px; }
+.pcard {
+  width: 158px; height: 73px; background: #F4E5CF;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+}
+.pcard h4 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 15.5px; font-weight: 600; color: #14203F; letter-spacing: 0.8px; line-height: 1;
+}
+.pcard p { font-size: 8.5px; line-height: 1.35; color: #14203F; text-align: center; padding: 0 8px; }
+.arrow { height: 22px; display: flex; align-items: center; justify-content: center; color: #14203F; font-size: 11px; }
+.proc-copy { font-size: 8.5px; line-height: 1.4; color: #554D42; margin-top: 10px; text-align: left; }
+.statement {
+  margin-top: 10px; background: #F0E3CF; padding: 7px 4px;
+  font-size: 8.2px; letter-spacing: 0.35px; color: #554D42; text-align: center; line-height: 1.3;
+}
+.col2-prods { position: absolute; left: 534px; top: 198px; display: flex; gap: 5px; }
+.prod { width: 122px; height: 400px; background-color: #D9D6D0; }
+.prod-maxi { background-image: url('../public/ramya-portfolio-images/project3-research-rack.jpg');
+             background-size: cover; background-position: 8% 50%; }
+.prod-mini { background-image: url('../public/ramya-portfolio-images/project3-research-rack.jpg');
+             background-size: auto 130%; background-position: 86% 28%; }
+
+/* ---------- column 3 : DESIGN DECISION ---------- */
+.col3 { position: absolute; left: 799px; width: 227px; }
+.sec-sm { display: flex; align-items: baseline; gap: 8px; }
+.sec-sm .n, .sec-sm h3 {
+  font-family: 'Cormorant Garamond', 'Didot', Georgia, serif;
+  color: #14203F; font-weight: 500; line-height: 1; letter-spacing: 0.4px;
+}
+.sec-sm .n { font-size: 13.5px; }
+.sec-sm h3 { font-size: 13.5px; white-space: nowrap; }
+
+.quotecard { position: absolute; left: 0; top: 176px; width: 227px; background: #F4E7D2; padding: 13px 13px 11px; }
+.quotecard blockquote {
+  font-family: 'Cormorant Garamond', 'Didot', Georgia, serif; font-style: italic;
+  font-size: 23px; line-height: 1.05; color: #14203F; text-align: center; font-weight: 500;
+}
+.qrule { width: 44px; height: 1px; background: #BCA36F; margin: 10px auto 0; }
+.qcopy { position: absolute; left: 0; top: 330px; width: 227px; font-size: 10.5px; line-height: 1.5; color: #554D42; }
+.principles {
+  position: absolute; left: 0; top: 410px; width: 227px; background: #F4E7D2; padding: 12px;
+  font-size: 10.5px; letter-spacing: 1.3px; line-height: 1.8; color: #554D42; text-align: center;
+}
+.bdiv { position: absolute; left: 14px; top: 558px; width: 200px; height: 1px; background: #BCA36F; }
+.closing {
+  position: absolute; left: 0; top: 574px; width: 227px; text-align: center;
+  font-family: 'Cormorant Garamond', 'Didot', Georgia, serif;
+  font-size: 14.5px; line-height: 1.25; color: #14203F; letter-spacing: 0.5px; font-weight: 500;
+}
+</style>
+</head>
+<body>
+<div class="canvas">
+
+  <!-- flowing gold border decorations + botanical accents -->
+  <svg class="deco" width="1062" height="708" viewBox="0 0 1062 708" fill="none">
+    <!-- top-left architectural corner ornament -->
+    <line x1="36" y1="18" x2="168" y2="18" stroke="#BCA36F" stroke-width="1"/>
+    <line x1="36" y1="18" x2="36" y2="66" stroke="#BCA36F" stroke-width="1"/>
+    <path d="M62 14 L63 17 L66 18 L63 19 L62 22 L61 19 L58 18 L61 17 Z" fill="#BCA36F"/>
+    <path d="M114 14 L115 17 L118 18 L115 19 L114 22 L113 19 L110 18 L113 17 Z" fill="#BCA36F"/>
+
+    <!-- top-right flowing curve + faint botanical collage -->
+    <g opacity="0.5">
+      <path d="M742 10 C820 34 900 -2 968 14 C1012 24 1044 12 1062 4" stroke="#BCA36F" stroke-width="1.2"/>
+      <ellipse cx="960" cy="44" rx="26" ry="9" fill="#EFE0C7" transform="rotate(-24 960 44)"/>
+      <ellipse cx="1002" cy="30" rx="20" ry="7" fill="#CBBBA4" opacity="0.6" transform="rotate(14 1002 30)"/>
+      <ellipse cx="1032" cy="58" rx="24" ry="8" fill="#EFE0C7" transform="rotate(-9 1032 58)"/>
+      <ellipse cx="918" cy="24" rx="16" ry="6" fill="#CBBBA4" opacity="0.5" transform="rotate(30 918 24)"/>
+    </g>
+
+    <!-- bottom-left organic sweep -->
+    <g opacity="0.75">
+      <path d="M-4 690 C70 664 130 706 208 692 C262 682 300 700 336 706" stroke="#BCA36F" stroke-width="1.3"/>
+      <ellipse cx="66" cy="700" rx="26" ry="9" fill="#EFE0C7" transform="rotate(12 66 700)"/>
+      <ellipse cx="128" cy="712" rx="20" ry="7" fill="#CBBBA4" opacity="0.55" transform="rotate(-16 128 712)"/>
+    </g>
+
+    <!-- bottom-right organic sweep -->
+    <g opacity="0.75">
+      <path d="M1066 664 C996 692 942 672 884 700 C852 716 828 706 806 700" stroke="#BCA36F" stroke-width="1.3"/>
+      <ellipse cx="1004" cy="694" rx="24" ry="8" fill="#EFE0C7" transform="rotate(-14 1004 694)"/>
+      <ellipse cx="948" cy="706" rx="18" ry="6" fill="#CBBBA4" opacity="0.55" transform="rotate(18 948 706)"/>
+    </g>
+  </svg>
+
+  <!-- HEADER -->
+  <h1 class="title">ONE BASE, TWO LENGTHS.</h1>
+  <p class="subtitle">
+    The concept was translated into a hero garment: a strapless ruched dress with detachable tiers.<br>
+    The modular construction allows the wearer to change the length according to the occasion.
+  </p>
+  <div class="annotation">Change the<br>Length,<br>Not the Look.</div>
+
+  <!-- column dividers -->
+  <div class="vdiv" style="left:350px"></div>
+  <div class="vdiv" style="left:788px"></div>
+
+  <!-- 01 THE HERO -->
+  <div class="sec-head" style="left:36px; top:154px; width:303px;">
+    <span class="badge">01</span>
+    <h3>THE HERO</h3>
+    <span class="rule"></span>
+  </div>
+  <div class="col1-sub">THE DRESS THAT CHANGES WITH YOU</div>
+  <div class="photos">
+    <div class="ph ph-mini"></div>
+    <div class="ph ph-maxi"></div>
+  </div>
+  <div class="caps">
+    <div class="cap">
+      <h4>MINI</h4>
+      <div class="sub">Light &bull; Easy &bull; Day-ready</div>
+      <p>The shorter version works for casual resort moments, daytime plans and travel.</p>
+    </div>
+    <div class="cap">
+      <h4>MAXI</h4>
+      <div class="sub">Flowing &bull; Elevated &bull; Evening-ready</div>
+      <p>With the detachable tier added, the same base transforms into a longer silhouette suitable for vacation evenings and relaxed occasions.</p>
+    </div>
+  </div>
+
+  <!-- 02 THE TRANSFORMATION -->
+  <div class="sec-head" style="left:361px; top:160px; width:416px; gap:8px;">
+    <span class="badge">02</span>
+    <h3>THE TRANSFORMATION</h3>
+    <span class="rule"></span>
+  </div>
+  <div class="col2-proc">
+    <div class="pcard">
+      <h4>MINI</h4>
+      <p>A fresh, effortless look for the day.</p>
+    </div>
+    <div class="arrow">&#8595;</div>
+    <div class="pcard">
+      <h4>DETACHABLE TIER</h4>
+      <p>Add or remove with ease.</p>
+    </div>
+    <div class="arrow">&#8595;</div>
+    <div class="pcard">
+      <h4>MAXI</h4>
+      <p>A flowing silhouette for elevated moments.</p>
+    </div>
+    <p class="proc-copy">Instead of creating a completely new garment for every occasion, the design uses one base silhouette and a detachable extension to create a different length.</p>
+    <div class="statement">ONE BASE &rarr; TWO LENGTHS &rarr; MORE USE</div>
+  </div>
+  <div class="col2-prods">
+    <div class="prod prod-mini"></div>
+    <div class="prod prod-maxi"></div>
+  </div>
+
+  <!-- 03 / 04 THE DESIGN DECISION -->
+  <div class="col3">
+    <div class="sec-sm" style="position:absolute; top:160px;"><span class="n">03</span><h3>THE DESIGN DECISION</h3></div>
+    <div class="quotecard">
+      <blockquote>&ldquo;Why create<br>two dresses<br>when one can<br>become both?&rdquo;</blockquote>
+      <div class="qrule"></div>
+    </div>
+    <p class="qcopy">A versatile design that adapts to your plans, your mood and your destination &mdash; because style should move with you.</p>
+    <div class="sec-sm" style="position:absolute; top:386px;"><span class="n">04</span><h3>THE DESIGN DECISION</h3></div>
+    <div class="principles">ADAPTABILITY<br>FUNCTIONALITY<br>COMFORT<br>REPEAT WEAR</div>
+    <div class="bdiv"></div>
+    <div class="closing">DESIGNED TO TRANSFORM.<br>STYLED TO MOVE.</div>
+  </div>
+
+</div>
+</body>
+</html>

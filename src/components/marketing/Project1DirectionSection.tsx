@@ -12,7 +12,7 @@ export function Project1DirectionSection() {
       {/* LEFT PANEL — 31% width photographic editorial */}
       <div className="p1-dir-left">
         <img
-          src="/ramya-portfolio-images/placeholders/1E.png"
+          src="/Project%201/1E.jpg"
           alt="Woman in ivory open-back resort dress looking out over Mediterranean coastline"
           className="p1-dir-left-bg-img"
           draggable={false}
@@ -33,7 +33,6 @@ export function Project1DirectionSection() {
             HOW INSIGHTS TURNED INTO TRENDS<br />AND OPPORTUNITIES.
           </p>
         </div>
-
       </div>
 
       {/* RIGHT PANEL — 69% width structured research slide */}
@@ -56,11 +55,20 @@ export function Project1DirectionSection() {
 
             <div className="p1-reveal-grid">
               <div className="p1-reveal-col">
-                <img
-                  src="/ramya-portfolio-images/placeholders/1F.png"
-                  alt="Mediterranean coastal village"
-                  className="p1-reveal-img"
-                />
+                <div className="p1-reveal-img-wrap">
+                  <img
+                    src="/ramya-portfolio-images/placeholders/1F.png"
+                    alt="Mediterranean coastal village"
+                    className="p1-reveal-img"
+                  />
+                  <span className="p1-reveal-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="1.4" fill="none">
+                      <rect x="3" y="12" width="4" height="8" rx="1" />
+                      <rect x="10" y="8" width="4" height="12" rx="1" />
+                      <rect x="17" y="4" width="4" height="16" rx="1" />
+                    </svg>
+                  </span>
+                </div>
                 <div className="p1-reveal-caption">
                   <h4>CHANGING LIFESTYLES</h4>
                   <p>Consumers are balancing multiple roles and occasions while travelling and at home.</p>
@@ -68,11 +76,19 @@ export function Project1DirectionSection() {
               </div>
 
               <div className="p1-reveal-col">
-                <img
-                  src="/ramya-portfolio-images/placeholders/1G.png"
-                  alt="Mediterranean architectural terrace"
-                  className="p1-reveal-img"
-                />
+                <div className="p1-reveal-img-wrap">
+                  <img
+                    src="/ramya-portfolio-images/placeholders/1G.png"
+                    alt="Mediterranean architectural terrace"
+                    className="p1-reveal-img"
+                  />
+                  <span className="p1-reveal-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="1.4" fill="none">
+                      <circle cx="12" cy="7" r="4" />
+                      <path d="M5.5 21v-2a6.5 6.5 0 0 1 13 0v2" />
+                    </svg>
+                  </span>
+                </div>
                 <div className="p1-reveal-caption">
                   <h4>NEED FOR VALUE</h4>
                   <p>Consumers want products with longer usability.</p>
@@ -80,11 +96,19 @@ export function Project1DirectionSection() {
               </div>
 
               <div className="p1-reveal-col">
-                <img
-                  src="/ramya-portfolio-images/placeholders/1H.png"
-                  alt="Resort clothing rack"
-                  className="p1-reveal-img"
-                />
+                <div className="p1-reveal-img-wrap">
+                  <img
+                    src="/ramya-portfolio-images/placeholders/1H.png"
+                    alt="Resort clothing rack"
+                    className="p1-reveal-img"
+                  />
+                  <span className="p1-reveal-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="1.4" fill="none">
+                      <circle cx="11" cy="11" r="7" />
+                      <line x1="16.5" y1="16.5" x2="22" y2="22" />
+                    </svg>
+                  </span>
+                </div>
                 <div className="p1-reveal-caption">
                   <h4>LESS SINGLE-USE</h4>
                   <p>There is a growing need for versatile and multifunctional fashion.</p>
@@ -102,10 +126,12 @@ export function Project1DirectionSection() {
             </div>
             <p className="p1-dir-desc">These insights aligned with the macro trend:</p>
 
-            <h4 className="p1-macro-trend-title">FLEX&ndash;STABILITY &middot; 2027</h4>
-            <p className="p1-macro-trend-sub">
-              A trend that celebrates adaptability, durability and a balanced, evolving lifestyle.
-            </p>
+            <div className="p1-macro-title-card">
+              <h4 className="p1-macro-trend-title">FLEX&ndash;STABILITY &middot; 2027</h4>
+              <p className="p1-macro-trend-sub">
+                A trend that celebrates adaptability, durability and a balanced, evolving lifestyle.
+              </p>
+            </div>
 
             <div className="p1-macro-flex-wrap">
               <img
@@ -142,7 +168,14 @@ export function Project1DirectionSection() {
                 <span className="p1-m2m-tag">MACRO TREND</span>
                 <h5>FLEX&ndash;STABILITY</h5>
                 <p>Core idea: Fashion should adapt.</p>
+                <img
+                  src="/ramya-portfolio-images/placeholders/1I.png"
+                  alt="Soft ivory fabric with olive-green palm shadows"
+                  className="p1-m2m-block-img"
+                />
               </div>
+
+              <div className="p1-m2m-arrow" aria-hidden="true">&rarr;</div>
 
               <div className="p1-m2m-mid-list">
                 <span>ADJUSTABLE</span>
@@ -160,11 +193,6 @@ export function Project1DirectionSection() {
               </div>
             </div>
 
-            <div className="p1-m2m-thumbs">
-              <img src="/ramya-portfolio-images/placeholders/1J.png" alt="Tie-back convertible construction detail" />
-              <img src="/ramya-portfolio-images/placeholders/1K.png" alt="Ivory fabric tie detail" />
-              <img src="/ramya-portfolio-images/placeholders/1L.png" alt="Convertible garment element" />
-            </div>
           </div>
 
           {/* SECTION 04: ANOTHER KEY DIRECTION */}
@@ -185,35 +213,31 @@ export function Project1DirectionSection() {
                 className="p1-fabric-img"
               />
               <div className="p1-fabric-card">
-                <h4>LINEN +<br />NATURAL FABRICS</h4>
+                <h4>LINEN + NATURAL FABRICS</h4>
                 <div className="p1-fabric-attrs">
                   <div className="p1-fabric-attr">
                     <div className="p1-attr-circle">
-                      <svg viewBox="0 0 24 24" width="16" height="16" stroke="#201C19" strokeWidth="1.5" fill="none">
+                      <svg viewBox="0 0 24 24" width="18" height="18" stroke="#33251D" strokeWidth="1.4" fill="none">
                         <path d="M12 2C6.5 2 2 6.5 2 12c0 5 3.5 9 8 10 0-3 1.5-6 4-8.5S20 9.5 20 7c0-2.8-3.6-5-8-5z" />
                       </svg>
                     </div>
-                    <div className="p1-attr-text">
-                      <span>LIGHTWEIGHT</span>
-                      <p>Easy to wear, ideal for travel and warm climates.</p>
-                    </div>
+                    <span>LIGHTWEIGHT</span>
+                    <p>Easy to wear, ideal for travel and warm climates.</p>
                   </div>
 
                   <div className="p1-fabric-attr">
                     <div className="p1-attr-circle">
-                      <svg viewBox="0 0 24 24" width="16" height="16" stroke="#201C19" strokeWidth="1.5" fill="none">
+                      <svg viewBox="0 0 24 24" width="18" height="18" stroke="#33251D" strokeWidth="1.4" fill="none">
                         <path d="M4 8h16M4 12h16M4 16h12" />
                       </svg>
                     </div>
-                    <div className="p1-attr-text">
-                      <span>BREATHABLE</span>
-                      <p>Keeps you comfortable through changing weather and activities.</p>
-                    </div>
+                    <span>BREATHABLE</span>
+                    <p>Keeps you comfortable through changing weather and activities.</p>
                   </div>
 
                   <div className="p1-fabric-attr">
                     <div className="p1-attr-circle">
-                      <svg viewBox="0 0 24 24" width="16" height="16" stroke="#201C19" strokeWidth="1.5" fill="none">
+                      <svg viewBox="0 0 24 24" width="18" height="18" stroke="#33251D" strokeWidth="1.4" fill="none">
                         <circle cx="12" cy="12" r="5" />
                         <line x1="12" y1="1" x2="12" y2="3" />
                         <line x1="12" y1="21" x2="12" y2="23" />
@@ -221,10 +245,8 @@ export function Project1DirectionSection() {
                         <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
                       </svg>
                     </div>
-                    <div className="p1-attr-text">
-                      <span>WARM-WEATHER<br />COMFORT</span>
-                      <p>Perfect for resort wear and outdoor explorations.</p>
-                    </div>
+                    <span>WARM-WEATHER<br />COMFORT</span>
+                    <p>Perfect for resort wear and outdoor explorations.</p>
                   </div>
                 </div>
               </div>
@@ -244,6 +266,11 @@ export function Project1DirectionSection() {
 
             <div className="p1-chain-wrap">
               <div className="p1-chain-node">
+                <img
+                  src="/ramya-portfolio-images/placeholders/1F.png"
+                  alt="Sunlit Mediterranean coastal resort"
+                  className="p1-node-img"
+                />
                 <span className="p1-node-title">FLEX&ndash;<br />STABILITY</span>
                 <span className="p1-node-sub">(Macro Trend)</span>
                 <span className="p1-node-desc">Adaptability and durability as a lifestyle approach.</span>
@@ -251,6 +278,11 @@ export function Project1DirectionSection() {
               <div className="p1-chain-arrow">&rarr;</div>
 
               <div className="p1-chain-node">
+                <img
+                  src="/Project%201/1E.jpg"
+                  alt="Woman wearing a neutral convertible resort dress"
+                  className="p1-node-img"
+                />
                 <span className="p1-node-title">CONVERTIBLE<br />CLOTHING</span>
                 <span className="p1-node-sub">(Product Direction)</span>
                 <span className="p1-node-desc">Garments that adjust to different needs and occasions.</span>
@@ -258,6 +290,11 @@ export function Project1DirectionSection() {
               <div className="p1-chain-arrow">&rarr;</div>
 
               <div className="p1-chain-node">
+                <img
+                  src="/ramya-portfolio-images/placeholders/1J.png"
+                  alt="Detachable fabric tier and button fastening"
+                  className="p1-node-img"
+                />
                 <span className="p1-node-title">DETACHABLE<br />ELEMENTS</span>
                 <span className="p1-node-sub">(Design Feature)</span>
                 <span className="p1-node-desc">Flexible details that allow multiple ways of styling and use.</span>
@@ -265,6 +302,11 @@ export function Project1DirectionSection() {
               <div className="p1-chain-arrow">&rarr;</div>
 
               <div className="p1-chain-node p1-node-highlight">
+                <img
+                  src="/ramya-portfolio-images/placeholders/1H.png"
+                  alt="Resort dress in a shorter day-ready silhouette"
+                  className="p1-node-img"
+                />
                 <span className="p1-node-title">MINI &rarr; MAXI</span>
                 <span className="p1-node-sub">(Product Opportunity)</span>
                 <span className="p1-node-desc">One design, many looks for different settings.</span>
