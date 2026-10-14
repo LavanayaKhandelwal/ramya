@@ -1,6 +1,5 @@
 import React from 'react';
 import { SectionImage } from './SectionImage';
-import { P3_BG } from './FutureFloralsHero';
 
 const Icon = ({ name }: { name: string }) => {
   const c = '#817B79';
@@ -24,7 +23,7 @@ const FEATURES = [
 export function ExperienceInBloom() {
   return (
     <section className="px3e" aria-labelledby="px3e-heading">
-      <img className="px3e__bg" src={P3_BG} alt="" aria-hidden="true" draggable={false} />
+      <img className="px3e__bg" src="/ramya-portfolio-images/placeholders/3P.png" alt="" aria-hidden="true" draggable={false} />
 
       <div className="px3e__grid">
         <div className="px3e__intro">
@@ -38,6 +37,7 @@ export function ExperienceInBloom() {
             and fluid drapes to create a dreamy, contemporary retail moment.
           </p>
           <SectionImage
+            src="/ramya-portfolio-images/placeholders/3Q.png"
             alt="Large translucent holographic flower with reflective petals and an illuminated golden centre"
             className="px3e__decor"
             tint="#E7DCF0"
@@ -46,6 +46,7 @@ export function ExperienceInBloom() {
 
         <div className="px3e__main">
           <SectionImage
+            src="/ramya-portfolio-images/placeholders/3R.png"
             alt="Two people installing flowing iridescent drapes inside a contemporary fashion retail space"
             className="px3e__main-img"
             tint="#E4E1EC"
@@ -54,6 +55,7 @@ export function ExperienceInBloom() {
 
         <div className="px3e__completed">
           <SectionImage
+            src="/ramya-portfolio-images/placeholders/3S.png"
             alt="Completed Cover Story retail installation with a mannequin in a floral dress and holographic flower structures"
             className="px3e__completed-img"
             tint="#E9DEE9"
@@ -65,6 +67,7 @@ export function ExperienceInBloom() {
             {
               n: '01',
               title: 'FLORAL DETAIL',
+              src: '/ramya-portfolio-images/placeholders/3T.png',
               alt: 'Close-up of an illuminated holographic flower with translucent reflective petals and a warm golden centre',
               caption: 'Textured centre with soft lighting.',
               tint: '#EDE0EC',
@@ -72,13 +75,14 @@ export function ExperienceInBloom() {
             {
               n: '02',
               title: 'MATERIAL CLOSE-UP',
+              src: '/ramya-portfolio-images/placeholders/3U.png',
               alt: 'Macro photograph of flowing iridescent material with reflective blue, pink, lavender and silver highlights',
               caption: 'Fluid, light-reflective surface with a dreamy glow.',
               tint: '#E1E6F0',
             },
           ].map((d) => (
             <figure key={d.n} className="px3e__detail">
-              <SectionImage alt={d.alt} className="px3e__detail-img" tint={d.tint} />
+              <SectionImage src={d.src} alt={d.alt} className="px3e__detail-img" tint={d.tint} />
               <figcaption>
                 <span className="px3e__detail-label">
                   {d.n} — {d.title}
@@ -104,6 +108,7 @@ export function ExperienceInBloom() {
         <div className="px3e__bottom">
           <figure className="px3e__bottom-item px3e__bottom-item--wide">
             <SectionImage
+              src="/ramya-portfolio-images/placeholders/3V.png"
               alt="Layered holographic floral forms showing translucent surfaces and reflective petals"
               className="px3e__bottom-img"
               tint="#E8E0EE"
@@ -115,6 +120,7 @@ export function ExperienceInBloom() {
           </figure>
           <figure className="px3e__bottom-item">
             <SectionImage
+              src="/ramya-portfolio-images/placeholders/3W.png"
               alt="Wider view of the completed installation with flowing iridescent drapes and soft lighting"
               className="px3e__bottom-img"
               tint="#E3E4ED"

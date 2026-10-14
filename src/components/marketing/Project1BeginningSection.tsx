@@ -12,7 +12,7 @@ export function Project1BeginningSection() {
       {/* LEFT PAGE — Full-bleed photographic editorial hero */}
       <div className="p1-spread-left">
         <img
-          src="/ramya-portfolio-images/project1-beginning-hero.jpg"
+          src="/ramya-portfolio-images/placeholders/1B.png"
           alt="Mediterranean coastal resort scene with woman in light cream resort outfit"
           className="p1-left-bg-img"
           draggable={false}
@@ -28,32 +28,6 @@ export function Project1BeginningSection() {
             A NEED TURNED<br />INTO A POSSIBILITY.
           </p>
         </div>
-
-        {/* Handwritten Phrase (Upper Right over Sky/Ocean region) */}
-        <div className="p1-left-script-group">
-          <p className="p1-left-script-text">
-            Explore<br />
-            Adapt<br />
-            Reimagine
-          </p>
-          <div className="p1-left-script-rule" aria-hidden="true" />
-        </div>
-
-        {/* Quote Group (Lower Left Middle) */}
-        <div className="p1-left-quote-group">
-          <blockquote className="p1-left-quote">
-            &ldquo;Same destinations.<br />
-            Different outfits.<br />
-            A smarter way<br />
-            to dress.&rdquo;
-          </blockquote>
-          <div className="p1-left-quote-rule" aria-hidden="true" />
-        </div>
-
-        {/* Bottom Left Keywords */}
-        <div className="p1-left-keywords">
-          TRAVEL &nbsp;&bull;&nbsp; STYLE &nbsp;&bull;&nbsp; SUSTAINABILITY &nbsp;&bull;&nbsp; VERSATILITY
-        </div>
       </div>
 
       {/* RIGHT PAGE — Structured modular editorial research grid */}
@@ -61,25 +35,25 @@ export function Project1BeginningSection() {
         {/* Top Page Number */}
         <div className="p1-right-page-number">02</div>
 
-        {/* SECTION 01: THE BRIEF */}
-        <div className="p1-right-sec p1-sec-brief">
+        {/* SECTION 01: THE VISION */}
+        <div className="p1-right-sec p1-sec-vision">
           <div className="p1-sec-header">
             <span className="p1-sec-num">01</span>
-            <h3 className="p1-sec-title">THE BRIEF</h3>
+            <h3 className="p1-sec-title">THE VISION</h3>
             <div className="p1-sec-rule p1-rule-brief" aria-hidden="true" />
           </div>
 
           <div className="p1-brief-grid">
             <div className="p1-brief-card">
               <p>
-                To develop a resort wear collection for 2027 by exploring how resort wear can be more{' '}
-                <strong>versatile</strong>, <strong>functional</strong> <strong>and travel-friendly</strong> while
-                remaining stylish and relevant for today&rsquo;s consumer.
+                To create a resort wear collection for 2027 that reimagines vacation dressing through{' '}
+                <strong>versatility</strong>, <strong>functionality</strong> and <strong>effortless style</strong>,
+                while staying modern, feminine and relevant for today&rsquo;s conscious consumer.
               </p>
             </div>
             <div className="p1-brief-img-wrap">
               <img
-                src="/ramya-portfolio-images/project1-flatlay-brief.jpg"
+                src="/ramya-portfolio-images/placeholders/1C.png"
                 alt="Resort flat-lay with straw hat, sunglasses, palm leaf, and note"
                 className="p1-brief-img"
               />
@@ -87,13 +61,14 @@ export function Project1BeginningSection() {
           </div>
         </div>
 
-        {/* SECTION 02: WHAT WE RESEARCHED */}
-        <div className="p1-right-sec p1-sec-researched">
+        {/* SECTION 02: OUR EXPLORATION */}
+        <div className="p1-right-sec p1-sec-exploration">
           <div className="p1-sec-header">
             <span className="p1-sec-num">02</span>
-            <h3 className="p1-sec-title">WHAT WE RESEARCHED</h3>
+            <h3 className="p1-sec-title">OUR EXPLORATION</h3>
             <div className="p1-sec-rule p1-rule-researched" aria-hidden="true" />
           </div>
+          <p className="p1-sec-subtitle">INSIGHTS THAT SHAPED THE COLLECTION</p>
 
           <div className="p1-research-cols">
             <div className="p1-research-item">
@@ -105,8 +80,11 @@ export function Project1BeginningSection() {
                 </svg>
               </div>
               <span className="p1-research-label">
-                TREND<br />FORECASTING
+                TREND<br />DIRECTIONS
               </span>
+              <p className="p1-research-desc">
+                Emerging styles &amp;<br />seasonal cues for 2027
+              </p>
             </div>
 
             <div className="p1-research-item">
@@ -117,8 +95,11 @@ export function Project1BeginningSection() {
                 </svg>
               </div>
               <span className="p1-research-label">
-                CONSUMER<br />NEEDS
+                CONSUMER<br />PERSPECTIVES
               </span>
+              <p className="p1-research-desc">
+                Needs, preferences<br />&amp; lifestyle behaviours
+              </p>
             </div>
 
             <div className="p1-research-item">
@@ -129,8 +110,11 @@ export function Project1BeginningSection() {
                 </svg>
               </div>
               <span className="p1-research-label">
-                COMPETITOR<br />ANALYSIS
+                MARKET<br />LANDSCAPE
               </span>
+              <p className="p1-research-desc">
+                Existing offerings,<br />gaps &amp; opportunities
+              </p>
             </div>
 
             <div className="p1-research-item">
@@ -140,24 +124,28 @@ export function Project1BeginningSection() {
                 </svg>
               </div>
               <span className="p1-research-label">
-                MARKET<br />GAP
+                COMPETITIVE<br />INSPIRATION
               </span>
+              <p className="p1-research-desc">
+                What brands are doing<br />and where we can differ
+              </p>
             </div>
           </div>
         </div>
 
-        {/* SECTION 03: WHAT WE FOUND */}
+        {/* SECTION 03: KEY INSIGHTS */}
         <div className="p1-right-sec p1-sec-found">
           <div className="p1-sec-header">
             <span className="p1-sec-num">03</span>
-            <h3 className="p1-sec-title">WHAT WE FOUND</h3>
+            <h3 className="p1-sec-title">KEY INSIGHTS</h3>
             <div className="p1-sec-rule p1-rule-found" aria-hidden="true" />
           </div>
+          <p className="p1-sec-subtitle">WHAT WE DISCOVERED</p>
 
           <div className="p1-finding-flow">
             <div className="p1-finding-card p1-fc-1">
               <p>
-                Most existing resort wear is <strong>single-function</strong> with limited versatility.
+                Current resort wear is often <strong>single-use</strong> with <strong>limited versatility</strong>.
               </p>
             </div>
             <div className="p1-finding-arrow" aria-hidden="true">
@@ -165,8 +153,8 @@ export function Project1BeginningSection() {
             </div>
             <div className="p1-finding-card p1-fc-2">
               <p>
-                Consumers want fashion that is <strong>versatile</strong>, <strong>travel-friendly</strong> and{' '}
-                <strong>sustainable</strong>.
+                Today&rsquo;s consumer seeks fashion that is <strong>versatile</strong>,{' '}
+                <strong>travel-friendly</strong> and <strong>sustainable</strong>.
               </p>
             </div>
             <div className="p1-finding-arrow" aria-hidden="true">
@@ -174,42 +162,36 @@ export function Project1BeginningSection() {
             </div>
             <div className="p1-finding-card p1-fc-3">
               <p>
-                There is an opportunity for <strong>adaptable</strong> resort wear that offers{' '}
-                <strong>more value from</strong> <strong>one garment</strong>.
+                There is a strong opportunity for <strong>adaptable resort wear</strong> that offers{' '}
+                <strong>more value</strong> from <strong>one garment</strong>.
               </p>
             </div>
           </div>
         </div>
 
-        {/* SECTION 04: THE QUESTION */}
+        {/* SECTION 04: THE BIG QUESTION */}
         <div className="p1-right-sec p1-sec-question">
           <div className="p1-sec-header">
             <span className="p1-sec-num">04</span>
-            <h3 className="p1-sec-title">THE QUESTION</h3>
+            <h3 className="p1-sec-title">THE BIG QUESTION</h3>
             <div className="p1-sec-rule p1-rule-question" aria-hidden="true" />
           </div>
 
           <div className="p1-question-grid">
             <div className="p1-question-card">
               <h4 className="p1-question-text">
-                CAN ONE GARMENT<br />DO MORE THAN ONE JOB?
+                CAN ONE DRESS<br />TAKE YOU FURTHER?
               </h4>
               <div className="p1-question-rule" aria-hidden="true" />
-              <p className="p1-question-keywords">CASUAL &nbsp;|&nbsp; TRAVEL &nbsp;|&nbsp; RESORT</p>
+              <p className="p1-question-keywords">ONE DRESS &nbsp;|&nbsp; MORE LOOKS &nbsp;|&nbsp; ENDLESS DESTINATIONS</p>
             </div>
 
             <div className="p1-question-img-wrap">
               <img
-                src="/ramya-portfolio-images/project1-beach-question.jpg"
+                src="/ramya-portfolio-images/placeholders/1D.png"
                 alt="Mediterranean beach with straw parasol and lounge chair"
                 className="p1-question-img"
               />
-              <div className="p1-question-overlay-text">
-                LESS<br />
-                TO CARRY.<br />
-                MORE TO<br />
-                EXPERIENCE.
-              </div>
             </div>
           </div>
         </div>

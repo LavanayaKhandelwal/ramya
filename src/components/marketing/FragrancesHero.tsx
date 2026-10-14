@@ -10,6 +10,7 @@ export function FragrancesHero() {
   return (
     <section className="px4-hero" aria-label="Project 4 — UNIQLO Fragrances">
       <SectionImage
+        src="/ramya-portfolio-images/placeholders/4A.png"
         alt="Four UNIQLO fragrance bottles — HANA, KAZE, MIZU and SORA — on a sunlit stone surface with pale sky and water reflections"
         className="px4-hero__bg"
         tint="#E7E1D6"

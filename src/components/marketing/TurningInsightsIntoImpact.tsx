@@ -18,6 +18,7 @@ const CONTRIBUTIONS = [
     heading: ['Consumer', 'Understanding'],
     icon: 'People',
     iconBg: '#E9D7B9',
+    src: '/ramya-portfolio-images/placeholders/4T.png',
     alt: 'Close-up of pale ivory fabric with natural folds and a small white flower',
     tint: '#EFE7DA',
     body: [
@@ -30,6 +31,7 @@ const CONTRIBUTIONS = [
     heading: ['Brand', 'Translation'],
     icon: 'Bulb',
     iconBg: '#E9C9C7',
+    src: '/ramya-portfolio-images/placeholders/4U.png',
     alt: 'Neutral-colored garments on wooden hangers with soft cherry blossoms',
     tint: '#ECDCD8',
     body: [
@@ -42,6 +44,7 @@ const CONTRIBUTIONS = [
     heading: ['Product', 'Development'],
     icon: 'Gear',
     iconBg: '#DDE0D1',
+    src: '/ramya-portfolio-images/placeholders/4V.png',
     alt: 'Pale pink cherry blossoms with dark green leaves in warm sunlight',
     tint: '#E7DED0',
     body: [
@@ -54,6 +57,7 @@ const CONTRIBUTIONS = [
     heading: ['Market', 'Perspective'],
     icon: 'Chart',
     iconBg: '#D8E4E8',
+    src: '/ramya-portfolio-images/placeholders/4W.png',
     alt: 'Clear blue water with bright sunlight creating rippling reflections',
     tint: '#D3E1EC',
     body: [
@@ -64,12 +68,12 @@ const CONTRIBUTIONS = [
 ];
 
 const SKILLS = [
-  { n: '01', heading: ['Market', 'Research'], alt: 'Magnifying glass resting on printed market research documents', tint: '#E7E0D2', body: 'Analysing trends and competition to identify opportunities.' },
-  { n: '02', heading: ['Consumer', 'Insight'], alt: 'Minimal scene with small human figurines on soft pink surfaces', tint: '#EEDAD8', body: 'Understanding consumer behaviour and translating insights into concepts.' },
-  { n: '03', heading: ['Concept', 'Development'], alt: 'Fragrance concept sketch and perfume bottle study on a design desk', tint: '#EAE3D6', body: 'Ideating and developing fragrance concepts aligned with brand identity.' },
-  { n: '04', heading: ['Visual', 'Storytelling'], alt: 'Open design notebook with visual references and a pencil', tint: '#E7DFD2', body: 'Presenting ideas through mood boards, visuals and compelling design narratives.' },
-  { n: '05', heading: ['Product', 'Planning'], alt: 'Neutral fabric swatches arranged in a material development workspace', tint: '#E4DCCE', body: 'Working on ingredient direction, packaging development and visualisation.' },
-  { n: '06', heading: ['Strategic', 'Thinking'], alt: 'Printed market analysis report with a simple bar chart and a pencil', tint: '#DEE1DD', body: 'Evaluating market potential and aligning creativity with business objectives.' },
+  { n: '01', heading: ['Market', 'Research'], src: '/ramya-portfolio-images/placeholders/4X.png', alt: 'Magnifying glass resting on printed market research documents', tint: '#E7E0D2', body: 'Analysing trends and competition to identify opportunities.' },
+  { n: '02', heading: ['Consumer', 'Insight'], src: '/ramya-portfolio-images/placeholders/4Y.png', alt: 'Minimal scene with small human figurines on soft pink surfaces', tint: '#EEDAD8', body: 'Understanding consumer behaviour and translating insights into concepts.' },
+  { n: '03', heading: ['Concept', 'Development'], src: '/ramya-portfolio-images/placeholders/4Z.png', alt: 'Fragrance concept sketch and perfume bottle study on a design desk', tint: '#EAE3D6', body: 'Ideating and developing fragrance concepts aligned with brand identity.' },
+  { n: '04', heading: ['Visual', 'Storytelling'], src: '/ramya-portfolio-images/placeholders/4AA.png', alt: 'Open design notebook with visual references and a pencil', tint: '#E7DFD2', body: 'Presenting ideas through mood boards, visuals and compelling design narratives.' },
+  { n: '05', heading: ['Product', 'Planning'], src: '/ramya-portfolio-images/placeholders/4AB.png', alt: 'Neutral fabric swatches arranged in a material development workspace', tint: '#E4DCCE', body: 'Working on ingredient direction, packaging development and visualisation.' },
+  { n: '06', heading: ['Strategic', 'Thinking'], src: '/ramya-portfolio-images/placeholders/4AC.png', alt: 'Printed market analysis report with a simple bar chart and a pencil', tint: '#DEE1DD', body: 'Evaluating market potential and aligning creativity with business objectives.' },
 ];
 
 export function TurningInsightsIntoImpact() {
@@ -85,7 +89,7 @@ export function TurningInsightsIntoImpact() {
           {CONTRIBUTIONS.map((c) => (
             <div key={c.n} className="px4t__col">
               <div className="px4t__col-imgwrap">
-                <SectionImage alt={c.alt} className="px4t__arch" tint={c.tint} />
+                <SectionImage src={c.src} alt={c.alt} className="px4t__arch" tint={c.tint} />
                 <span className="px4t__badge" style={{ background: c.iconBg }}>
                   <Icon name={c.icon} />
                 </span>
@@ -116,7 +120,7 @@ export function TurningInsightsIntoImpact() {
         <ul className="px4t__skills">
           {SKILLS.map((s) => (
             <li key={s.n}>
-              <SectionImage alt={s.alt} className="px4t__skill-img" tint={s.tint} />
+              <SectionImage src={s.src} alt={s.alt} className="px4t__skill-img" tint={s.tint} />
               <h3>
                 {s.heading[0]}
                 <br />

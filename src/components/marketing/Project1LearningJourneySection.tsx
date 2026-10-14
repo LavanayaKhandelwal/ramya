@@ -17,6 +17,7 @@ const STAGES: Stage[] = [
     description:
       'Learnt to translate macro trends into a clear product direction and relevant micro trends.',
     imageAlt: 'Resort-wear trend research notebook flat lay with Mediterranean references and palette swatches',
+    imageSrc: '/ramya-portfolio-images/placeholders/1AN.png',
     numberTone: 'blush',
   },
   {
@@ -24,6 +25,7 @@ const STAGES: Stage[] = [
     heading: ['CUSTOMER-FIRST', 'THINKING'],
     description: 'Learnt to connect consumer needs, lifestyle and occasion with product decisions.',
     imageAlt: 'Butter-yellow convertible tiered dress on a mannequin in a resort-wear showroom',
+    imageSrc: '/ramya-portfolio-images/placeholders/1AO.png',
     numberTone: 'gold',
   },
   {
@@ -32,6 +34,7 @@ const STAGES: Stage[] = [
     description:
       'Learnt how silhouette, versatility, fabric and details work together to shape a commercially relevant garment.',
     imageAlt: 'Product-development flat lay with technical dress sketch, fabric swatches and lace samples',
+    imageSrc: '/ramya-portfolio-images/placeholders/1AP.png',
     numberTone: 'blush',
   },
   {
@@ -40,6 +43,7 @@ const STAGES: Stage[] = [
     description:
       'Learnt to move from concept and fabric exploration to sampling, construction details and a final product.',
     imageAlt: 'Close-up of yellow garment being stitched with white floral lace trim at a sewing machine',
+    imageSrc: '/ramya-portfolio-images/placeholders/1AQ.png',
     numberTone: 'gold',
   },
 ];

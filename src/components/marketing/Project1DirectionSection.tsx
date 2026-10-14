@@ -12,7 +12,7 @@ export function Project1DirectionSection() {
       {/* LEFT PANEL — 31% width photographic editorial */}
       <div className="p1-dir-left">
         <img
-          src="/ramya-portfolio-images/project3-left-hero.jpg"
+          src="/ramya-portfolio-images/placeholders/1E.png"
           alt="Woman in ivory open-back resort dress looking out over Mediterranean coastline"
           className="p1-dir-left-bg-img"
           draggable={false}
@@ -34,20 +34,6 @@ export function Project1DirectionSection() {
           </p>
         </div>
 
-        {/* Quote */}
-        <div className="p1-dir-quote-group">
-          <blockquote className="p1-dir-quote">
-            &ldquo;Real needs<br />
-            lead to<br />
-            relevant<br />
-            fashion.&rdquo;
-          </blockquote>
-        </div>
-
-        {/* Bottom Keywords */}
-        <div className="p1-dir-keywords">
-          TRAVEL &nbsp;&bull;&nbsp; PEOPLE &nbsp;&bull;&nbsp; PURPOSE &nbsp;&bull;&nbsp; POSSIBILITIES
-        </div>
       </div>
 
       {/* RIGHT PANEL — 69% width structured research slide */}
@@ -71,19 +57,19 @@ export function Project1DirectionSection() {
             <div className="p1-reveal-grid">
               <div className="p1-reveal-col">
                 <img
-                  src="/ramya-portfolio-images/project1-beach-question.jpg"
+                  src="/ramya-portfolio-images/placeholders/1F.png"
                   alt="Mediterranean coastal village"
                   className="p1-reveal-img"
                 />
                 <div className="p1-reveal-caption">
                   <h4>CHANGING LIFESTYLES</h4>
-                  <p>Consumers are balancing multiple roles and occasions.</p>
+                  <p>Consumers are balancing multiple roles and occasions while travelling and at home.</p>
                 </div>
               </div>
 
               <div className="p1-reveal-col">
                 <img
-                  src="/ramya-portfolio-images/project1-beginning-hero.jpg"
+                  src="/ramya-portfolio-images/placeholders/1G.png"
                   alt="Mediterranean architectural terrace"
                   className="p1-reveal-img"
                 />
@@ -95,7 +81,7 @@ export function Project1DirectionSection() {
 
               <div className="p1-reveal-col">
                 <img
-                  src="/ramya-portfolio-images/project3-research-rack.jpg"
+                  src="/ramya-portfolio-images/placeholders/1H.png"
                   alt="Resort clothing rack"
                   className="p1-reveal-img"
                 />
@@ -123,7 +109,7 @@ export function Project1DirectionSection() {
 
             <div className="p1-macro-flex-wrap">
               <img
-                src="/ramya-portfolio-images/project3-fabric-linen.jpg"
+                src="/ramya-portfolio-images/placeholders/1I.png"
                 alt="Ivory linen fabric with palm shadow"
                 className="p1-macro-img"
               />
@@ -137,10 +123,6 @@ export function Project1DirectionSection() {
                 <strong>FLEX&ndash;STABILITY</strong>
               </div>
             </div>
-
-            <p className="p1-macro-bottom-caption">
-              Fashion that moves with you, through every phase.
-            </p>
           </div>
         </div>
 
@@ -164,13 +146,12 @@ export function Project1DirectionSection() {
 
               <div className="p1-m2m-mid-list">
                 <span>ADJUSTABLE</span>
-                <span>&bull;</span>
                 <span>MODULAR</span>
-                <span>&bull;</span>
                 <span>MULTIFUNCTIONAL</span>
-                <span>&bull;</span>
                 <span>TRANSFORMABLE</span>
               </div>
+
+              <div className="p1-m2m-arrow" aria-hidden="true">&rarr;</div>
 
               <div className="p1-m2m-block p1-mb-micro">
                 <span className="p1-m2m-tag">MICRO TREND</span>
@@ -179,15 +160,10 @@ export function Project1DirectionSection() {
               </div>
             </div>
 
-            <div className="p1-m2m-thumbs-wrap">
-              <div className="p1-m2m-thumbs">
-                <img src="/ramya-portfolio-images/project3-left-hero.jpg" alt="Tie-back convertible construction detail" />
-                <img src="/ramya-portfolio-images/project1-beginning-hero.jpg" alt="Ivory fabric tie detail" />
-                <img src="/ramya-portfolio-images/project3-research-rack.jpg" alt="Convertible garment element" />
-              </div>
-              <div className="p1-m2m-note">
-                &ldquo;One Garment.<br />More Ways.&rdquo;
-              </div>
+            <div className="p1-m2m-thumbs">
+              <img src="/ramya-portfolio-images/placeholders/1J.png" alt="Tie-back convertible construction detail" />
+              <img src="/ramya-portfolio-images/placeholders/1K.png" alt="Ivory fabric tie detail" />
+              <img src="/ramya-portfolio-images/placeholders/1L.png" alt="Convertible garment element" />
             </div>
           </div>
 
@@ -204,7 +180,7 @@ export function Project1DirectionSection() {
 
             <div className="p1-fabric-flex">
               <img
-                src="/ramya-portfolio-images/project3-fabric-linen.jpg"
+                src="/ramya-portfolio-images/placeholders/1M.png"
                 alt="Close-up macro linen texture"
                 className="p1-fabric-img"
               />
@@ -217,7 +193,10 @@ export function Project1DirectionSection() {
                         <path d="M12 2C6.5 2 2 6.5 2 12c0 5 3.5 9 8 10 0-3 1.5-6 4-8.5S20 9.5 20 7c0-2.8-3.6-5-8-5z" />
                       </svg>
                     </div>
-                    <span>LIGHTWEIGHT</span>
+                    <div className="p1-attr-text">
+                      <span>LIGHTWEIGHT</span>
+                      <p>Easy to wear, ideal for travel and warm climates.</p>
+                    </div>
                   </div>
 
                   <div className="p1-fabric-attr">
@@ -226,7 +205,10 @@ export function Project1DirectionSection() {
                         <path d="M4 8h16M4 12h16M4 16h12" />
                       </svg>
                     </div>
-                    <span>BREATHABLE</span>
+                    <div className="p1-attr-text">
+                      <span>BREATHABLE</span>
+                      <p>Keeps you comfortable through changing weather and activities.</p>
+                    </div>
                   </div>
 
                   <div className="p1-fabric-attr">
@@ -239,7 +221,10 @@ export function Project1DirectionSection() {
                         <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
                       </svg>
                     </div>
-                    <span>WARM-WEATHER<br />COMFORT</span>
+                    <div className="p1-attr-text">
+                      <span>WARM-WEATHER<br />COMFORT</span>
+                      <p>Perfect for resort wear and outdoor explorations.</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -260,31 +245,31 @@ export function Project1DirectionSection() {
             <div className="p1-chain-wrap">
               <div className="p1-chain-node">
                 <span className="p1-node-title">FLEX&ndash;<br />STABILITY</span>
-                <span className="p1-node-sub">(Macro)</span>
+                <span className="p1-node-sub">(Macro Trend)</span>
+                <span className="p1-node-desc">Adaptability and durability as a lifestyle approach.</span>
               </div>
               <div className="p1-chain-arrow">&rarr;</div>
 
               <div className="p1-chain-node">
                 <span className="p1-node-title">CONVERTIBLE<br />CLOTHING</span>
-                <span className="p1-node-sub">(Micro)</span>
+                <span className="p1-node-sub">(Product Direction)</span>
+                <span className="p1-node-desc">Garments that adjust to different needs and occasions.</span>
               </div>
               <div className="p1-chain-arrow">&rarr;</div>
 
               <div className="p1-chain-node">
                 <span className="p1-node-title">DETACHABLE<br />ELEMENTS</span>
-                <span className="p1-node-sub">(Design Direction)</span>
+                <span className="p1-node-sub">(Design Feature)</span>
+                <span className="p1-node-desc">Flexible details that allow multiple ways of styling and use.</span>
               </div>
               <div className="p1-chain-arrow">&rarr;</div>
 
               <div className="p1-chain-node p1-node-highlight">
                 <span className="p1-node-title">MINI &rarr; MAXI</span>
                 <span className="p1-node-sub">(Product Opportunity)</span>
+                <span className="p1-node-desc">One design, many looks for different settings.</span>
               </div>
             </div>
-
-            <p className="p1-closing-statement">
-              &ldquo;The trend was no longer just something to follow &mdash; it became a design problem to solve.&rdquo;
-            </p>
           </div>
         </div>
       </div>

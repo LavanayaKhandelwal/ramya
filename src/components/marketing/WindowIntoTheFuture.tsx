@@ -1,6 +1,5 @@
 import React from 'react';
 import { SectionImage } from './SectionImage';
-import { P3_BG } from './FutureFloralsHero';
 
 const Icon = ({ name }: { name: string }) => {
   const p = { fill: 'none', stroke: '#77718F', strokeWidth: 1.3, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const };
@@ -28,11 +27,12 @@ const PRINCIPLES = [
 export function WindowIntoTheFuture() {
   return (
     <section className="px3w" aria-labelledby="px3w-heading">
-      <img className="px3w__bg" src={P3_BG} alt="" aria-hidden="true" draggable={false} />
+      <img className="px3w__bg" src="/ramya-portfolio-images/placeholders/3X.png" alt="" aria-hidden="true" draggable={false} />
 
       <div className="px3w__grid">
         <div className="px3w__main">
           <SectionImage
+            src="/ramya-portfolio-images/placeholders/3Y.png"
             alt="Full-height Cover Story retail window with a central floral-dressed mannequin, iridescent drapes and holographic flower structures"
             className="px3w__main-img"
             tint="#E9DEE9"
@@ -77,6 +77,7 @@ export function WindowIntoTheFuture() {
         <div className="px3w__details">
           <figure className="px3w__detail">
             <SectionImage
+              src="/ramya-portfolio-images/placeholders/3Z.png"
               alt="Close-up of a large holographic flower with layered translucent petals and an illuminated pink-gold centre"
               className="px3w__detail-img px3w__detail-img--square"
               tint="#EDE0EC"
@@ -85,6 +86,7 @@ export function WindowIntoTheFuture() {
           </figure>
           <figure className="px3w__detail">
             <SectionImage
+              src="/ramya-portfolio-images/placeholders/3AA.png"
               alt="Close-up of the black mannequin in a floral dress highlighting the print, drape and structured handbag"
               className="px3w__detail-img"
               tint="#E6DDEA"

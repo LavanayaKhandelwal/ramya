@@ -77,6 +77,7 @@ function Icon({ name }: { name: IconName }) {
 interface Profile {
   number: string;
   circleBg: string;
+  imageSrc: string;
   imageAlt: string;
   tint: string;
   question: string;
@@ -89,6 +90,7 @@ const PROFILES: Profile[] = [
   {
     number: '01',
     circleBg: '#F0D9D5',
+    imageSrc: '/ramya-portfolio-images/placeholders/2J.png',
     imageAlt: 'Row of neutral everyday garments on wooden hangers along a natural rail',
     tint: '#E6DCCB',
     question: 'Why are consumers choosing fast fashion?',
@@ -104,6 +106,7 @@ const PROFILES: Profile[] = [
   {
     number: '02',
     circleBg: '#DCEAF0',
+    imageSrc: '/ramya-portfolio-images/placeholders/2K.png',
     imageAlt: 'Calm lifestyle workspace with laptop, notebook, coffee cup and rattan chair',
     tint: '#E4DFD4',
     question: 'Why do they prefer trends over basics?',
@@ -119,6 +122,7 @@ const PROFILES: Profile[] = [
   {
     number: '03',
     circleBg: '#E2E3D2',
+    imageSrc: '/ramya-portfolio-images/placeholders/2L.png',
     imageAlt: 'Flat lay of blush pleated fabric, cream sneakers, denim and a beige shoulder bag',
     tint: '#E6D9D6',
     question: 'Why do they switch brands often?',
@@ -134,9 +138,9 @@ const PROFILES: Profile[] = [
 ];
 
 const SHARED_TRUTH = [
-  { label: 'Comfort', alt: 'Macro photograph of textured beige linen fabric', tint: '#E1D6C2' },
-  { label: 'Simplicity', alt: 'Soft blush fabric falling into elegant natural folds', tint: '#EBD9D8' },
-  { label: 'Subtle Personality', alt: 'Small pastel flowers embroidered onto textured neutral fabric', tint: '#DEDCD0' },
+  { label: 'Comfort', alt: 'Macro photograph of textured beige linen fabric', src: '/ramya-portfolio-images/placeholders/2M.png', tint: '#E1D6C2' },
+  { label: 'Simplicity', alt: 'Soft blush fabric falling into elegant natural folds', src: '/ramya-portfolio-images/placeholders/2N.png', tint: '#EBD9D8' },
+  { label: 'Subtle Personality', alt: 'Small pastel flowers embroidered onto textured neutral fabric', src: '/ramya-portfolio-images/placeholders/2O.png', tint: '#DEDCD0' },
 ];
 
 export function EverydayChoicesToInsights() {
@@ -160,7 +164,7 @@ export function EverydayChoicesToInsights() {
             </span>
             <span className="px2b__connector" aria-hidden="true" />
             <div className="px2b__img-wrap">
-              <SectionImage src={undefined} alt={p.imageAlt} className="px2b__img" tint={p.tint} />
+              <SectionImage src={p.imageSrc} alt={p.imageAlt} className="px2b__img" tint={p.tint} />
               <div className="px2b__qcard">{p.question}</div>
             </div>
             <ul className="px2b__insights">
@@ -188,7 +192,7 @@ export function EverydayChoicesToInsights() {
             {SHARED_TRUTH.map((t, i) => (
               <React.Fragment key={t.label}>
                 <div className="px2b__truth-item">
-                  <SectionImage alt={t.alt} className="px2b__truth-circle" tint={t.tint} />
+                  <SectionImage src={t.src} alt={t.alt} className="px2b__truth-circle" tint={t.tint} />
                   <span>{t.label}</span>
                 </div>
                 {i < SHARED_TRUTH.length - 1 && (
@@ -211,6 +215,7 @@ export function EverydayChoicesToInsights() {
 
         <div className="px2b__botanical">
           <SectionImage
+            src="/ramya-portfolio-images/placeholders/2P.png"
             alt="Cluster of small white and yellow daisy-like flowers against a textured cream wall"
             tint="#E6DCC8"
           />

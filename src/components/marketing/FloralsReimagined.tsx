@@ -1,30 +1,33 @@
 import React from 'react';
 import { SectionImage } from './SectionImage';
-import { P3_BG } from './FutureFloralsHero';
 
 const INSIGHTS = [
   {
     title: 'The Brand',
     desc: 'A contemporary, feminine and trend-led fashion label that blends modern silhouettes with effortless style.',
     alt: 'Close-up of a delicate pale pink blossom with a soft cream background',
+    src: '/ramya-portfolio-images/placeholders/3C.png',
     tint: '#F0DAD9',
   },
   {
     title: 'The Season',
     desc: 'Spring/Summer brings lightness, freshness and a playful, optimistic mood to the collection.',
     alt: 'Iridescent pastel material reflecting lavender, pink and blue light',
+    src: '/ramya-portfolio-images/placeholders/3D.png',
     tint: '#E5DDF0',
   },
   {
     title: 'The Creative Direction',
     desc: 'Traditional florals reinterpreted through holographic materials, reflective surfaces and translucent layers.',
     alt: 'Pale lavender flowers with translucent petals and pearlescent reflections',
+    src: '/ramya-portfolio-images/placeholders/3E.png',
     tint: '#E8E0F2',
   },
   {
     title: 'The Concept',
     desc: 'A modern, expressive take on florals where nature meets innovation, creating a soft yet futuristic in-store experience.',
     alt: 'Blue and pink iridescent floral forms against a soft pastel background',
+    src: '/ramya-portfolio-images/placeholders/3F.png',
     tint: '#DDE7F0',
   },
 ];
@@ -39,13 +42,13 @@ const KEYWORDS = [
 ];
 
 const MOOD = [
-  { alt: 'Iridescent flower sculpture', cls: 'a' },
-  { alt: 'Holographic material close-up', cls: 'b' },
-  { alt: 'Editorial beauty portrait with luminous pastel makeup', cls: 'c' },
-  { alt: 'Futuristic fashion portrait with reflective styling', cls: 'd' },
-  { alt: 'Translucent purple-blue flowers', cls: 'e' },
-  { alt: 'Flowing iridescent fabric', cls: 'f' },
-  { alt: 'Pastel fashion silhouettes', cls: 'g' },
+  { alt: 'Iridescent flower sculpture', cls: 'a', src: '/ramya-portfolio-images/placeholders/3G.png' },
+  { alt: 'Holographic material close-up', cls: 'b', src: '/ramya-portfolio-images/placeholders/3H.png' },
+  { alt: 'Editorial beauty portrait with luminous pastel makeup', cls: 'c', src: '/ramya-portfolio-images/placeholders/3I.png' },
+  { alt: 'Futuristic fashion portrait with reflective styling', cls: 'd', src: '/ramya-portfolio-images/placeholders/3J.png' },
+  { alt: 'Translucent purple-blue flowers', cls: 'e', src: '/ramya-portfolio-images/placeholders/3K.png' },
+  { alt: 'Flowing iridescent fabric', cls: 'f', src: '/ramya-portfolio-images/placeholders/3L.png' },
+  { alt: 'Pastel fashion silhouettes', cls: 'g', src: '/ramya-portfolio-images/placeholders/3M.png' },
 ];
 
 const PALETTE = [
@@ -75,7 +78,7 @@ const TRENDS = [
 export function FloralsReimagined() {
   return (
     <section className="px3r" aria-labelledby="px3r-heading">
-      <img className="px3r__bg" src={P3_BG} alt="" aria-hidden="true" draggable={false} />
+      <img className="px3r__bg" src="/ramya-portfolio-images/placeholders/3B.png" alt="" aria-hidden="true" draggable={false} />
 
       <div className="px3r__grid">
         <div className="px3r__left">
@@ -92,7 +95,7 @@ export function FloralsReimagined() {
           <ul className="px3r__insights">
             {INSIGHTS.map((ins) => (
               <li key={ins.title}>
-                <SectionImage alt={ins.alt} className="px3r__ins-img" tint={ins.tint} />
+                <SectionImage src={ins.src} alt={ins.alt} className="px3r__ins-img" tint={ins.tint} />
                 <div>
                   <h3>{ins.title}</h3>
                   <p>{ins.desc}</p>
@@ -118,7 +121,7 @@ export function FloralsReimagined() {
             <h3 className="px3r__panel-label">Mood Board</h3>
             <div className="px3r__mood">
               {MOOD.map((m) => (
-                <SectionImage key={m.alt} alt={m.alt} className={`px3r__mood-img px3r__mood-img--${m.cls}`} tint="#EDE3EC" />
+                <SectionImage key={m.alt} src={m.src} alt={m.alt} className={`px3r__mood-img px3r__mood-img--${m.cls}`} tint="#EDE3EC" />
               ))}
             </div>
           </div>
@@ -133,8 +136,8 @@ export function FloralsReimagined() {
                   ))}
                 </div>
                 <div className="px3r__palette-refs">
-                  <SectionImage alt="Editorial fashion photograph with pastel garments" tint="#EADCE6" />
-                  <SectionImage alt="Holographic material sample" tint="#E1E7EF" />
+                  <SectionImage src="/ramya-portfolio-images/placeholders/3N.png" alt="Editorial fashion photograph with pastel garments" tint="#EADCE6" />
+                  <SectionImage src="/ramya-portfolio-images/placeholders/3O.png" alt="Holographic material sample" tint="#E1E7EF" />
                 </div>
               </div>
               <ul className="px3r__swatch-labels">

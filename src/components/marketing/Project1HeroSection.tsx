@@ -12,7 +12,7 @@ export function Project1HeroSection() {
       <div className="project1-hero-canvas">
         {/* Background image — locked exact canvas, unedited */}
         <img
-          src="/ramya-portfolio-images/project1-hero-section-background.png"
+          src="/ramya-portfolio-images/placeholders/1A.png"
           alt="Woman wearing pale yellow convertible resort dress in Mediterranean architectural setting"
           className="project1-bg-image"
           draggable={false}

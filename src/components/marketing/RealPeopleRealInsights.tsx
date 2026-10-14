@@ -29,9 +29,9 @@ const QUESTIONS = [
 ];
 
 const INSIGHTS = [
-  { n: '01', pct: '62%', headline: 'PREFERRED CLEAN AND SUBTLE', desc: 'liked clean and subtle fragrances', alt: 'Close-up of pale ivory fabric with soft natural folds', tint: '#EFE7DA' },
-  { n: '02', pct: '78%', headline: 'BRAND ALIGNMENT', desc: 'felt the scents matched Uniqlo\u2019s minimal and everyday appeal', alt: 'Botanical green leaves casting shadows on pale limestone', tint: '#DCE2D2' },
-  { n: '03', pct: '71%', headline: 'FRESH AND CALM NOTES', desc: 'preferred fresh and calming notes for daily use', alt: 'Clear blue water with sunlight reflecting on the ripples', tint: '#CFE0EC' },
+  { n: '01', pct: '62%', headline: 'PREFERRED CLEAN AND SUBTLE', desc: 'liked clean and subtle fragrances', src: '/ramya-portfolio-images/placeholders/4Q.png', alt: 'Close-up of pale ivory fabric with soft natural folds', tint: '#EFE7DA' },
+  { n: '02', pct: '78%', headline: 'BRAND ALIGNMENT', desc: 'felt the scents matched Uniqlo\u2019s minimal and everyday appeal', src: '/ramya-portfolio-images/placeholders/4R.png', alt: 'Botanical green leaves casting shadows on pale limestone', tint: '#DCE2D2' },
+  { n: '03', pct: '71%', headline: 'FRESH AND CALM NOTES', desc: 'preferred fresh and calming notes for daily use', src: '/ramya-portfolio-images/placeholders/4S.png', alt: 'Clear blue water with sunlight reflecting on the ripples', tint: '#CFE0EC' },
 ];
 
 const TAKEAWAYS = [
@@ -58,6 +58,7 @@ export function RealPeopleRealInsights() {
           <span className="px4r__divider" aria-hidden="true" />
           <div className="px4r__stills">
             <SectionImage
+              src="/ramya-portfolio-images/placeholders/4O.png"
               alt="UNIQLO HANA perfume bottle on rough limestone with white blossoms and botanical shadows"
               className="px4r__bottle"
               tint="#EDE4D6"
@@ -74,6 +75,7 @@ export function RealPeopleRealInsights() {
 
         <div className="px4r__center">
           <SectionImage
+            src="/ramya-portfolio-images/placeholders/4P.png"
             alt="Pale cherry blossoms, natural daylight and soft blue sky"
             className="px4r__support-photo"
             tint="#F0DCDB"
@@ -133,7 +135,7 @@ export function RealPeopleRealInsights() {
           <ul className="px4r__insights">
             {INSIGHTS.map((ins) => (
               <li key={ins.n}>
-                <SectionImage alt={ins.alt} className="px4r__insight-img" tint={ins.tint} />
+                <SectionImage src={ins.src} alt={ins.alt} className="px4r__insight-img" tint={ins.tint} />
                 <div>
                   <span className="px4r__insight-headline">{ins.headline}</span>
                   <span className="px4r__pct">{ins.pct}</span>

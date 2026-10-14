@@ -16,7 +16,7 @@ export function Project1CollectionSection() {
       {/* LEFT PANEL — ~24% width full-height photographic panel */}
       <div className="p1-col-left">
         <img
-          src="/ramya-portfolio-images/project1-hero-section-background.png"
+          src="/ramya-portfolio-images/placeholders/1N.png"
           alt="Mediterranean resort architecture with terracotta planter, straw hat, and flowing ivory dress"
           className="p1-col-left-bg-img"
           draggable={false}
@@ -80,10 +80,10 @@ export function Project1CollectionSection() {
 
             <div className="p1-mood-collage">
               <div className="p1-mood-grid">
-                <img src="/ramya-portfolio-images/project1-beginning-hero.jpg" alt="Palm shadows on stucco" className="p1-mg-img p1-mg-1" />
-                <img src="/ramya-portfolio-images/project1-beach-question.jpg" alt="Mediterranean coastal view" className="p1-mg-img p1-mg-2" />
-                <img src="/ramya-portfolio-images/project3-left-hero.jpg" alt="Woman walking in resort outfit" className="p1-mg-img p1-mg-3" />
-                <img src="/ramya-portfolio-images/project1-flatlay-brief.jpg" alt="Beach parasols and lounge chairs" className="p1-mg-img p1-mg-4" />
+                <img src="/ramya-portfolio-images/placeholders/1O.png" alt="Palm shadows on stucco" className="p1-mg-img p1-mg-1" />
+                <img src="/ramya-portfolio-images/placeholders/1P.png" alt="Mediterranean coastal view" className="p1-mg-img p1-mg-2" />
+                <img src="/ramya-portfolio-images/placeholders/1Q.png" alt="Woman walking in resort outfit" className="p1-mg-img p1-mg-3" />
+                <img src="/ramya-portfolio-images/placeholders/1R.png" alt="Beach parasols and lounge chairs" className="p1-mg-img p1-mg-4" />
                 
                 <div className="p1-mood-script-card">
                   &ldquo;Good<br />Outfits<br />Brighter<br />Days&rdquo;
@@ -125,9 +125,9 @@ export function Project1CollectionSection() {
               </div>
 
               <div className="p1-theme-right-collage">
-                <img src="/ramya-portfolio-images/project1-beginning-hero.jpg" alt="Flowing sheer curtains & villa" className="p1-th-img p1-th-1" />
-                <img src="/ramya-portfolio-images/project3-left-hero.jpg" alt="Open back resort dress detail" className="p1-th-img p1-th-2" />
-                <img src="/ramya-portfolio-images/project1-flatlay-brief.jpg" alt="Palm leaf in warm sunlight" className="p1-th-img p1-th-3" />
+                <img src="/ramya-portfolio-images/placeholders/1S.png" alt="Flowing sheer curtains & villa" className="p1-th-img p1-th-1" />
+                <img src="/ramya-portfolio-images/placeholders/1T.png" alt="Open back resort dress detail" className="p1-th-img p1-th-2" />
+                <img src="/ramya-portfolio-images/placeholders/1U.png" alt="Palm leaf in warm sunlight" className="p1-th-img p1-th-3" />
 
                 <div className="p1-theme-note">
                   &ldquo;Same Places.<br />New Perspectives.&rdquo;
@@ -155,37 +155,37 @@ export function Project1CollectionSection() {
               <div className="p1-color-card">
                 <div className="p1-color-swatch" style={{ backgroundColor: '#E8D09A' }} />
                 <span className="p1-color-name">CORN<br />CONFLECTION</span>
-                <img src="/ramya-portfolio-images/project1-beginning-hero.jpg" alt="Corn gold context" className="p1-color-thumb" />
+                <img src="/ramya-portfolio-images/placeholders/1V.png" alt="Corn gold context" className="p1-color-thumb" />
               </div>
 
               <div className="p1-color-card">
                 <div className="p1-color-swatch" style={{ backgroundColor: '#D29E9D' }} />
                 <span className="p1-color-name">PINK<br />COSMOS</span>
-                <img src="/ramya-portfolio-images/project1-flatlay-brief.jpg" alt="Blush pink context" className="p1-color-thumb" />
+                <img src="/ramya-portfolio-images/placeholders/1W.png" alt="Blush pink context" className="p1-color-thumb" />
               </div>
 
               <div className="p1-color-card">
                 <div className="p1-color-swatch" style={{ backgroundColor: '#7798AA' }} />
                 <span className="p1-color-name">BLUE<br />TURQUOISE</span>
-                <img src="/ramya-portfolio-images/project1-beach-question.jpg" alt="Turquoise sea context" className="p1-color-thumb" />
+                <img src="/ramya-portfolio-images/placeholders/1X.png" alt="Turquoise sea context" className="p1-color-thumb" />
               </div>
 
               <div className="p1-color-card">
                 <div className="p1-color-swatch" style={{ backgroundColor: '#C78256' }} />
                 <span className="p1-color-name">DUSTY<br />ORANGE</span>
-                <img src="/ramya-portfolio-images/project1-hero-section-background.png" alt="Dusty orange context" className="p1-color-thumb" />
+                <img src="/ramya-portfolio-images/placeholders/1Y.png" alt="Dusty orange context" className="p1-color-thumb" />
               </div>
 
               <div className="p1-color-card">
                 <div className="p1-color-swatch" style={{ backgroundColor: '#D98A69' }} />
                 <span className="p1-color-name">SUN-KISSED<br />CORAL</span>
-                <img src="/ramya-portfolio-images/project3-left-hero.jpg" alt="Coral context" className="p1-color-thumb" />
+                <img src="/ramya-portfolio-images/placeholders/1Z.png" alt="Coral context" className="p1-color-thumb" />
               </div>
 
               <div className="p1-color-card">
                 <div className="p1-color-swatch" style={{ backgroundColor: '#292A29' }} />
                 <span className="p1-color-name">JET<br />BLACK</span>
-                <img src="/ramya-portfolio-images/project3-fabric-linen.jpg" alt="Jet black context" className="p1-color-thumb" />
+                <img src="/ramya-portfolio-images/placeholders/1AA.png" alt="Jet black context" className="p1-color-thumb" />
               </div>
             </div>
 
@@ -204,32 +204,32 @@ export function Project1CollectionSection() {
 
             <div className="p1-fabric-grid">
               <div className="p1-fabric-swatch-card">
-                <img src="/ramya-portfolio-images/project3-fabric-linen.jpg" alt="Linen texture" className="p1-fab-img" />
+                <img src="/ramya-portfolio-images/placeholders/1AB.png" alt="Linen texture" className="p1-fab-img" />
                 <span className="p1-fab-name">LINEN</span>
               </div>
 
               <div className="p1-fabric-swatch-card">
-                <img src="/ramya-portfolio-images/project3-fabric-linen.jpg" alt="Cotton-Linen texture" className="p1-fab-img" style={{ filter: 'brightness(1.05)' }} />
+                <img src="/ramya-portfolio-images/placeholders/1AC.png" alt="Cotton-Linen texture" className="p1-fab-img" style={{ filter: 'brightness(1.05)' }} />
                 <span className="p1-fab-name">COTTON-LINEN</span>
               </div>
 
               <div className="p1-fabric-swatch-card">
-                <img src="/ramya-portfolio-images/project3-fabric-linen.jpg" alt="Voile texture" className="p1-fab-img" style={{ filter: 'brightness(1.15) contrast(0.9)' }} />
+                <img src="/ramya-portfolio-images/placeholders/1AD.png" alt="Voile texture" className="p1-fab-img" style={{ filter: 'brightness(1.15) contrast(0.9)' }} />
                 <span className="p1-fab-name">VOILE</span>
               </div>
 
               <div className="p1-fabric-swatch-card">
-                <img src="/ramya-portfolio-images/project3-fabric-linen.jpg" alt="Chiffon texture" className="p1-fab-img" style={{ filter: 'sepia(0.3) hue-rotate(60deg) brightness(0.9)' }} />
+                <img src="/ramya-portfolio-images/placeholders/1AE.png" alt="Chiffon texture" className="p1-fab-img" style={{ filter: 'sepia(0.3) hue-rotate(60deg) brightness(0.9)' }} />
                 <span className="p1-fab-name">CHIFFON</span>
               </div>
 
               <div className="p1-fabric-swatch-card">
-                <img src="/ramya-portfolio-images/project3-fabric-linen.jpg" alt="Georgette texture" className="p1-fab-img" style={{ filter: 'sepia(0.3) hue-rotate(-20deg) brightness(0.95)' }} />
+                <img src="/ramya-portfolio-images/placeholders/1AF.png" alt="Georgette texture" className="p1-fab-img" style={{ filter: 'sepia(0.3) hue-rotate(-20deg) brightness(0.95)' }} />
                 <span className="p1-fab-name">GEORGETTE</span>
               </div>
 
               <div className="p1-fabric-swatch-card">
-                <img src="/ramya-portfolio-images/project3-fabric-linen.jpg" alt="Satin texture" className="p1-fab-img" style={{ filter: 'sepia(0.4) hue-rotate(15deg) contrast(1.1)' }} />
+                <img src="/ramya-portfolio-images/placeholders/1AG.png" alt="Satin texture" className="p1-fab-img" style={{ filter: 'sepia(0.4) hue-rotate(15deg) contrast(1.1)' }} />
                 <span className="p1-fab-name">SATIN</span>
               </div>
             </div>

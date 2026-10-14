@@ -2,26 +2,26 @@ import React from 'react';
 import { SectionImage } from './SectionImage';
 
 const MOOD = [
-  { alt: 'Delicate lavender blossoms', cls: 'portrait', tint: '#DED2E4' },
-  { alt: 'Neutral linen fabric texture', cls: 'portrait', tint: '#E1D8C8' },
-  { alt: 'Soft pink botanical flower arrangement', cls: 'portrait', tint: '#EBD5D6' },
-  { alt: 'Green tree canopy and natural sunlight', cls: 'landscape', tint: '#D7DEC6' },
-  { alt: 'Flowering branches against a blue sky', cls: 'portrait', tint: '#D5E0EA' },
-  { alt: 'Close-up of pastel floral embroidery on linen', cls: 'square', tint: '#E4DBC9' },
-  { alt: 'Botanical landscape with flowering trees', cls: 'portrait', tint: '#D9DFC9' },
-  { alt: 'Embroidery hoop with delicate flower stitching', cls: 'square', tint: '#E3DCCB' },
-  { alt: 'Soft iridescent fabric in pastel colours', cls: 'landscape', tint: '#DCD8E2' },
-  { alt: 'Pastel embroidery threads and sewing materials', cls: 'portrait', tint: '#E6D4D0' },
-  { alt: 'Floral embroidery sketches on paper', cls: 'portrait', tint: '#E4DECE' },
-  { alt: 'Small botanical colour swatches and pressed flowers', cls: 'portrait', tint: '#DFD9C7' },
+  { alt: 'Delicate lavender blossoms', src: '/ramya-portfolio-images/placeholders/2AB.png', cls: 'portrait', tint: '#DED2E4' },
+  { alt: 'Neutral linen fabric texture', src: '/ramya-portfolio-images/placeholders/2AC.png', cls: 'portrait', tint: '#E1D8C8' },
+  { alt: 'Soft pink botanical flower arrangement', src: '/ramya-portfolio-images/placeholders/2AD.png', cls: 'portrait', tint: '#EBD5D6' },
+  { alt: 'Green tree canopy and natural sunlight', src: '/ramya-portfolio-images/placeholders/2AE.png', cls: 'landscape', tint: '#D7DEC6' },
+  { alt: 'Flowering branches against a blue sky', src: '/ramya-portfolio-images/placeholders/2AF.png', cls: 'portrait', tint: '#D5E0EA' },
+  { alt: 'Close-up of pastel floral embroidery on linen', src: '/ramya-portfolio-images/placeholders/2AG.png', cls: 'square', tint: '#E4DBC9' },
+  { alt: 'Botanical landscape with flowering trees', src: '/ramya-portfolio-images/placeholders/2AH.png', cls: 'portrait', tint: '#D9DFC9' },
+  { alt: 'Embroidery hoop with delicate flower stitching', src: '/ramya-portfolio-images/placeholders/2AI.png', cls: 'square', tint: '#E3DCCB' },
+  { alt: 'Soft iridescent fabric in pastel colours', src: '/ramya-portfolio-images/placeholders/2AJ.png', cls: 'landscape', tint: '#DCD8E2' },
+  { alt: 'Pastel embroidery threads and sewing materials', src: '/ramya-portfolio-images/placeholders/2AK.png', cls: 'portrait', tint: '#E6D4D0' },
+  { alt: 'Floral embroidery sketches on paper', src: '/ramya-portfolio-images/placeholders/2AL.png', cls: 'portrait', tint: '#E4DECE' },
+  { alt: 'Small botanical colour swatches and pressed flowers', src: '/ramya-portfolio-images/placeholders/2AM.png', cls: 'portrait', tint: '#DFD9C7' },
 ];
 
 const EMBROIDERY = [
-  { label: 'Beaded embroidery', tint: '#E3DACB' },
-  { label: 'Japanese-inspired motifs', tint: '#DED6CA' },
-  { label: 'Minimal floral embroidery', tint: '#E6DFD0' },
-  { label: 'Threaded embroidery', tint: '#DCE0CE' },
-  { label: 'Textured embroidery', tint: '#E0D8C9' },
+  { label: 'Beaded embroidery', src: '/ramya-portfolio-images/placeholders/2AN.png', tint: '#E3DACB' },
+  { label: 'Japanese-inspired motifs', src: '/ramya-portfolio-images/placeholders/2AO.png', tint: '#DED6CA' },
+  { label: 'Minimal floral embroidery', src: '/ramya-portfolio-images/placeholders/2AP.png', tint: '#E6DFD0' },
+  { label: 'Threaded embroidery', src: '/ramya-portfolio-images/placeholders/2AQ.png', tint: '#DCE0CE' },
+  { label: 'Textured embroidery', src: '/ramya-portfolio-images/placeholders/2AR.png', tint: '#E0D8C9' },
 ];
 
 const PRINCIPLES = [
@@ -82,7 +82,7 @@ export function BotanicalWhispers() {
           <p className="px2e__collection">A UNIQLO LifeWear Capsule Collection</p>
         </div>
         <div className="px2e__header-botanical">
-          <SectionImage alt="Delicate flowering branches with soft pink blossoms" tint="#ECD9DA" />
+          <SectionImage src="/ramya-portfolio-images/placeholders/2AA.png" alt="Delicate flowering branches with soft pink blossoms" tint="#ECD9DA" />
         </div>
       </header>
 
@@ -91,7 +91,7 @@ export function BotanicalWhispers() {
           <h3 className="px2e__sec-label">Mood Board</h3>
           <div className="px2e__mood">
             {MOOD.map((m) => (
-              <SectionImage key={m.alt} alt={m.alt} className={`px2e__mood-img ${m.cls}`} tint={m.tint} />
+              <SectionImage key={m.alt} src={m.src} alt={m.alt} className={`px2e__mood-img ${m.cls}`} tint={m.tint} />
             ))}
           </div>
           <p className="px2e__mood-note">
@@ -113,7 +113,7 @@ export function BotanicalWhispers() {
             <ul className="px2e__embroidery-row">
               {EMBROIDERY.map((e) => (
                 <li key={e.label}>
-                  <SectionImage alt={e.label} tint={e.tint} />
+                  <SectionImage src={e.src} alt={e.label} tint={e.tint} />
                   <span>{e.label}</span>
                 </li>
               ))}
@@ -128,6 +128,7 @@ export function BotanicalWhispers() {
             <div className="px2e__product-grid">
               <div className="px2e__product-hero">
                 <SectionImage
+                  src="/ramya-portfolio-images/placeholders/2AS.png"
                   alt="Two neutral everyday cotton shirts on mannequins with subtle botanical embroidery"
                   tint="#E7DED0"
                 />
@@ -141,9 +142,9 @@ export function BotanicalWhispers() {
                 ))}
               </ul>
               <div className="px2e__product-details">
-                <SectionImage alt="Close-up of a small floral embroidered motif on an ivory shirt" tint="#E4DCCB" />
-                <SectionImage alt="Detailed embroidery and stitching on cotton fabric" tint="#E1D9C8" />
-                <SectionImage alt="Small botanical embroidery motif on a shirt cuff" tint="#E6DDCE" />
+                <SectionImage src="/ramya-portfolio-images/placeholders/2AT.png" alt="Close-up of a small floral embroidered motif on an ivory shirt" tint="#E4DCCB" />
+                <SectionImage src="/ramya-portfolio-images/placeholders/2AU.png" alt="Detailed embroidery and stitching on cotton fabric" tint="#E1D9C8" />
+                <SectionImage src="/ramya-portfolio-images/placeholders/2AV.png" alt="Small botanical embroidery motif on a shirt cuff" tint="#E6DDCE" />
               </div>
             </div>
           </div>

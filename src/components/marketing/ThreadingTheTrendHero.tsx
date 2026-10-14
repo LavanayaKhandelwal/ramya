@@ -9,7 +9,7 @@ export function ThreadingTheTrendHero() {
     <section className="px2-hero" aria-label="Project 2 — Threading the Trend">
       <img
         className="px2-hero__bg"
-        src="/ramya-portfolio-images/project2-hero-section-background.png"
+        src="/ramya-portfolio-images/placeholders/2A.png"
         alt="UNIQLO Threading the Trend hero with embroidered garments, wooden chair and natural flowers"
         draggable={false}
       />

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const P3_BG = '/ramya-portfolio-images/project3-left-hero.jpg';
+const P3_BG = '/ramya-portfolio-images/placeholders/3A.png'; // Project 3 hero bg (also exported for context)
 
 /**
  * Project 3 — Section 01: "BEYOND THE FLORAL" hero.

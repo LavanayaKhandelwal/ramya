@@ -68,7 +68,7 @@ export function Project1HeroGarmentSection() {
             <div className="p1-compare-card">
               <div className="p1-compare-img-wrap">
                 <img
-                  src="/ramya-portfolio-images/project3-left-hero.jpg"
+                  src="/ramya-portfolio-images/placeholders/1AH.png"
                   alt="Model wearing strapless ruched mini resort dress"
                   className="p1-compare-img"
                 />
@@ -86,7 +86,7 @@ export function Project1HeroGarmentSection() {
             <div className="p1-compare-card">
               <div className="p1-compare-img-wrap">
                 <img
-                  src="/ramya-portfolio-images/project1-beginning-hero.jpg"
+                  src="/ramya-portfolio-images/placeholders/1AI.png"
                   alt="Model wearing strapless ruched maxi resort dress transformed with detachable tier"
                   className="p1-compare-img"
                 />
@@ -154,25 +154,25 @@ export function Project1HeroGarmentSection() {
 
             <div className="p1-work-features-grid">
               <div className="p1-work-feature-item">
-                <img src="/ramya-portfolio-images/project3-fabric-linen.jpg" alt="Ruched bodice texture" className="p1-wf-img" />
+                <img src="/ramya-portfolio-images/placeholders/1AJ.png" alt="Ruched bodice texture" className="p1-wf-img" />
                 <h4>RUCHED BODICE</h4>
                 <p>Creates a fitted yet comfortable upper silhouette while adding texture and structure.</p>
               </div>
 
               <div className="p1-work-feature-item">
-                <img src="/ramya-portfolio-images/project1-flatlay-brief.jpg" alt="Detachable tier button attachment" className="p1-wf-img" />
+                <img src="/ramya-portfolio-images/placeholders/1AK.png" alt="Detachable tier button attachment" className="p1-wf-img" />
                 <h4>DETACHABLE TIER</h4>
                 <p>The key functional element that allows the dress to transform from mini to maxi.</p>
               </div>
 
               <div className="p1-work-feature-item">
-                <img src="/ramya-portfolio-images/project1-hero-section-background.png" alt="Flowing skirt volume" className="p1-wf-img" />
+                <img src="/ramya-portfolio-images/placeholders/1AL.png" alt="Flowing skirt volume" className="p1-wf-img" />
                 <h4>FLOWING SILHOUETTE</h4>
                 <p>Keeps the garment relaxed and suitable for resort and warm-weather dressing.</p>
               </div>
 
               <div className="p1-work-feature-item">
-                <img src="/ramya-portfolio-images/project1-beach-question.jpg" alt="Minimal finishing details" className="p1-wf-img" />
+                <img src="/ramya-portfolio-images/placeholders/1AM.png" alt="Minimal finishing details" className="p1-wf-img" />
                 <h4>MINIMAL FINISHING</h4>
                 <p>Keeps the design clean and easy to style.</p>
               </div>
