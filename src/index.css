@@ -1456,23 +1456,6 @@ img.skills-panel-title {
   z-index: 1;
 }
 
-/* Top-Left Label */
-.project1-top-left-label {
-  position: absolute;
-  z-index: 10;
-  top: 80px;
-  left: 48px;
-  top: max(80px, 5.5cqw);
-  left: max(48px, 3cqw);
-  font-family: 'Inter', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: clamp(10px, 0.68cqw, 12px);
-  font-weight: 500;
-  letter-spacing: 2.5px;
-  line-height: 1.5;
-  text-transform: uppercase;
-  color: #252525;
-}
-
 /* Left Section Content Group */
 .project1-left-content {
   position: absolute;
@@ -1498,7 +1481,7 @@ img.skills-panel-title {
   font-weight: 400;
   line-height: 0.93;
   letter-spacing: -2px;
-  color: #111111;
+  color: #10283D;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -1520,25 +1503,13 @@ img.skills-panel-title {
   font-weight: 400;
 }
 
-/* Subtitle */
-.project1-subtitle {
-  margin: 18px 0 0 0;
-  font-family: 'Inter', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: clamp(10px, 0.68cqw, 12px);
-  font-weight: 400;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: #333333;
-  white-space: nowrap;
-}
-
 /* Separator */
 .project1-separator {
   width: 60px;
   height: 1px;
-  background-color: #252525;
-  margin-top: 40px;
-  margin-bottom: 24px;
+  background-color: #10283D;
+  margin-top: 32px;
+  margin-bottom: 22px;
 }
 
 /* Editorial Statement */
@@ -1549,7 +1520,7 @@ img.skills-panel-title {
   font-weight: 400;
   font-size: clamp(17px, 1.37cqw, 24px);
   line-height: 1.25;
-  color: #252525;
+  color: #10283D;
   width: 300px;
   max-width: 100%;
 }
@@ -1558,85 +1529,18 @@ img.skills-panel-title {
 .project1-bottom-left-metadata {
   position: absolute;
   z-index: 10;
-  bottom: 40px;
+  bottom: 250px;
   left: 48px;
-  bottom: max(36px, 3.6cqw);
+  bottom: max(120px, 15cqw);
   left: max(48px, 3cqw);
   font-family: 'Inter', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: clamp(9px, 0.62cqw, 11px);
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: #333333;
+  color: #10283D;
   white-space: nowrap;
 }
-
-/* Right Top Header Group */
-.project1-right-top-group {
-  position: absolute;
-  z-index: 10;
-  top: 80px;
-  right: 48px;
-  top: max(80px, 5.5cqw);
-  right: max(48px, 3cqw);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.project1-right-top-label {
-  font-family: 'Inter', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: clamp(10px, 0.68cqw, 12px);
-  font-weight: 400;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: #333333;
-  white-space: nowrap;
-}
-
-.project1-right-secondary-row {
-  display: flex;
-  align-items: center;
-  margin-top: 6px;
-}
-
-.project1-right-secondary-label {
-  font-family: 'Inter', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: clamp(10px, 0.68cqw, 12px);
-  font-weight: 400;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: #333333;
-  white-space: nowrap;
-}
-
-.project1-right-rule {
-  display: inline-block;
-  width: 115px;
-  height: 1px;
-  background-color: #777777;
-  margin-left: 14px;
-}
-
-/* Right Editorial Phrase */
-.project1-right-editorial-phrase {
-  position: absolute;
-  z-index: 10;
-  top: 200px;
-  right: 48px;
-  top: max(180px, 13cqw);
-  right: max(48px, 3cqw);
-  font-family: 'Inter', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: clamp(10px, 0.68cqw, 12px);
-  font-weight: 500;
-  letter-spacing: 3px;
-  line-height: 1.6;
-  text-transform: uppercase;
-  color: #333333;
-  text-align: left;
-}
-
-
 
 /* ————————————————— Project 1 Section 2 (The Beginning Editorial Spread) ————————————————— */
 .p1-beginning-spread {
@@ -1712,74 +1616,6 @@ img.skills-panel-title {
   text-transform: uppercase;
 }
 
-/* Script Group (Upper Right over Sky/Ocean region) */
-.p1-left-script-group {
-  position: absolute;
-  z-index: 10;
-  top: 60px;
-  right: 48px;
-  transform: rotate(-8deg);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.p1-left-script-text {
-  margin: 0;
-  font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
-  font-size: 28px;
-  line-height: 1.05;
-  color: #2E2925;
-}
-
-.p1-left-script-rule {
-  width: 38px;
-  height: 1px;
-  background-color: #5D5751;
-  margin-top: 8px;
-}
-
-/* Quote Group (Lower Left Middle) */
-.p1-left-quote-group {
-  position: absolute;
-  z-index: 10;
-  bottom: 140px;
-  left: 48px;
-}
-
-.p1-left-quote {
-  margin: 0;
-  padding: 0;
-  font-family: 'Didot', 'Bodoni Moda', 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 20px;
-  line-height: 1.35;
-  color: #302925;
-}
-
-.p1-left-quote-rule {
-  width: 45px;
-  height: 1px;
-  background-color: #625B54;
-  margin-top: 14px;
-}
-
-/* Bottom Left Keywords */
-.p1-left-keywords {
-  position: absolute;
-  z-index: 10;
-  bottom: 40px;
-  left: 48px;
-  font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 3px;
-  color: #3A342F;
-  text-transform: uppercase;
-}
-
 /* Right Page — ~48% width structured research grid */
 .p1-spread-right {
   position: relative;
@@ -1832,6 +1668,16 @@ img.skills-panel-title {
   height: 1px;
   background-color: #77706A;
   flex-shrink: 0;
+}
+
+.p1-sec-subtitle {
+  margin: 0 0 14px;
+  font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: #5A5148;
+  text-transform: uppercase;
 }
 
 .p1-rule-brief { width: 190px; }
@@ -1914,6 +1760,14 @@ img.skills-panel-title {
   color: #241C18;
   text-transform: uppercase;
   font-weight: 500;
+}
+
+.p1-research-desc {
+  margin: 6px 0 0;
+  font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
+  font-size: 10px;
+  line-height: 1.5;
+  color: #5A5148;
 }
 
 /* Section 03: What We Found */
@@ -2016,23 +1870,6 @@ img.skills-panel-title {
   display: block;
 }
 
-.p1-question-overlay-text {
-  position: absolute;
-  top: 14px;
-  right: 12px;
-  font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
-  font-size: 9px;
-  letter-spacing: 3px;
-  line-height: 1.6;
-  text-align: center;
-  color: #241C18;
-  text-transform: uppercase;
-  font-weight: 600;
-  background: rgba(245, 241, 233, 0.85);
-  padding: 6px 8px;
-  backdrop-filter: blur(2px);
-}
-
 @media (max-width: 1024px) {
   .p1-spread-left, .p1-spread-right { width: 100%; min-height: auto; }
   .p1-spread-right { padding: 32px 24px; }
@@ -2125,37 +1962,6 @@ img.skills-panel-title {
   text-transform: uppercase;
 }
 
-.p1-dir-quote-group {
-  position: absolute;
-  z-index: 10;
-  bottom: 120px;
-  left: 36px;
-  right: 24px;
-}
-
-.p1-dir-quote {
-  margin: 0;
-  padding: 0;
-  font-family: 'Didot', 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
-  font-size: 20px;
-  line-height: 1.45;
-  color: #29231F;
-}
-
-.p1-dir-keywords {
-  position: absolute;
-  z-index: 10;
-  bottom: 36px;
-  left: 36px;
-  font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
-  font-size: 10px;
-  letter-spacing: 3px;
-  line-height: 2.2;
-  color: #3A342F;
-  text-transform: uppercase;
-}
-
 /* Right Panel — 69% width */
 .p1-dir-right {
   position: relative;
@@ -2216,11 +2022,30 @@ img.skills-panel-title {
   flex-direction: column;
 }
 
+.p1-reveal-img-wrap {
+  position: relative;
+}
+
 .p1-reveal-img {
   width: 100%;
   aspect-ratio: 1 / 1.05;
   object-fit: cover;
   display: block;
+}
+
+.p1-reveal-icon {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: #F2E4DC;
+  color: #201C19;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .p1-reveal-caption {
@@ -2245,16 +2070,23 @@ img.skills-panel-title {
 }
 
 /* Section 02: Macro Trend */
+.p1-macro-title-card {
+  background-color: #F0E1D4;
+  padding: 14px 12px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
 .p1-macro-trend-title {
-  margin: 4px 0 2px 0;
+  margin: 0;
   font-family: 'Didot', 'Bodoni Moda', Georgia, serif;
-  font-size: 24px;
+  font-size: 26px;
   letter-spacing: 0px;
   color: #171310;
 }
 
 .p1-macro-trend-sub {
-  margin: 0 0 10px 0;
+  margin: 6px 0 0 0;
   font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
   font-size: 11px;
   line-height: 1.4;
@@ -2293,14 +2125,6 @@ img.skills-panel-title {
   font-size: 9px;
   margin: 1px 0;
   color: #77706A;
-}
-
-.p1-macro-bottom-caption {
-  margin: 8px 0 0 0;
-  font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
-  font-size: 10.5px;
-  letter-spacing: 1.5px;
-  color: #38322D;
 }
 
 /* Section 03 & 04 Row */
@@ -2346,49 +2170,36 @@ img.skills-panel-title {
   color: #37312D;
 }
 
+.p1-m2m-block-img {
+  width: 100%;
+  height: 72px;
+  object-fit: cover;
+  display: block;
+  margin-top: 8px;
+}
+
 .p1-m2m-mid-list {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
+  gap: 3px;
   font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
   font-size: 8px;
   letter-spacing: 1.5px;
   color: #37312D;
 }
 
-.p1-m2m-thumbs-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.p1-m2m-thumbs {
-  display: flex;
-  gap: 6px;
-}
-
-.p1-m2m-thumbs img {
-  width: 55px;
-  height: 55px;
-  object-fit: cover;
-}
-
-.p1-m2m-note {
-  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 20px;
-  line-height: 1.1;
-  color: #29221E;
-  transform: rotate(-5deg);
-  text-align: right;
+.p1-m2m-arrow {
+  font-size: 14px;
+  color: #302A25;
+  flex-shrink: 0;
 }
 
 /* Section 04: Fabric Direction */
 .p1-fabric-flex {
   display: flex;
   gap: 10px;
-  align-items: stretch;
+  align-items: flex-start;
 }
 
 .p1-fabric-img {
@@ -2408,23 +2219,34 @@ img.skills-panel-title {
 }
 
 .p1-fabric-card h4 {
-  margin: 0 0 8px 0;
+  margin: 0 0 10px 0;
   font-family: 'Didot', 'Bodoni Moda', Georgia, serif;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.15;
+  text-align: center;
   color: #171310;
 }
 
 .p1-fabric-attrs {
   display: flex;
-  flex-direction: column;
   gap: 6px;
 }
 
 .p1-fabric-attr {
+  flex: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 8px;
+  text-align: center;
+  gap: 5px;
+}
+
+.p1-fabric-attr p {
+  margin: 0;
+  font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
+  font-size: 8.5px;
+  line-height: 1.35;
+  color: #59524B;
 }
 
 .p1-attr-circle {
@@ -2458,21 +2280,30 @@ img.skills-panel-title {
 
 .p1-chain-node {
   background-color: #E7D8D1;
-  width: 130px;
-  height: 65px;
-  border-radius: 35px;
+  flex: 1;
+  min-height: 108px;
+  border-radius: 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 4px 8px;
+  padding: 10px 10px;
   box-sizing: border-box;
 }
 
 .p1-node-highlight {
   background-color: #DFCEB9;
   border: 1px solid #77706A;
+}
+
+.p1-node-img {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 7px;
 }
 
 .p1-node-title {
@@ -2491,19 +2322,17 @@ img.skills-panel-title {
   margin-top: 2px;
 }
 
+.p1-node-desc {
+  font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
+  font-size: 8.5px;
+  line-height: 1.35;
+  color: #59524B;
+  margin-top: 6px;
+}
+
 .p1-chain-arrow {
   font-size: 16px;
   color: #302A25;
-}
-
-.p1-closing-statement {
-  margin: 0;
-  font-family: 'Didot', 'Bodoni Moda', Georgia, serif;
-  font-style: italic;
-  font-size: 15px;
-  line-height: 1.3;
-  text-align: center;
-  color: #38312C;
 }
 
 @media (max-width: 1024px) {
@@ -3200,116 +3029,29 @@ img.skills-panel-title {
   font-weight: 600;
 }
 
-/* Column 3: Features, Technical, Decision */
+/* Column 3: 03 + 04 THE DESIGN DECISION */
 .p1-rule-hero { width: 230px; }
 .p1-rule-trans { width: 190px; }
-.p1-rule-work { width: 250px; }
-.p1-rule-dec { width: 180px; }
+.p1-rule-dec { width: 150px; }
 
-.p1-work-features-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 9px;
-  margin-bottom: 20px;
+.p1-sec-header--second {
+  margin-top: 26px;
 }
 
-.p1-work-feature-item {
+/* Column 2: extra mini / maxi photo pair */
+.p1-trans-photos {
   display: flex;
-  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 16px;
 }
 
-.p1-wf-img {
-  width: 100%;
-  height: 95px;
+.p1-trans-photos img {
+  flex: 1;
+  height: 190px;
   object-fit: cover;
-  margin-bottom: 6px;
 }
 
-.p1-work-feature-item h4 {
-  margin: 0 0 2px 0;
-  font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
-  font-size: 8px;
-  letter-spacing: 2px;
-  color: #11100F;
-}
-
-.p1-work-feature-item p {
-  margin: 0;
-  font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
-  font-size: 8px;
-  line-height: 1.45;
-  color: #554F48;
-}
-
-/* Column 3 Bottom Split */
-.p1-hg-sec-bottom-split {
-  display: flex;
-  gap: 16px;
-}
-
-.p1-sub-tech { flex: 1.1; }
-.p1-sub-decision { flex: 0.9; }
-
-.p1-tech-subhead {
-  margin: -6px 0 8px 0;
-  font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
-  font-size: 8px;
-  letter-spacing: 2.5px;
-  color: #514A44;
-}
-
-.p1-tech-board {
-  background-color: #F1ECE5;
-  padding: 10px;
-  box-sizing: border-box;
-  margin-bottom: 8px;
-}
-
-.p1-tech-sketch-row {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-}
-
-.p1-tech-sketch {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #F6F2EC;
-  padding: 8px 12px;
-}
-
-.p1-tech-svg {
-  width: 70px;
-  height: 105px;
-}
-
-.p1-tech-sketch span {
-  margin-top: 4px;
-  font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
-  font-size: 7px;
-  letter-spacing: 1px;
-  color: #4B4945;
-}
-
-.p1-tech-desc {
-  margin: 0 0 6px 0;
-  font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
-  font-size: 7px;
-  line-height: 1.45;
-  color: #514A44;
-}
-
-.p1-tech-footer-list {
-  margin: 0;
-  font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
-  font-size: 7px;
-  letter-spacing: 1.5px;
-  color: #38322D;
-  font-weight: 500;
-}
-
-/* Decision Card */
+/* Column 3: 03 quote */
 .p1-decision-quote-card {
   background-color: #EEE7DF;
   padding: 20px 16px;
@@ -3318,7 +3060,7 @@ img.skills-panel-title {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .p1-dec-quote {
@@ -3326,8 +3068,8 @@ img.skills-panel-title {
   padding: 0;
   font-family: 'Didot', 'Bodoni Moda', Georgia, serif;
   font-style: italic;
-  font-size: 20px;
-  line-height: 1.05;
+  font-size: clamp(17px, 1.6vw, 23px);
+  line-height: 1.08;
   color: #2B2521;
 }
 
@@ -3335,51 +3077,50 @@ img.skills-panel-title {
   width: 35px;
   height: 1px;
   background-color: #837B73;
-  margin: 10px 0;
+  margin: 10px 0 0;
 }
 
-.p1-dec-principles {
+.p1-dec-qcopy {
+  margin: 0 0 4px;
   font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
-  font-size: 8.5px;
+  font-size: clamp(9px, 0.75vw, 11px);
+  line-height: 1.6;
+  color: #454039;
+}
+
+/* Column 3: 04 principles */
+.p1-dec-principles-card {
+  background-color: #EEE7DF;
+  padding: 12px;
+  box-sizing: border-box;
+  font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(9px, 0.8vw, 11.5px);
   letter-spacing: 2.5px;
-  line-height: 1.7;
+  line-height: 1.9;
   color: #332D28;
+  text-align: center;
+}
+
+.p1-dec-bottom-rule {
+  width: calc(100% - 28px);
+  margin: 22px auto 16px;
+  height: 1px;
+  background-color: #817A72;
 }
 
 .p1-dec-closing-stmt {
   margin: 0;
   font-family: 'Didot', 'Bodoni Moda', Georgia, serif;
-  font-size: 14px;
-  line-height: 1.15;
+  font-size: clamp(13px, 1.1vw, 16px);
+  line-height: 1.3;
   text-align: center;
   color: #27221F;
-}
-
-/* Footer */
-.p1-hg-footer {
-  margin-top: 24px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.p1-hg-footer-text {
-  font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
-  font-size: 8px;
-  letter-spacing: 2.5px;
-  color: #3B3530;
-  white-space: nowrap;
-}
-
-.p1-hg-footer-rule {
-  flex: 1;
-  height: 1px;
-  background-color: #817A72;
 }
 
 @media (max-width: 1024px) {
   .p1-hg-columns { flex-direction: column; }
   .p1-hg-col-1, .p1-hg-col-2, .p1-hg-col-3 { width: 100%; }
+  .p1-trans-photos img { height: 260px; }
 }
 
 
