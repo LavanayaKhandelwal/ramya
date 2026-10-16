@@ -1,4 +1,5 @@
 import React from 'react';
+import { project2Image } from '../../data/artwork';
 import { SectionImage } from './SectionImage';
 
 const CARDS = [
@@ -6,8 +7,8 @@ const CARDS = [
     number: '01',
     title: ['Consumer', 'Understanding'],
     bg: '#E6EEF0',
-    src: '/ramya-portfolio-images/placeholders/2AW.png',
-    alt: 'Overhead fashion research document with garment references, sketches and neutral fabric swatches',
+    src: project2Image('2AW'),
+    alt: 'Apparel design mockups on a tablet beside a spiral notebook and fabric swatches',
     tint: '#DCE3E2',
     desc: 'Learned how to analyse consumer needs and identify what makes everyday clothing feel more personal and expressive.',
   },
@@ -15,7 +16,7 @@ const CARDS = [
     number: '02',
     title: ['Trend &', 'Design Direction'],
     bg: '#F0E9DE',
-    src: '/ramya-portfolio-images/placeholders/2AX.png',
+    src: project2Image('2AX'),
     alt: 'Overlapping natural textile swatches with subtle botanical embroidery',
     tint: '#E4DACB',
     desc: 'Learned to translate macro trends into a focused design direction — minimal floral embroidery for modern, versatile everyday wear.',
@@ -24,7 +25,7 @@ const CARDS = [
     number: '03',
     title: ['Product', 'Development'],
     bg: '#E6EEF0',
-    src: '/ramya-portfolio-images/placeholders/2AY.png',
+    src: project2Image('2AY'),
     alt: 'Coordinated row of everyday shirts on simple wooden hangers',
     tint: '#DFE2DA',
     desc: 'Learned the complete process from concept to product — fabric selection, embroidery techniques, silhouette exploration and creating a cohesive collection.',
@@ -33,7 +34,7 @@ const CARDS = [
     number: '04',
     title: ['Merchandising', 'Perspective'],
     bg: '#F0E9DE',
-    src: '/ramya-portfolio-images/placeholders/2AZ.png',
+    src: project2Image('2AZ'),
     alt: 'Neatly folded everyday garments in clean stacks on a pale stone shelf',
     tint: '#E5DCCD',
     desc: 'Learned how to align a design concept with brand identity, target consumer and market viability, ensuring it fits into a real brand\u2019s product strategy.',

@@ -1,10 +1,11 @@
 import React from 'react';
+import { project3Image } from '../../data/artwork';
 
-const P3_BG = '/ramya-portfolio-images/placeholders/3A.png'; // Project 3 hero bg (also exported for context)
+const P3_BG = project3Image('3A'); // Project 3 hero bg (also exported for context)
 
 /**
  * Project 3 — Section 01: "BEYOND THE FLORAL" hero.
- * Text overlay on the existing Cover Story × Future Florals installation image.
+ * Text overlay on the Cover Story × Future Florals installation image from public/Project 3.
  */
 export function FutureFloralsHero() {
   return (

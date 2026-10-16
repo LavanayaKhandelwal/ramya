@@ -48,19 +48,6 @@ export function Project1CollectionSection() {
             mood, theme, colour and fabric.
           </p>
         </div>
-
-        {/* Handwritten Note */}
-        <div className="p1-col-script-note">
-          &ldquo;Inspired<br />
-          by places,<br />
-          designed<br />
-          for possibilities.&rdquo;
-        </div>
-
-        {/* Bottom Keywords */}
-        <div className="p1-col-keywords">
-          TRAVEL &nbsp;&bull;&nbsp; NATURE &nbsp;&bull;&nbsp; MOVEMENT &nbsp;&bull;&nbsp; STYLE
-        </div>
       </div>
 
       {/* RIGHT CONTENT AREA — ~76% width structured 2x2 visual direction board */}
@@ -79,28 +66,13 @@ export function Project1CollectionSection() {
             </div>
 
             <div className="p1-mood-collage">
-              <div className="p1-mood-grid">
-                <img src="/ramya-portfolio-images/placeholders/1O.png" alt="Palm shadows on stucco" className="p1-mg-img p1-mg-1" />
-                <img src="/ramya-portfolio-images/placeholders/1P.png" alt="Mediterranean coastal view" className="p1-mg-img p1-mg-2" />
-                <img src="/ramya-portfolio-images/placeholders/1Q.png" alt="Woman walking in resort outfit" className="p1-mg-img p1-mg-3" />
-                <img src="/ramya-portfolio-images/placeholders/1R.png" alt="Beach parasols and lounge chairs" className="p1-mg-img p1-mg-4" />
-                
-                <div className="p1-mood-script-card">
-                  &ldquo;Good<br />Outfits<br />Brighter<br />Days&rdquo;
-                </div>
-
-                <div className="p1-mood-vert-text">
-                  SUN &bull; SALT &bull; STYLE &bull; REPEAT
-                </div>
-              </div>
+              <img
+                src="/ramya-portfolio-images/placeholders/1AS.png"
+                alt="Collection mood board — palm shadows, coastal view, resort outfit and beach scene"
+                className="p1-sec-photo"
+                draggable={false}
+              />
             </div>
-
-            <p className="p1-mood-desc">
-              Travel, warm destinations, movement and effortless dressing shaped the mood of the collection.
-            </p>
-            <p className="p1-mood-kw">
-              TRAVEL &nbsp;|&nbsp; FREEDOM &nbsp;|&nbsp; SUNLIGHT &nbsp;|&nbsp; MOVEMENT
-            </p>
           </div>
 
           {/* SECTION 02: THE THEME */}
@@ -112,32 +84,13 @@ export function Project1CollectionSection() {
             </div>
 
             <div className="p1-theme-layout">
-              <div className="p1-theme-left-card">
-                <h4>EFFORTLESS<br />ESCAPE</h4>
-                <div className="p1-theme-rule" aria-hidden="true" />
-                <p>
-                  A relaxed resort<br />
-                  lifestyle with<br />
-                  feminine and<br />
-                  easy-to-wear<br />
-                  silhouettes.
-                </p>
-              </div>
-
-              <div className="p1-theme-right-collage">
-                <img src="/ramya-portfolio-images/placeholders/1S.png" alt="Flowing sheer curtains & villa" className="p1-th-img p1-th-1" />
-                <img src="/ramya-portfolio-images/placeholders/1T.png" alt="Open back resort dress detail" className="p1-th-img p1-th-2" />
-                <img src="/ramya-portfolio-images/placeholders/1U.png" alt="Palm leaf in warm sunlight" className="p1-th-img p1-th-3" />
-
-                <div className="p1-theme-note">
-                  &ldquo;Same Places.<br />New Perspectives.&rdquo;
-                </div>
-              </div>
+              <img
+                src="/ramya-portfolio-images/placeholders/1AT.png"
+                alt="Collection theme board — effortless escape, relaxed resort silhouettes"
+                className="p1-sec-photo"
+                draggable={false}
+              />
             </div>
-
-            <p className="p1-theme-kw">
-              RELAXED &nbsp;|&nbsp; FEMININE &nbsp;|&nbsp; NATURAL &nbsp;|&nbsp; EASY
-            </p>
           </div>
         </div>
 
@@ -152,46 +105,13 @@ export function Project1CollectionSection() {
             </div>
 
             <div className="p1-color-grid">
-              <div className="p1-color-card">
-                <div className="p1-color-swatch" style={{ backgroundColor: '#E8D09A' }} />
-                <span className="p1-color-name">CORN<br />CONFLECTION</span>
-                <img src="/ramya-portfolio-images/placeholders/1V.png" alt="Corn gold context" className="p1-color-thumb" />
-              </div>
-
-              <div className="p1-color-card">
-                <div className="p1-color-swatch" style={{ backgroundColor: '#D29E9D' }} />
-                <span className="p1-color-name">PINK<br />COSMOS</span>
-                <img src="/ramya-portfolio-images/placeholders/1W.png" alt="Blush pink context" className="p1-color-thumb" />
-              </div>
-
-              <div className="p1-color-card">
-                <div className="p1-color-swatch" style={{ backgroundColor: '#7798AA' }} />
-                <span className="p1-color-name">BLUE<br />TURQUOISE</span>
-                <img src="/ramya-portfolio-images/placeholders/1X.png" alt="Turquoise sea context" className="p1-color-thumb" />
-              </div>
-
-              <div className="p1-color-card">
-                <div className="p1-color-swatch" style={{ backgroundColor: '#C78256' }} />
-                <span className="p1-color-name">DUSTY<br />ORANGE</span>
-                <img src="/ramya-portfolio-images/placeholders/1Y.png" alt="Dusty orange context" className="p1-color-thumb" />
-              </div>
-
-              <div className="p1-color-card">
-                <div className="p1-color-swatch" style={{ backgroundColor: '#D98A69' }} />
-                <span className="p1-color-name">SUN-KISSED<br />CORAL</span>
-                <img src="/ramya-portfolio-images/placeholders/1Z.png" alt="Coral context" className="p1-color-thumb" />
-              </div>
-
-              <div className="p1-color-card">
-                <div className="p1-color-swatch" style={{ backgroundColor: '#292A29' }} />
-                <span className="p1-color-name">JET<br />BLACK</span>
-                <img src="/ramya-portfolio-images/placeholders/1AA.png" alt="Jet black context" className="p1-color-thumb" />
-              </div>
+              <img
+                src="/ramya-portfolio-images/placeholders/1AU.png"
+                alt="Collection colour story board — corn gold, blush pink, turquoise, dusty orange, coral and jet black"
+                className="p1-sec-photo"
+                draggable={false}
+              />
             </div>
-
-            <p className="p1-color-desc">
-              A fresh and versatile palette inspired by nature, travel and warm destinations, keeping the collection visually cohesive.
-            </p>
           </div>
 
           {/* SECTION 04: THE FABRIC DIRECTION */}
@@ -203,44 +123,12 @@ export function Project1CollectionSection() {
             </div>
 
             <div className="p1-fabric-grid">
-              <div className="p1-fabric-swatch-card">
-                <img src="/ramya-portfolio-images/placeholders/1AB.png" alt="Linen texture" className="p1-fab-img" />
-                <span className="p1-fab-name">LINEN</span>
-              </div>
-
-              <div className="p1-fabric-swatch-card">
-                <img src="/ramya-portfolio-images/placeholders/1AC.png" alt="Cotton-Linen texture" className="p1-fab-img" style={{ filter: 'brightness(1.05)' }} />
-                <span className="p1-fab-name">COTTON-LINEN</span>
-              </div>
-
-              <div className="p1-fabric-swatch-card">
-                <img src="/ramya-portfolio-images/placeholders/1AD.png" alt="Voile texture" className="p1-fab-img" style={{ filter: 'brightness(1.15) contrast(0.9)' }} />
-                <span className="p1-fab-name">VOILE</span>
-              </div>
-
-              <div className="p1-fabric-swatch-card">
-                <img src="/ramya-portfolio-images/placeholders/1AE.png" alt="Chiffon texture" className="p1-fab-img" style={{ filter: 'sepia(0.3) hue-rotate(60deg) brightness(0.9)' }} />
-                <span className="p1-fab-name">CHIFFON</span>
-              </div>
-
-              <div className="p1-fabric-swatch-card">
-                <img src="/ramya-portfolio-images/placeholders/1AF.png" alt="Georgette texture" className="p1-fab-img" style={{ filter: 'sepia(0.3) hue-rotate(-20deg) brightness(0.95)' }} />
-                <span className="p1-fab-name">GEORGETTE</span>
-              </div>
-
-              <div className="p1-fabric-swatch-card">
-                <img src="/ramya-portfolio-images/placeholders/1AG.png" alt="Satin texture" className="p1-fab-img" style={{ filter: 'sepia(0.4) hue-rotate(15deg) contrast(1.1)' }} />
-                <span className="p1-fab-name">SATIN</span>
-              </div>
-            </div>
-
-            <p className="p1-fabric-desc">
-              Lightweight and breathable natural fabrics, ideal for warm-weather dressing.
-            </p>
-
-            <div className="p1-fabric-bottom-row">
-              <p className="p1-fabric-kw">LIGHTWEIGHT &nbsp;|&nbsp; BREATHABLE &nbsp;|&nbsp; COMFORTABLE</p>
-              <span className="p1-fabric-closing">NATURAL TEXTURES. ENDLESS POSSIBILITIES.</span>
+              <img
+                src="/ramya-portfolio-images/placeholders/1AV.png"
+                alt="Collection fabric direction board — linen, cotton-linen, voile, chiffon, georgette and satin"
+                className="p1-sec-photo"
+                draggable={false}
+              />
             </div>
           </div>
         </div>

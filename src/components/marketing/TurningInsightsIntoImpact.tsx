@@ -1,4 +1,5 @@
 import React from 'react';
+import { project4Image } from '../../data/artwork';
 import { SectionImage } from './SectionImage';
 
 const Icon = ({ name }: { name: string }) => {
@@ -18,8 +19,8 @@ const CONTRIBUTIONS = [
     heading: ['Consumer', 'Understanding'],
     icon: 'People',
     iconBg: '#E9D7B9',
-    src: '/ramya-portfolio-images/placeholders/4T.png',
-    alt: 'Close-up of pale ivory fabric with natural folds and a small white flower',
+    src: project4Image('4T'),
+    alt: 'Fragrance research desk with a notebook, sketches and a tablet showing product mockups',
     tint: '#EFE7DA',
     body: [
       'Understood consumer preferences and lifestyle cues through real-time research.',
@@ -31,8 +32,8 @@ const CONTRIBUTIONS = [
     heading: ['Brand', 'Translation'],
     icon: 'Bulb',
     iconBg: '#E9C9C7',
-    src: '/ramya-portfolio-images/placeholders/4U.png',
-    alt: 'Neutral-colored garments on wooden hangers with soft cherry blossoms',
+    src: project4Image('4U'),
+    alt: 'Neutral garments on a rail in front of a mood board wall',
     tint: '#ECDCD8',
     body: [
       "Explored how Uniqlo's minimal and functional identity can be extended into fragrances.",
@@ -44,8 +45,8 @@ const CONTRIBUTIONS = [
     heading: ['Product', 'Development'],
     icon: 'Gear',
     iconBg: '#DDE0D1',
-    src: '/ramya-portfolio-images/placeholders/4V.png',
-    alt: 'Pale pink cherry blossoms with dark green leaves in warm sunlight',
+    src: project4Image('4V'),
+    alt: 'Glass jars of fragrance ingredients with citrus, botanicals and dried petals',
     tint: '#E7DED0',
     body: [
       'Worked on fragrance concepts, ingredient direction, packaging development and visualisation.',
@@ -57,8 +58,8 @@ const CONTRIBUTIONS = [
     heading: ['Market', 'Perspective'],
     icon: 'Chart',
     iconBg: '#D8E4E8',
-    src: '/ramya-portfolio-images/placeholders/4W.png',
-    alt: 'Clear blue water with bright sunlight creating rippling reflections',
+    src: project4Image('4W'),
+    alt: 'Retail display with a world map graphic, city skyline imagery and product stands',
     tint: '#D3E1EC',
     body: [
       'Analysed competition and identified a white space for Uniqlo.',
@@ -68,17 +69,24 @@ const CONTRIBUTIONS = [
 ];
 
 const SKILLS = [
-  { n: '01', heading: ['Market', 'Research'], src: '/ramya-portfolio-images/placeholders/4X.png', alt: 'Magnifying glass resting on printed market research documents', tint: '#E7E0D2', body: 'Analysing trends and competition to identify opportunities.' },
-  { n: '02', heading: ['Consumer', 'Insight'], src: '/ramya-portfolio-images/placeholders/4Y.png', alt: 'Minimal scene with small human figurines on soft pink surfaces', tint: '#EEDAD8', body: 'Understanding consumer behaviour and translating insights into concepts.' },
-  { n: '03', heading: ['Concept', 'Development'], src: '/ramya-portfolio-images/placeholders/4Z.png', alt: 'Fragrance concept sketch and perfume bottle study on a design desk', tint: '#EAE3D6', body: 'Ideating and developing fragrance concepts aligned with brand identity.' },
-  { n: '04', heading: ['Visual', 'Storytelling'], src: '/ramya-portfolio-images/placeholders/4AA.png', alt: 'Open design notebook with visual references and a pencil', tint: '#E7DFD2', body: 'Presenting ideas through mood boards, visuals and compelling design narratives.' },
-  { n: '05', heading: ['Product', 'Planning'], src: '/ramya-portfolio-images/placeholders/4AB.png', alt: 'Neutral fabric swatches arranged in a material development workspace', tint: '#E4DCCE', body: 'Working on ingredient direction, packaging development and visualisation.' },
-  { n: '06', heading: ['Strategic', 'Thinking'], src: '/ramya-portfolio-images/placeholders/4AC.png', alt: 'Printed market analysis report with a simple bar chart and a pencil', tint: '#DEE1DD', body: 'Evaluating market potential and aligning creativity with business objectives.' },
+  { n: '01', heading: ['Market', 'Research'], src: project4Image('4X'), alt: 'Magnifying glass resting on printed market research documents', tint: '#E7E0D2', body: 'Analysing trends and competition to identify opportunities.' },
+  { n: '02', heading: ['Consumer', 'Insight'], src: project4Image('4Y'), alt: 'Minimal scene with small human figurines on soft pink surfaces', tint: '#EEDAD8', body: 'Understanding consumer behaviour and translating insights into concepts.' },
+  { n: '03', heading: ['Concept', 'Development'], src: project4Image('4Z'), alt: 'Perfume bottle and lightbulb on a design desk beside concept papers', tint: '#EAE3D6', body: 'Ideating and developing fragrance concepts aligned with brand identity.' },
+  { n: '04', heading: ['Visual', 'Storytelling'], src: project4Image('4AA'), alt: 'Printed visual reference cards for the fragrance concept beside a pencil', tint: '#E7DFD2', body: 'Presenting ideas through mood boards, visuals and compelling design narratives.' },
+  { n: '05', heading: ['Product', 'Planning'], src: project4Image('4AB'), alt: 'Neutral fabric swatches arranged in a material development workspace', tint: '#E4DCCE', body: 'Working on ingredient direction, packaging development and visualisation.' },
+  { n: '06', heading: ['Strategic', 'Thinking'], src: project4Image('4AC'), alt: 'Printed market analysis report with a simple bar chart and a pencil', tint: '#DEE1DD', body: 'Evaluating market potential and aligning creativity with business objectives.' },
 ];
 
 export function TurningInsightsIntoImpact() {
   return (
     <section className="px4t" aria-label="Turning insights into impact">
+      <SectionImage
+        src={project4Image('4AF')}
+        alt="Soft botanical texture background for the closing spread"
+        className="px4t__bg"
+        tint="#F2EADC"
+      />
+
       <div className="px4t__upper">
         <h2 className="px4t__headline">
           <span>Turning</span>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>Project 1 — Section 05 — ONE BASE, TWO LENGTHS.</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500&family=Mrs+Saint+Delafield&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=DM+Sans:wght@400;500&family=Mrs+Saint+Delafield&display=swap');
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html, body { background: #fff; }
@@ -12,125 +12,140 @@ html, body { background: #fff; }
   position: relative;
   width: 1062px;
   height: 708px;
-  background: #FFF6E5;
+  background: #F7EEDD;
   overflow: hidden;
   font-family: 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  color: #554D42;
+  color: #4A443B;
   -webkit-font-smoothing: antialiased;
 }
-.serif { font-family: 'Cormorant Garamond', 'Didot', 'Bodoni MT', Georgia, serif; }
-.ink { color: #14203F; }
 
 /* ---------- decorations ---------- */
 .deco { position: absolute; inset: 0; pointer-events: none; }
 
 /* ---------- header ---------- */
 .title {
-  position: absolute; left: 36px; top: 28px;
-  font-family: 'Didot', 'Bodoni MT', 'Cormorant Garamond', Georgia, serif;
-  font-size: 44px; font-weight: 400; letter-spacing: -0.7px;
-  color: #14203F; line-height: 1; white-space: nowrap;
+  position: absolute; left: 27px; top: 44px;
+  font-family: 'Bodoni Moda', 'Didot', 'Bodoni MT', Georgia, serif;
+  font-size: 54px; font-weight: 400; letter-spacing: -1.2px;
+  color: #101530; line-height: 1; white-space: nowrap;
 }
 .subtitle {
-  position: absolute; left: 37px; top: 84px;
-  font-size: 10.5px; line-height: 1.45; color: #554D42; letter-spacing: 0.1px;
+  position: absolute; left: 27px; top: 107px;
+  font-size: 10px; line-height: 1.5; color: #5E584E; letter-spacing: 0.2px;
 }
 .annotation {
-  position: absolute; right: 34px; top: 24px;
+  position: absolute; right: -8px; top: -16px;
   font-family: 'Mrs Saint Delafield', 'Snell Roundhand', 'Pinyon Script', cursive;
-  font-size: 34px; line-height: 1.05; color: #14203F;
-  text-align: center; transform: rotate(-8deg); transform-origin: center;
+  font-size: 44px; line-height: 1.0; color: #101530;
+  text-align: center; transform: rotate(13deg); transform-origin: center;
+  white-space: nowrap;
 }
 
 /* ---------- column dividers ---------- */
-.vdiv { position: absolute; top: 152px; width: 1px; height: 496px; background: #BCA36F; opacity: 0.85; }
+.vdiv { position: absolute; width: 1px; background: #A49F91; }
+.vdiv.d1 { left: 393px; top: 165px; height: 515px; }
+.vdiv.d2 { left: 853px; top: 165px; height: 485px; }
 
-/* ---------- section headers ---------- */
-.sec-head { position: absolute; display: flex; align-items: center; gap: 10px; }
+/* ---------- section badges + headers ---------- */
 .badge {
-  width: 40px; height: 40px; border-radius: 50%;
-  background: #EADCC1; color: #14203F;
-  font-family: 'Cormorant Garamond', Georgia, serif; font-size: 24px;
-  display: flex; align-items: center; justify-content: center; flex: none;
+  position: absolute; width: 45px; height: 45px; border-radius: 50%;
+  background: #E6D8C5; color: #101530;
+  font-family: 'Bodoni Moda', 'Didot', Georgia, serif; font-size: 21px;
+  display: flex; align-items: center; justify-content: center;
+  letter-spacing: 0.5px;
 }
+.sec-head { position: absolute; display: flex; align-items: center; }
 .sec-head h3 {
-  font-family: 'Cormorant Garamond', 'Didot', Georgia, serif;
-  font-size: 20px; font-weight: 500; color: #14203F; letter-spacing: 0.6px;
+  font-family: 'DM Sans', Helvetica, Arial, sans-serif;
+  font-size: 15px; font-weight: 500; color: #101530; letter-spacing: 2.2px;
   white-space: nowrap; line-height: 1;
 }
-.rule { flex: 1; height: 1px; background: #BCA36F; }
+.rule { height: 1px; background: #A49F91; }
 
 /* ---------- column 1 : THE HERO ---------- */
 .col1-sub {
-  position: absolute; left: 36px; top: 200px;
-  font-size: 8.5px; letter-spacing: 1.3px; color: #554D42;
+  position: absolute; left: 92px; top: 190px;
+  font-size: 9px; letter-spacing: 2.4px; color: #5E584E; white-space: nowrap;
 }
-.photos { position: absolute; left: 36px; top: 216px; display: flex; gap: 7px; }
-.ph { width: 148px; height: 347px; background-repeat: no-repeat; background-color: #EFE0C7; }
-.ph-mini   { background-image: url('../public/ramya-portfolio-images/project1-hero-section-background.png');
-             background-size: auto 200%; background-position: 72% 40%; }
-.ph-maxi   { background-image: url('../public/ramya-portfolio-images/project1-hero-section-background.png');
-             background-size: cover; background-position: 70% 50%; }
+.photos { position: absolute; left: 26px; top: 210px; display: flex; gap: 7px; }
+.ph { height: 345px; background-repeat: no-repeat; background-color: #EFE0C7; }
+.ph-mini { width: 165px;
+  background-image: url('../public/ramya-portfolio-images/project1-hero-section-background.png');
+  background-size: auto 118%; background-position: 47% 22%; }
+.ph-maxi { width: 178px;
+  background-image: url('../public/ramya-portfolio-images/project1-hero-section-background.png');
+  background-size: auto 108%; background-position: 50% 34%; }
 
-.caps { position: absolute; left: 36px; top: 570px; display: flex; gap: 7px; }
-.cap { width: 148px; text-align: center; }
+.caps { position: absolute; left: 26px; top: 560px; display: flex; gap: 7px; }
+.cap { text-align: center; }
 .cap h4 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 13.5px; font-weight: 600; color: #14203F; letter-spacing: 1.2px; line-height: 1;
+  font-family: 'DM Sans', Helvetica, Arial, sans-serif;
+  font-size: 12px; font-weight: 500; color: #101530; letter-spacing: 2px; line-height: 1;
 }
-.cap .sub { font-size: 8px; color: #554D42; letter-spacing: 0.2px; margin-top: 3px; font-style: italic; }
-.cap p { font-size: 8px; line-height: 1.45; color: #554D42; margin-top: 3px; }
+.cap .sub { font-size: 8.5px; color: #6B6459; letter-spacing: 0.3px; margin-top: 4px; font-style: italic; }
+.cap p { font-size: 8.5px; line-height: 1.5; color: #4A443B; margin-top: 5px; }
 
 /* ---------- column 2 : THE TRANSFORMATION ---------- */
-.col2-proc { position: absolute; left: 361px; top: 198px; width: 158px; }
+.col2-proc { position: absolute; left: 407px; top: 205px; width: 169px; }
 .pcard {
-  width: 158px; height: 73px; background: #F4E5CF;
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+  width: 169px; height: 79px; background: #EBE0CD;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
 }
 .pcard h4 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 15.5px; font-weight: 600; color: #14203F; letter-spacing: 0.8px; line-height: 1;
+  font-family: 'Bodoni Moda', Georgia, serif;
+  font-size: 15px; font-weight: 500; color: #101530; letter-spacing: 1px; line-height: 1;
 }
-.pcard p { font-size: 8.5px; line-height: 1.35; color: #14203F; text-align: center; padding: 0 8px; }
-.arrow { height: 22px; display: flex; align-items: center; justify-content: center; color: #14203F; font-size: 11px; }
-.proc-copy { font-size: 8.5px; line-height: 1.4; color: #554D42; margin-top: 10px; text-align: left; }
+.pcard p { font-size: 8.5px; line-height: 1.4; color: #2F2A24; text-align: center; padding: 0 10px; }
+.arrow { display: flex; align-items: center; justify-content: center; color: #101530; font-size: 12px; }
+.arrow.a1 { height: 16px; }
+.arrow.a2 { height: 26px; }
+.proc-copy { font-size: 9px; line-height: 1.55; color: #2F2A24; margin-top: 1px; text-align: left; }
 .statement {
-  margin-top: 10px; background: #F0E3CF; padding: 7px 4px;
-  font-size: 8.2px; letter-spacing: 0.35px; color: #554D42; text-align: center; line-height: 1.3;
+  margin-top: 2px; margin-left: -1px; width: 178px;
+  background: #EDE2CF; padding: 7px 6px;
+  font-size: 8.5px; letter-spacing: 0.6px; color: #2F2A24; text-align: center; line-height: 1.3;
+  font-weight: 500;
 }
-.col2-prods { position: absolute; left: 534px; top: 198px; display: flex; gap: 5px; }
-.prod { width: 122px; height: 400px; background-color: #D9D6D0; }
-.prod-maxi { background-image: url('../public/ramya-portfolio-images/project3-research-rack.jpg');
-             background-size: cover; background-position: 8% 50%; }
-.prod-mini { background-image: url('../public/ramya-portfolio-images/project3-research-rack.jpg');
-             background-size: auto 130%; background-position: 86% 28%; }
+.col2-prods { position: absolute; left: 575px; top: 196px; display: flex; gap: 5px; }
+.prod { height: 411px; background-color: #D9D6D0; }
+.prod-maxi { width: 134px;
+  background-image: url('../public/ramya-portfolio-images/project3-research-rack.jpg');
+  background-size: cover; background-position: 30% 42%; }
+.prod-mini { width: 125px;
+  background-image: url('../public/ramya-portfolio-images/project3-research-rack.jpg');
+  background-size: cover; background-position: 68% 30%; }
 
 /* ---------- column 3 : DESIGN DECISION ---------- */
-.col3 { position: absolute; left: 799px; width: 227px; }
-.sec-sm { display: flex; align-items: baseline; gap: 8px; }
-.sec-sm .n, .sec-sm h3 {
-  font-family: 'Cormorant Garamond', 'Didot', Georgia, serif;
-  color: #14203F; font-weight: 500; line-height: 1; letter-spacing: 0.4px;
+.sec-sm { position: absolute; display: flex; align-items: center; }
+.sec-sm h3 {
+  font-family: 'DM Sans', Helvetica, Arial, sans-serif;
+  font-size: 11.5px; font-weight: 500; color: #101530; letter-spacing: 1.5px;
+  white-space: nowrap; line-height: 1;
 }
-.sec-sm .n { font-size: 13.5px; }
-.sec-sm h3 { font-size: 13.5px; white-space: nowrap; }
 
-.quotecard { position: absolute; left: 0; top: 176px; width: 227px; background: #F4E7D2; padding: 13px 13px 11px; }
+.quotecard {
+  position: absolute; left: 869px; top: 205px; width: 177px; height: 144px;
+  background: #F0E5D4; padding: 14px 12px 11px;
+}
 .quotecard blockquote {
-  font-family: 'Cormorant Garamond', 'Didot', Georgia, serif; font-style: italic;
-  font-size: 23px; line-height: 1.05; color: #14203F; text-align: center; font-weight: 500;
+  font-family: 'Bodoni Moda', 'Didot', Georgia, serif; font-style: italic;
+  font-size: 22px; line-height: 1.14; color: #101530; text-align: center;
 }
-.qrule { width: 44px; height: 1px; background: #BCA36F; margin: 10px auto 0; }
-.qcopy { position: absolute; left: 0; top: 330px; width: 227px; font-size: 10.5px; line-height: 1.5; color: #554D42; }
+.qrule { position: absolute; left: 939px; top: 330px; width: 44px; height: 1px; background: #A49F91; }
+.qcopy {
+  position: absolute; left: 890px; top: 346px; width: 142px;
+  font-size: 10px; line-height: 1.55; color: #4A443B; text-align: center;
+}
 .principles {
-  position: absolute; left: 0; top: 410px; width: 227px; background: #F4E7D2; padding: 12px;
-  font-size: 10.5px; letter-spacing: 1.3px; line-height: 1.8; color: #554D42; text-align: center;
+  position: absolute; left: 867px; top: 485px; width: 175px; height: 106px;
+  background: #EDE0CE; padding: 15px 10px;
+  font-size: 10px; letter-spacing: 1.6px; line-height: 1.95; color: #2F2A24; text-align: center;
+  font-weight: 500;
 }
-.bdiv { position: absolute; left: 14px; top: 558px; width: 200px; height: 1px; background: #BCA36F; }
 .closing {
-  position: absolute; left: 0; top: 574px; width: 227px; text-align: center;
-  font-family: 'Cormorant Garamond', 'Didot', Georgia, serif;
-  font-size: 14.5px; line-height: 1.25; color: #14203F; letter-spacing: 0.5px; font-weight: 500;
+  position: absolute; left: 856px; top: 614px; width: 199px; text-align: center;
+  font-family: 'Bodoni Moda', 'Didot', Georgia, serif;
+  font-size: 14px; line-height: 1.35; color: #101530; letter-spacing: 0.4px;
 }
 </style>
 </head>
@@ -139,33 +154,33 @@ html, body { background: #fff; }
 
   <!-- flowing gold border decorations + botanical accents -->
   <svg class="deco" width="1062" height="708" viewBox="0 0 1062 708" fill="none">
-    <!-- top-left architectural corner ornament -->
-    <line x1="36" y1="18" x2="168" y2="18" stroke="#BCA36F" stroke-width="1"/>
-    <line x1="36" y1="18" x2="36" y2="66" stroke="#BCA36F" stroke-width="1"/>
-    <path d="M62 14 L63 17 L66 18 L63 19 L62 22 L61 19 L58 18 L61 17 Z" fill="#BCA36F"/>
-    <path d="M114 14 L115 17 L118 18 L115 19 L114 22 L113 19 L110 18 L113 17 Z" fill="#BCA36F"/>
+    <!-- top-left corner bracket: vertical + horizontal rule with terminal diamond -->
+    <line x1="27" y1="16" x2="27" y2="134" stroke="#A49F91" stroke-width="1"/>
+    <line x1="15" y1="30" x2="243" y2="30" stroke="#A49F91" stroke-width="1"/>
+    <path d="M234 24 L237 30 L234 38 L231 30 Z" fill="#A49F91"/>
 
     <!-- top-right flowing curve + faint botanical collage -->
-    <g opacity="0.5">
-      <path d="M742 10 C820 34 900 -2 968 14 C1012 24 1044 12 1062 4" stroke="#BCA36F" stroke-width="1.2"/>
-      <ellipse cx="960" cy="44" rx="26" ry="9" fill="#EFE0C7" transform="rotate(-24 960 44)"/>
-      <ellipse cx="1002" cy="30" rx="20" ry="7" fill="#CBBBA4" opacity="0.6" transform="rotate(14 1002 30)"/>
-      <ellipse cx="1032" cy="58" rx="24" ry="8" fill="#EFE0C7" transform="rotate(-9 1032 58)"/>
-      <ellipse cx="918" cy="24" rx="16" ry="6" fill="#CBBBA4" opacity="0.5" transform="rotate(30 918 24)"/>
+    <g opacity="0.55">
+      <path d="M700 6 C790 26 880 -4 960 12 C1010 22 1042 10 1062 2" stroke="#A49F91" stroke-width="1.1"/>
+      <ellipse cx="905" cy="30" rx="30" ry="10" fill="#EFE0C7" transform="rotate(-22 905 30)"/>
+      <ellipse cx="960" cy="16" rx="22" ry="8" fill="#DCCFB6" opacity="0.7" transform="rotate(12 960 16)"/>
+      <ellipse cx="1000" cy="42" rx="26" ry="9" fill="#EFE0C7" transform="rotate(-8 1000 42)"/>
+      <ellipse cx="860" cy="12" rx="18" ry="6" fill="#DCCFB6" opacity="0.6" transform="rotate(28 860 12)"/>
+      <ellipse cx="1030" cy="24" rx="16" ry="6" fill="#EFE0C7" opacity="0.8" transform="rotate(-16 1030 24)"/>
     </g>
 
     <!-- bottom-left organic sweep -->
-    <g opacity="0.75">
-      <path d="M-4 690 C70 664 130 706 208 692 C262 682 300 700 336 706" stroke="#BCA36F" stroke-width="1.3"/>
-      <ellipse cx="66" cy="700" rx="26" ry="9" fill="#EFE0C7" transform="rotate(12 66 700)"/>
-      <ellipse cx="128" cy="712" rx="20" ry="7" fill="#CBBBA4" opacity="0.55" transform="rotate(-16 128 712)"/>
+    <g opacity="0.8">
+      <path d="M-6 692 C60 660 130 704 200 688" stroke="#A49F91" stroke-width="1.3"/>
+      <ellipse cx="58" cy="698" rx="30" ry="10" fill="#E3D3B6" transform="rotate(12 58 698)"/>
+      <ellipse cx="124" cy="708" rx="22" ry="8" fill="#D5C4A6" opacity="0.7" transform="rotate(-16 124 708)"/>
     </g>
 
     <!-- bottom-right organic sweep -->
-    <g opacity="0.75">
-      <path d="M1066 664 C996 692 942 672 884 700 C852 716 828 706 806 700" stroke="#BCA36F" stroke-width="1.3"/>
-      <ellipse cx="1004" cy="694" rx="24" ry="8" fill="#EFE0C7" transform="rotate(-14 1004 694)"/>
-      <ellipse cx="948" cy="706" rx="18" ry="6" fill="#CBBBA4" opacity="0.55" transform="rotate(18 948 706)"/>
+    <g opacity="0.8">
+      <path d="M1066 646 C1000 682 946 662 890 694 C862 708 840 700 820 696" stroke="#A49F91" stroke-width="1.3"/>
+      <ellipse cx="1000" cy="690" rx="26" ry="9" fill="#E3D3B6" transform="rotate(-14 1000 690)"/>
+      <ellipse cx="944" cy="702" rx="20" ry="7" fill="#D5C4A6" opacity="0.7" transform="rotate(18 944 702)"/>
     </g>
   </svg>
 
@@ -175,17 +190,17 @@ html, body { background: #fff; }
     The concept was translated into a hero garment: a strapless ruched dress with detachable tiers.<br>
     The modular construction allows the wearer to change the length according to the occasion.
   </p>
-  <div class="annotation">Change the<br>Length,<br>Not the Look.</div>
+  <div class="annotation">Change the<br>Length.<br>Not the Look.</div>
 
   <!-- column dividers -->
-  <div class="vdiv" style="left:350px"></div>
-  <div class="vdiv" style="left:788px"></div>
+  <div class="vdiv d1"></div>
+  <div class="vdiv d2"></div>
 
   <!-- 01 THE HERO -->
-  <div class="sec-head" style="left:36px; top:154px; width:303px;">
-    <span class="badge">01</span>
+  <div class="badge" style="left:28px; top:153px;">01</div>
+  <div class="sec-head" style="left:92px; top:165px;">
     <h3>THE HERO</h3>
-    <span class="rule"></span>
+    <span class="rule" style="width:188px;"></span>
   </div>
   <div class="col1-sub">THE DRESS THAT CHANGES WITH YOU</div>
   <div class="photos">
@@ -193,12 +208,12 @@ html, body { background: #fff; }
     <div class="ph ph-maxi"></div>
   </div>
   <div class="caps">
-    <div class="cap">
+    <div class="cap" style="width:165px;">
       <h4>MINI</h4>
       <div class="sub">Light &bull; Easy &bull; Day-ready</div>
       <p>The shorter version works for casual resort moments, daytime plans and travel.</p>
     </div>
-    <div class="cap">
+    <div class="cap" style="width:178px;">
       <h4>MAXI</h4>
       <div class="sub">Flowing &bull; Elevated &bull; Evening-ready</div>
       <p>With the detachable tier added, the same base transforms into a longer silhouette suitable for vacation evenings and relaxed occasions.</p>
@@ -206,22 +221,22 @@ html, body { background: #fff; }
   </div>
 
   <!-- 02 THE TRANSFORMATION -->
-  <div class="sec-head" style="left:361px; top:160px; width:416px; gap:8px;">
-    <span class="badge">02</span>
+  <div class="badge" style="left:403px; top:154px;">02</div>
+  <div class="sec-head" style="left:466px; top:167px;">
     <h3>THE TRANSFORMATION</h3>
-    <span class="rule"></span>
+    <span class="rule" style="width:153px;"></span>
   </div>
   <div class="col2-proc">
     <div class="pcard">
       <h4>MINI</h4>
       <p>A fresh, effortless look for the day.</p>
     </div>
-    <div class="arrow">&#8595;</div>
+    <div class="arrow a1">&#8595;</div>
     <div class="pcard">
       <h4>DETACHABLE TIER</h4>
       <p>Add or remove with ease.</p>
     </div>
-    <div class="arrow">&#8595;</div>
+    <div class="arrow a2">&#8595;</div>
     <div class="pcard">
       <h4>MAXI</h4>
       <p>A flowing silhouette for elevated moments.</p>
@@ -234,19 +249,20 @@ html, body { background: #fff; }
     <div class="prod prod-maxi"></div>
   </div>
 
-  <!-- 03 / 04 THE DESIGN DECISION -->
-  <div class="col3">
-    <div class="sec-sm" style="position:absolute; top:160px;"><span class="n">03</span><h3>THE DESIGN DECISION</h3></div>
-    <div class="quotecard">
-      <blockquote>&ldquo;Why create<br>two dresses<br>when one can<br>become both?&rdquo;</blockquote>
-      <div class="qrule"></div>
-    </div>
-    <p class="qcopy">A versatile design that adapts to your plans, your mood and your destination &mdash; because style should move with you.</p>
-    <div class="sec-sm" style="position:absolute; top:386px;"><span class="n">04</span><h3>THE DESIGN DECISION</h3></div>
-    <div class="principles">ADAPTABILITY<br>FUNCTIONALITY<br>COMFORT<br>REPEAT WEAR</div>
-    <div class="bdiv"></div>
-    <div class="closing">DESIGNED TO TRANSFORM.<br>STYLED TO MOVE.</div>
+  <!-- 03 THE DESIGN DECISION -->
+  <div class="badge" style="left:860px; top:153px;">03</div>
+  <div class="sec-sm" style="left:913px; top:163px;"><h3>THE DESIGN DECISION</h3></div>
+  <div class="quotecard">
+    <blockquote>&ldquo;Why create<br>two dresses<br>when one can<br>become both?&rdquo;</blockquote>
   </div>
+  <div class="qrule"></div>
+  <p class="qcopy">A versatile design that adapts to your plans, your mood and your destination &mdash; because style should move with you.</p>
+
+  <!-- 04 THE DESIGN DECISION -->
+  <div class="badge" style="left:860px; top:447px;">04</div>
+  <div class="sec-sm" style="left:913px; top:460px;"><h3>THE DESIGN DECISION</h3></div>
+  <div class="principles">ADAPTABILITY<br>FUNCTIONALITY<br>COMFORT<br>REPEAT WEAR</div>
+  <div class="closing">DESIGNED TO TRANSFORM.<br>STYLED TO MOVE.</div>
 
 </div>
 </body>

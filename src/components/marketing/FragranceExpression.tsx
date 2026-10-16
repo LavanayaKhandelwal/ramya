@@ -1,4 +1,5 @@
 import React from 'react';
+import { project4Image } from '../../data/artwork';
 import { SectionImage } from './SectionImage';
 
 const Arrow = () => (
@@ -8,10 +9,10 @@ const Arrow = () => (
 );
 
 const PRODUCTS = [
-  { name: 'HANA', meaning: 'Flower', char: '花', src: '/ramya-portfolio-images/placeholders/4K.png', alt: 'HANA fragrance bottle and pink packaging among cherry blossoms on pale stone', tint: '#F0D7D6', desc: ['Soft', 'Feminine', 'Calm'] },
-  { name: 'MIZU', meaning: 'Water', char: '水', src: '/ramya-portfolio-images/placeholders/4L.png', alt: 'MIZU fragrance bottle and powder-blue packaging against rippling water and pale sky', tint: '#D7E6EE', desc: ['Fresh', 'Clean', 'Balanced'] },
-  { name: 'KAZE', meaning: 'Wind', char: '風', src: '/ramya-portfolio-images/placeholders/4M.png', alt: 'KAZE fragrance bottle with botanical green packaging among green leaves and citrus', tint: '#DCE3D1', desc: ['Fresh', 'Energetic', 'Light'] },
-  { name: 'SORA', meaning: 'Sky', char: '空', src: '/ramya-portfolio-images/placeholders/4N.png', alt: 'SORA fragrance bottle and light-blue packaging against an open blue sky', tint: '#D3E1EC', desc: ['Green', 'Calm', 'Grounded'] },
+  { name: 'HANA', meaning: 'Flower', char: '花', src: project4Image('4K'), alt: 'HANA fragrance bottle and pink packaging among cherry blossoms on pale stone', tint: '#F0D7D6', desc: ['Soft', 'Feminine', 'Calm'] },
+  { name: 'MIZU', meaning: 'Water', char: '水', src: project4Image('4L'), alt: 'MIZU fragrance bottle and powder-blue packaging against rippling water and pale sky', tint: '#D7E6EE', desc: ['Fresh', 'Clean', 'Balanced'] },
+  { name: 'KAZE', meaning: 'Wind', char: '風', src: project4Image('4M'), alt: 'KAZE fragrance bottle with botanical green packaging among green leaves and citrus', tint: '#DCE3D1', desc: ['Fresh', 'Energetic', 'Light'] },
+  { name: 'SORA', meaning: 'Sky', char: '空', src: project4Image('4N'), alt: 'SORA fragrance bottle and light-blue packaging against an open blue sky', tint: '#D3E1EC', desc: ['Green', 'Calm', 'Grounded'] },
 ];
 
 const STRIP_IMG = ['#EBC9C8', '#C9DEE9', '#D5DEC6', '#CFE0EC'];

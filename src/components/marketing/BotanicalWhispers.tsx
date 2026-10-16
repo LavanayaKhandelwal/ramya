@@ -1,27 +1,30 @@
 import React from 'react';
+import { project2Image } from '../../data/artwork';
 import { SectionImage } from './SectionImage';
 
+// `2AB` is the supplied mood-board artwork; `2AC`–`2AM` still resolve to their
+// labelled placeholders until those boards are supplied.
 const MOOD = [
-  { alt: 'Delicate lavender blossoms', src: '/ramya-portfolio-images/placeholders/2AB.png', cls: 'portrait', tint: '#DED2E4' },
-  { alt: 'Neutral linen fabric texture', src: '/ramya-portfolio-images/placeholders/2AC.png', cls: 'portrait', tint: '#E1D8C8' },
-  { alt: 'Soft pink botanical flower arrangement', src: '/ramya-portfolio-images/placeholders/2AD.png', cls: 'portrait', tint: '#EBD5D6' },
-  { alt: 'Green tree canopy and natural sunlight', src: '/ramya-portfolio-images/placeholders/2AE.png', cls: 'landscape', tint: '#D7DEC6' },
-  { alt: 'Flowering branches against a blue sky', src: '/ramya-portfolio-images/placeholders/2AF.png', cls: 'portrait', tint: '#D5E0EA' },
-  { alt: 'Close-up of pastel floral embroidery on linen', src: '/ramya-portfolio-images/placeholders/2AG.png', cls: 'square', tint: '#E4DBC9' },
-  { alt: 'Botanical landscape with flowering trees', src: '/ramya-portfolio-images/placeholders/2AH.png', cls: 'portrait', tint: '#D9DFC9' },
-  { alt: 'Embroidery hoop with delicate flower stitching', src: '/ramya-portfolio-images/placeholders/2AI.png', cls: 'square', tint: '#E3DCCB' },
-  { alt: 'Soft iridescent fabric in pastel colours', src: '/ramya-portfolio-images/placeholders/2AJ.png', cls: 'landscape', tint: '#DCD8E2' },
-  { alt: 'Pastel embroidery threads and sewing materials', src: '/ramya-portfolio-images/placeholders/2AK.png', cls: 'portrait', tint: '#E6D4D0' },
-  { alt: 'Floral embroidery sketches on paper', src: '/ramya-portfolio-images/placeholders/2AL.png', cls: 'portrait', tint: '#E4DECE' },
-  { alt: 'Small botanical colour swatches and pressed flowers', src: '/ramya-portfolio-images/placeholders/2AM.png', cls: 'portrait', tint: '#DFD9C7' },
+  { alt: 'Mood board collage of botanical prints, floral photography and soft colour swatches', src: project2Image('2AB'), cls: 'portrait', tint: '#DED2E4' },
+  { alt: 'Neutral linen fabric texture', src: project2Image('2AC'), cls: 'portrait', tint: '#E1D8C8' },
+  { alt: 'Soft pink botanical flower arrangement', src: project2Image('2AD'), cls: 'portrait', tint: '#EBD5D6' },
+  { alt: 'Green tree canopy and natural sunlight', src: project2Image('2AE'), cls: 'landscape', tint: '#D7DEC6' },
+  { alt: 'Flowering branches against a blue sky', src: project2Image('2AF'), cls: 'portrait', tint: '#D5E0EA' },
+  { alt: 'Close-up of pastel floral embroidery on linen', src: project2Image('2AG'), cls: 'square', tint: '#E4DBC9' },
+  { alt: 'Botanical landscape with flowering trees', src: project2Image('2AH'), cls: 'portrait', tint: '#D9DFC9' },
+  { alt: 'Embroidery hoop with delicate flower stitching', src: project2Image('2AI'), cls: 'square', tint: '#E3DCCB' },
+  { alt: 'Soft iridescent fabric in pastel colours', src: project2Image('2AJ'), cls: 'landscape', tint: '#DCD8E2' },
+  { alt: 'Pastel embroidery threads and sewing materials', src: project2Image('2AK'), cls: 'portrait', tint: '#E6D4D0' },
+  { alt: 'Floral embroidery sketches on paper', src: project2Image('2AL'), cls: 'portrait', tint: '#E4DECE' },
+  { alt: 'Small botanical colour swatches and pressed flowers', src: project2Image('2AM'), cls: 'portrait', tint: '#DFD9C7' },
 ];
 
 const EMBROIDERY = [
-  { label: 'Beaded embroidery', src: '/ramya-portfolio-images/placeholders/2AN.png', tint: '#E3DACB' },
-  { label: 'Japanese-inspired motifs', src: '/ramya-portfolio-images/placeholders/2AO.png', tint: '#DED6CA' },
-  { label: 'Minimal floral embroidery', src: '/ramya-portfolio-images/placeholders/2AP.png', tint: '#E6DFD0' },
-  { label: 'Threaded embroidery', src: '/ramya-portfolio-images/placeholders/2AQ.png', tint: '#DCE0CE' },
-  { label: 'Textured embroidery', src: '/ramya-portfolio-images/placeholders/2AR.png', tint: '#E0D8C9' },
+  { label: 'Beaded embroidery', src: project2Image('2AN'), tint: '#E3DACB' },
+  { label: 'Japanese-inspired motifs', src: project2Image('2AO'), tint: '#DED6CA' },
+  { label: 'Minimal floral embroidery', src: project2Image('2AP'), tint: '#E6DFD0' },
+  { label: 'Threaded embroidery', src: project2Image('2AQ'), tint: '#DCE0CE' },
+  { label: 'Textured embroidery', src: project2Image('2AR'), tint: '#E0D8C9' },
 ];
 
 const PRINCIPLES = [
@@ -82,7 +85,7 @@ export function BotanicalWhispers() {
           <p className="px2e__collection">A UNIQLO LifeWear Capsule Collection</p>
         </div>
         <div className="px2e__header-botanical">
-          <SectionImage src="/ramya-portfolio-images/placeholders/2AA.png" alt="Delicate flowering branches with soft pink blossoms" tint="#ECD9DA" />
+          <SectionImage src={project2Image('2AA')} alt="Soft pink and blue sky with wispy clouds" tint="#ECD9DA" />
         </div>
       </header>
 
@@ -128,7 +131,7 @@ export function BotanicalWhispers() {
             <div className="px2e__product-grid">
               <div className="px2e__product-hero">
                 <SectionImage
-                  src="/ramya-portfolio-images/placeholders/2AS.png"
+                  src={project2Image('2AS')}
                   alt="Two neutral everyday cotton shirts on mannequins with subtle botanical embroidery"
                   tint="#E7DED0"
                 />
@@ -142,9 +145,9 @@ export function BotanicalWhispers() {
                 ))}
               </ul>
               <div className="px2e__product-details">
-                <SectionImage src="/ramya-portfolio-images/placeholders/2AT.png" alt="Close-up of a small floral embroidered motif on an ivory shirt" tint="#E4DCCB" />
-                <SectionImage src="/ramya-portfolio-images/placeholders/2AU.png" alt="Detailed embroidery and stitching on cotton fabric" tint="#E1D9C8" />
-                <SectionImage src="/ramya-portfolio-images/placeholders/2AV.png" alt="Small botanical embroidery motif on a shirt cuff" tint="#E6DDCE" />
+                <SectionImage src={project2Image('2AT')} alt="Close-up of a small floral embroidered motif on an ivory shirt" tint="#E4DCCB" />
+                <SectionImage src={project2Image('2AU')} alt="Detailed embroidery and stitching on cotton fabric" tint="#E1D9C8" />
+                <SectionImage src={project2Image('2AV')} alt="Palm-tree embroidery motif beside a shirt button" tint="#E6DDCE" />
               </div>
             </div>
           </div>

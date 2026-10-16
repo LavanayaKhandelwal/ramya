@@ -1,4 +1,5 @@
 import React from 'react';
+import { project3Image } from '../../data/artwork';
 import { SectionImage } from './SectionImage';
 
 const INSIGHTS = [
@@ -6,28 +7,28 @@ const INSIGHTS = [
     title: 'The Brand',
     desc: 'A contemporary, feminine and trend-led fashion label that blends modern silhouettes with effortless style.',
     alt: 'Close-up of a delicate pale pink blossom with a soft cream background',
-    src: '/ramya-portfolio-images/placeholders/3C.png',
+    src: project3Image('3C'),
     tint: '#F0DAD9',
   },
   {
     title: 'The Season',
     desc: 'Spring/Summer brings lightness, freshness and a playful, optimistic mood to the collection.',
     alt: 'Iridescent pastel material reflecting lavender, pink and blue light',
-    src: '/ramya-portfolio-images/placeholders/3D.png',
+    src: project3Image('3D'),
     tint: '#E5DDF0',
   },
   {
     title: 'The Creative Direction',
     desc: 'Traditional florals reinterpreted through holographic materials, reflective surfaces and translucent layers.',
     alt: 'Pale lavender flowers with translucent petals and pearlescent reflections',
-    src: '/ramya-portfolio-images/placeholders/3E.png',
+    src: project3Image('3E'),
     tint: '#E8E0F2',
   },
   {
     title: 'The Concept',
     desc: 'A modern, expressive take on florals where nature meets innovation, creating a soft yet futuristic in-store experience.',
     alt: 'Blue and pink iridescent floral forms against a soft pastel background',
-    src: '/ramya-portfolio-images/placeholders/3F.png',
+    src: project3Image('3F'),
     tint: '#DDE7F0',
   },
 ];
@@ -41,14 +42,16 @@ const KEYWORDS = [
   { text: 'Light', colour: '#F3E6C9' },
 ];
 
+// `3G` is the supplied mood-board artwork; `3H`–`3M` still resolve to their
+// labelled placeholders until those boards are supplied.
 const MOOD = [
-  { alt: 'Iridescent flower sculpture', cls: 'a', src: '/ramya-portfolio-images/placeholders/3G.png' },
-  { alt: 'Holographic material close-up', cls: 'b', src: '/ramya-portfolio-images/placeholders/3H.png' },
-  { alt: 'Editorial beauty portrait with luminous pastel makeup', cls: 'c', src: '/ramya-portfolio-images/placeholders/3I.png' },
-  { alt: 'Futuristic fashion portrait with reflective styling', cls: 'd', src: '/ramya-portfolio-images/placeholders/3J.png' },
-  { alt: 'Translucent purple-blue flowers', cls: 'e', src: '/ramya-portfolio-images/placeholders/3K.png' },
-  { alt: 'Flowing iridescent fabric', cls: 'f', src: '/ramya-portfolio-images/placeholders/3L.png' },
-  { alt: 'Pastel fashion silhouettes', cls: 'g', src: '/ramya-portfolio-images/placeholders/3M.png' },
+  { alt: 'Mood board collage of iridescent florals, material studies and editorial portraits', cls: 'a', src: project3Image('3G') },
+  { alt: 'Holographic material close-up', cls: 'b', src: project3Image('3H') },
+  { alt: 'Editorial beauty portrait with luminous pastel makeup', cls: 'c', src: project3Image('3I') },
+  { alt: 'Futuristic fashion portrait with reflective styling', cls: 'd', src: project3Image('3J') },
+  { alt: 'Translucent purple-blue flowers', cls: 'e', src: project3Image('3K') },
+  { alt: 'Flowing iridescent fabric', cls: 'f', src: project3Image('3L') },
+  { alt: 'Pastel fashion silhouettes', cls: 'g', src: project3Image('3M') },
 ];
 
 const PALETTE = [
@@ -78,7 +81,7 @@ const TRENDS = [
 export function FloralsReimagined() {
   return (
     <section className="px3r" aria-labelledby="px3r-heading">
-      <img className="px3r__bg" src="/ramya-portfolio-images/placeholders/3B.png" alt="" aria-hidden="true" draggable={false} />
+      <img className="px3r__bg" src={project3Image('3B')} alt="" aria-hidden="true" draggable={false} />
 
       <div className="px3r__grid">
         <div className="px3r__left">
@@ -136,8 +139,8 @@ export function FloralsReimagined() {
                   ))}
                 </div>
                 <div className="px3r__palette-refs">
-                  <SectionImage src="/ramya-portfolio-images/placeholders/3N.png" alt="Editorial fashion photograph with pastel garments" tint="#EADCE6" />
-                  <SectionImage src="/ramya-portfolio-images/placeholders/3O.png" alt="Holographic material sample" tint="#E1E7EF" />
+                  <SectionImage src={project3Image('3N')} alt="Colour board collage with pastel swatches, floral references and styling imagery" tint="#EADCE6" />
+                  <SectionImage src={project3Image('3O')} alt="Holographic material sample" tint="#E1E7EF" />
                 </div>
               </div>
               <ul className="px3r__swatch-labels">

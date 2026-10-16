@@ -1,12 +1,13 @@
 import React from 'react';
+import { project2Image } from '../../data/artwork';
 import { SectionImage } from './SectionImage';
 
 const WHYS = [
-  { n: '01', q: 'Why are consumers choosing fast fashion?', c: '#E8D1CE', src: '/ramya-portfolio-images/placeholders/2Q.png', tint: '#E5DAC9' },
-  { n: '02', q: 'Why do they prefer trends over basics?', c: '#D7E0EC', src: '/ramya-portfolio-images/placeholders/2R.png', tint: '#E6D9D6' },
-  { n: '03', q: 'Why do they switch brands often?', c: '#D9E3D5', src: '/ramya-portfolio-images/placeholders/2S.png', tint: '#E0DDD2' },
-  { n: '04', q: 'Why do they seek more expression?', c: '#EADFAD', src: '/ramya-portfolio-images/placeholders/2T.png', tint: '#E2DDCF' },
-  { n: '05', q: 'Why is this an opportunity for Uniqlo?', c: '#DDD5E8', src: '/ramya-portfolio-images/placeholders/2U.png', tint: '#DFDBD0' },
+  { n: '01', q: 'Why are consumers choosing fast fashion?', c: '#E8D1CE', src: project2Image('2Q'), tint: '#E5DAC9' },
+  { n: '02', q: 'Why do they prefer trends over basics?', c: '#D7E0EC', src: project2Image('2R'), tint: '#E6D9D6' },
+  { n: '03', q: 'Why do they switch brands often?', c: '#D9E3D5', src: project2Image('2S'), tint: '#E0DDD2' },
+  { n: '04', q: 'Why do they seek more expression?', c: '#EADFAD', src: project2Image('2T'), tint: '#E2DDCF' },
+  { n: '05', q: 'Why is this an opportunity for Uniqlo?', c: '#DDD5E8', src: project2Image('2U'), tint: '#DFDBD0' },
 ];
 
 const IDEAS = [
@@ -14,34 +15,34 @@ const IDEAS = [
     title: 'Seasonal Colour Drops',
     concept:
       'Introduce restrained seasonal colour variations while retaining a recognisable everyday wardrobe.',
-    src: '/ramya-portfolio-images/placeholders/2V.png',
+    src: project2Image('2V'),
     swatches: ['#D7A4A0', '#C4B4D2', '#91AFBD', '#B9BE9C'],
     tint: '#E6D8D2',
   },
   {
     title: 'Textured Detailing',
     concept: 'Use tactile fabric variations to add understated interest to otherwise simple garments.',
-    src: '/ramya-portfolio-images/placeholders/2W.png',
+    src: project2Image('2W'),
     tint: '#E1DACB',
   },
   {
     title: 'Minimal Embroidery',
     concept: 'Introduce subtle botanical embroidery as a small expression of personality.',
-    src: '/ramya-portfolio-images/placeholders/2X.png',
+    src: project2Image('2X'),
     tint: '#E2DDD0',
   },
   {
     title: 'Young Designer Collaborations',
     concept:
       'Explore limited collaborations with emerging designers to introduce fresh perspectives without losing brand simplicity.',
-    src: '/ramya-portfolio-images/placeholders/2Y.png',
+    src: project2Image('2Y'),
     tint: '#DEDCD3',
   },
   {
     title: 'Small Capsule Collections',
     concept:
       'Create small coordinated collections that explore personal expression through limited design details.',
-    src: '/ramya-portfolio-images/placeholders/2Z.png',
+    src: project2Image('2Z'),
     tint: '#E3DACF',
   },
 ];

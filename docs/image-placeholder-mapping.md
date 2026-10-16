@@ -12,8 +12,8 @@ image, restoring the final artwork, and communicating replacements with the clie
 | Project 1 — Fashion Merchandising | `1` | `1A` → `1AR` | 44 |
 | Project 2 — UNIQLO *Threading the Trend* | `2` | `2A` → `2BA` | 53 |
 | Project 3 — *Beyond the Floral* Visual Merchandising | `3` | `3A` → `3AB` | 28 |
-| Project 4 — UNIQLO Fragrances | `4` | `4A` → `4AD` | 30 |
-| **Total** | | | **155** |
+| Project 4 — UNIQLO Fragrances | `4` | `4A` → `4AF` | 32 |
+| **Total** | | | **157** |
 
 - Identifiers are assigned in **document (scroll) order** within each project and are
   **unique per placement** — the same source image used in several slots receives a
@@ -51,6 +51,45 @@ box so no layout shift is introduced:
   needed). `alt` text and this table preserve the original image descriptions.
 - No CSS background images existed to preserve (the codebase contains no photo
   `background-image`/`url()` rules); logos, icons and inline SVGs were left untouched.
+
+## Restore pass — Project 2, 3 & 4 artwork supplied
+
+Per-page artwork exports were supplied in `public/Project 2`, `public/Project 3` and
+`public/Project 4`. Each file name carries its design page and the slot code it fills
+(`Page 5 2AN.png` = page 5, slot `2AN`), so every code maps to exactly one file:
+
+| Project | Codes now using supplied artwork | Source | Still placeholder |
+|---------|----------------------------------|--------|-------------------|
+| Project 2 | `2A`–`2AB`, `2AN`–`2AZ` (41) | `public/Project 2/` | `2AC`–`2AM` (the 12-slot mood board; `2AB` is the supplied board artwork) |
+| Project 3 | `3A`–`3G`, `3N`, `3P`–`3W`, `3X`–`3AA` (20) | `public/Project 3/` | `3H`–`3M`, `3O` (`3G` is the supplied mood board, `3N` the colour board) |
+| Project 4 | `4A`–`4AC` (29) | `public/Project 4/` | `4AE`, `4AF` (both slots added with this pass) |
+
+The scannable mapping lives in `src/data/artwork.ts`: each component asks for a slot
+code and receives either the supplied file or its placeholder, so filling a remaining
+gap later is a one-line addition to that map.
+
+- Layout is unchanged — supplied files fill the same `object-fit: cover` boxes, so an
+different aspect ratio is cropped rather than reflected in the layout.
+- Index cards `2BA`, `3AB` and `4AD` were restored to the original
+  `/ramya-portfolio-images/project{2,3,4}-card.png` (all 1501 × 1048, identical in size
+  to their placeholders). `1AR` still points at its placeholder — the Project 1 card
+  artwork has not been supplied.
+- `alt` text was updated where the supplied photograph differs from the original
+description — Project 2: `2D`, `2E`, `2F`, `2H`, `2I`, `2M`, `2N`, `2P`, `2AA`,
+  `2AB`, `2AV`, `2AW`; Project 3: `3G`, `3N`; Project 4: `4F`, `4T`, `4U`, `4V`,
+  `4W`, `4Z`, `4AA`.
+- Two supplied names break the pattern: `Page 2 2i.jpg` and `Page 2 4i.jpg` use a
+  lower-case letter and fill slots `2I` / `4I`, and Project 4's `Page 5 AC.jpg` fills
+  slot `4AC` (the `4` is missing from the file name).
+- Not wired to any slot yet: `public/Project 3/Page 2 trend board.png` — the trend panel
+  still renders its own text list.
+- The supplied files are print-resolution (82 MB / 40 MB / 37 MB for Projects 2, 3, 4),
+  so a case-study page now pulls tens of megabytes. Optimising/deriving web sizes is a
+  separate pass.
+
+The rows below still show each slot's *placeholder* path; treat the table above as the
+current source of truth for Projects 2, 3 and 4. Project 1 is untouched and still runs
+entirely on placeholders.
 
 ## Mapping table
 
@@ -214,6 +253,6 @@ box so no layout shift is introduced:
 
 ---
 
-*Generated as part of the placeholder-replacement pass. 155 placements total:
-Project 1 = 44, Project 2 = 53, Project 3 = 28, Project 4 = 30.*
+*Generated as part of the placeholder-replacement pass. 157 placements total:
+Project 1 = 44, Project 2 = 53, Project 3 = 28, Project 4 = 32.*
 *Repeated source images are intentionally listed once per placement with unique IDs.*

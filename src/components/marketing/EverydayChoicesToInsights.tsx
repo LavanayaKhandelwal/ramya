@@ -1,4 +1,5 @@
 import React from 'react';
+import { project2Image } from '../../data/artwork';
 import { SectionImage } from './SectionImage';
 
 type IconName = 'hanger' | 'heart' | 'magnify' | 'bag' | 'laptop' | 'speaker' | 'bulb' | 'cloud' | 'trousers' | 'sparkle';
@@ -90,7 +91,7 @@ const PROFILES: Profile[] = [
   {
     number: '01',
     circleBg: '#F0D9D5',
-    imageSrc: '/ramya-portfolio-images/placeholders/2J.png',
+    imageSrc: project2Image('2J'),
     imageAlt: 'Row of neutral everyday garments on wooden hangers along a natural rail',
     tint: '#E6DCCB',
     question: 'Why are consumers choosing fast fashion?',
@@ -106,7 +107,7 @@ const PROFILES: Profile[] = [
   {
     number: '02',
     circleBg: '#DCEAF0',
-    imageSrc: '/ramya-portfolio-images/placeholders/2K.png',
+    imageSrc: project2Image('2K'),
     imageAlt: 'Calm lifestyle workspace with laptop, notebook, coffee cup and rattan chair',
     tint: '#E4DFD4',
     question: 'Why do they prefer trends over basics?',
@@ -122,7 +123,7 @@ const PROFILES: Profile[] = [
   {
     number: '03',
     circleBg: '#E2E3D2',
-    imageSrc: '/ramya-portfolio-images/placeholders/2L.png',
+    imageSrc: project2Image('2L'),
     imageAlt: 'Flat lay of blush pleated fabric, cream sneakers, denim and a beige shoulder bag',
     tint: '#E6D9D6',
     question: 'Why do they switch brands often?',
@@ -138,9 +139,9 @@ const PROFILES: Profile[] = [
 ];
 
 const SHARED_TRUTH = [
-  { label: 'Comfort', alt: 'Macro photograph of textured beige linen fabric', src: '/ramya-portfolio-images/placeholders/2M.png', tint: '#E1D6C2' },
-  { label: 'Simplicity', alt: 'Soft blush fabric falling into elegant natural folds', src: '/ramya-portfolio-images/placeholders/2N.png', tint: '#EBD9D8' },
-  { label: 'Subtle Personality', alt: 'Small pastel flowers embroidered onto textured neutral fabric', src: '/ramya-portfolio-images/placeholders/2O.png', tint: '#DEDCD0' },
+  { label: 'Comfort', alt: 'Folded olive and cream knitwear stacked on a chair beside white slippers', src: project2Image('2M'), tint: '#E1D6C2' },
+  { label: 'Simplicity', alt: 'Hand holding soft blush fabric with tone-on-tone floral embroidery', src: project2Image('2N'), tint: '#EBD9D8' },
+  { label: 'Subtle Personality', alt: 'Small pastel flowers embroidered onto textured neutral fabric', src: project2Image('2O'), tint: '#DEDCD0' },
 ];
 
 export function EverydayChoicesToInsights() {
@@ -215,8 +216,8 @@ export function EverydayChoicesToInsights() {
 
         <div className="px2b__botanical">
           <SectionImage
-            src="/ramya-portfolio-images/placeholders/2P.png"
-            alt="Cluster of small white and yellow daisy-like flowers against a textured cream wall"
+            src={project2Image('2P')}
+            alt="White shirt with delicate floral embroidery hanging on a rail"
             tint="#E6DCC8"
           />
         </div>

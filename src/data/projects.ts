@@ -37,7 +37,7 @@ export const projectsIndex: ProjectCardData[] = [
     id: 'project-2',
     slug: 'visual-merchandising',
     buttonLabel: 'Project 2',
-    image: '/ramya-portfolio-images/placeholders/2BA.png',
+    image: '/ramya-portfolio-images/project2-card.png',
     imageDescription:
       'Project 2 card: a cream envelope holding a concept board, fabric swatches and dried flowers, with a script "Project 2" label and a blue wax seal',
   },
@@ -45,7 +45,7 @@ export const projectsIndex: ProjectCardData[] = [
     id: 'project-3',
     slug: 'project-3',
     buttonLabel: 'Project 3',
-    image: '/ramya-portfolio-images/placeholders/3AB.png',
+    image: '/ramya-portfolio-images/project3-card.png',
     imageDescription:
       'Project 3 card: a cream envelope holding packaging photographs, fabric swatches and dried flowers, with a script "Project 3" label and a blue wax seal',
   },
@@ -53,7 +53,7 @@ export const projectsIndex: ProjectCardData[] = [
     id: 'project-4',
     slug: 'project-4',
     buttonLabel: 'Project 4',
-    image: '/ramya-portfolio-images/placeholders/4AD.png',
+    image: '/ramya-portfolio-images/project4-card.png',
     imageDescription:
       'Project 4 card: a cream envelope holding perfume bottle photographs, fabric swatches and dried flowers, with a script "Project 4" label and a blue wax seal',
   },

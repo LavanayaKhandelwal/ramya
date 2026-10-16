@@ -2453,32 +2453,6 @@ img.skills-panel-title {
   color: #3F3933;
 }
 
-.p1-col-script-note {
-  position: absolute;
-  z-index: 10;
-  bottom: 120px;
-  left: 32px;
-  font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
-  font-size: 20px;
-  line-height: 1.15;
-  color: #302A25;
-  transform: rotate(-8deg);
-}
-
-.p1-col-keywords {
-  position: absolute;
-  z-index: 10;
-  bottom: 36px;
-  left: 32px;
-  font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
-  font-size: 9px;
-  letter-spacing: 3px;
-  line-height: 2.1;
-  color: #37312D;
-  text-transform: uppercase;
-}
-
 /* Right Content Area — ~76% width */
 .p1-col-right {
   position: relative;
@@ -5699,8 +5673,12 @@ img.skills-panel-title {
 .px4w {
   display: grid;
   grid-template-columns: 38% 62%;
-  aspect-ratio: 1.78 / 1;
-  min-height: 620px;
+  /* The right panel's three research rows have fixed pixel heights, so below ~1500px
+     they need more room than a locked 1.78:1 box allows. With `aspect-ratio` the grid
+     row spilled ~50px past the section and the left/opportunity photographs collided
+     with the section 03 product row. Keep the reference proportion while there is
+     room for it, then let the content set the height. */
+  min-height: max(620px, 56.25vw); /* 56.25vw = 1.78:1 */
   background: #F5F2EA;
 }
 .px4w__left {
@@ -6161,8 +6139,10 @@ img.skills-panel-title {
 /* --- Section 04: "REAL PEOPLE, REAL INSIGHTS" --- */
 .px4r {
   background: #F3EDE2;
-  aspect-ratio: 1.6 / 1;
-  min-height: 640px;
+  /* Same reasoning as .px4w: the three research columns add up to more than a locked
+     1.6:1 box between 1025px and ~1200px, which used to push the photographs ~25px
+     into section 05. */
+  min-height: max(640px, 62.5vw); /* 62.5vw = 1.6:1 */
 }
 .px4r__grid {
   display: grid;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { project4Image } from '../../data/artwork';
 import { SectionImage } from './SectionImage';
 
 const Icon = ({ name }: { name: string }) => {
@@ -18,22 +19,22 @@ const MARKET = [
 ];
 
 const CONSUMER = [
-  { src: '/ramya-portfolio-images/placeholders/4D.png', alt: 'Close-up of clear blue water with gentle ripples', cap: ['Clean', '& Fresh'] },
-  { src: '/ramya-portfolio-images/placeholders/4E.png', alt: 'Sheer white curtains illuminated by sunlight', cap: ['Minimal', '& Subtle'] },
-  { src: '/ramya-portfolio-images/placeholders/4F.png', alt: 'Small ceramic vessel beside delicate natural branches', cap: ['Everyday', '& Versatile'] },
+  { src: project4Image('4D'), alt: 'Close-up of clear blue water with gentle ripples', cap: ['Clean', '& Fresh'] },
+  { src: project4Image('4E'), alt: 'Sheer white curtains illuminated by sunlight', cap: ['Minimal', '& Subtle'] },
+  { src: project4Image('4F'), alt: 'Small ceramic cup beside delicate cherry blossom branches', cap: ['Everyday', '& Versatile'] },
 ];
 
 const COMPETITORS = [
   {
     brand: 'ZARA',
     desc: 'Trend-driven fragrances with fashionable packaging',
-    src: '/ramya-portfolio-images/placeholders/4H.png',
+    src: project4Image('4H'),
     alt: 'Modern ZARA retail storefront with minimalist architecture and signage',
   },
   {
     brand: 'MARKS & SPENCER',
     desc: 'Wide range of fragrances across price segments',
-    src: '/ramya-portfolio-images/placeholders/4I.png',
+    src: project4Image('4I'),
     alt: 'Marks & Spencer retail storefront with visible signage and glass windows',
   },
 ];
@@ -50,7 +51,7 @@ export function WhyFragrancesNow() {
     <section className="px4w" aria-labelledby="px4w-heading">
       <div className="px4w__left">
         <SectionImage
-          src="/ramya-portfolio-images/placeholders/4B.png"
+          src={project4Image('4B')}
           alt="Contemporary UNIQLO store exterior with a red sign on a pale concrete wall, blue sky and leafy shadows"
           className="px4w__left-img"
           tint="#DDE4E6"
@@ -89,7 +90,7 @@ export function WhyFragrancesNow() {
             <h3 className="px4w__sh">The Market</h3>
             <div className="px4w__market">
               <SectionImage
-                src="/ramya-portfolio-images/placeholders/4C.png"
+                src={project4Image('4C')}
                 alt="Modern city skyline at sunset representing fragrance market growth"
                 className="px4w__market-img"
                 tint="#E4D9CB"
@@ -127,7 +128,7 @@ export function WhyFragrancesNow() {
             <h3 className="px4w__sh">The White Space</h3>
             <div className="px4w__white">
               <SectionImage
-                src="/ramya-portfolio-images/placeholders/4G.png"
+                src={project4Image('4G')}
                 alt="Minimal pale architectural wall with a sharp blue-sky opening and soft tree branches"
                 className="px4w__white-img"
                 tint="#DDE6EA"
@@ -170,7 +171,7 @@ export function WhyFragrancesNow() {
               ))}
             </ul>
             <SectionImage
-              src="/ramya-portfolio-images/placeholders/4J.png"
+              src={project4Image('4J')}
               alt="Serene natural stone beside a reflective pool with soft white flowers and warm sunlight"
               className="px4w__opp-img"
               tint="#E4E3D8"

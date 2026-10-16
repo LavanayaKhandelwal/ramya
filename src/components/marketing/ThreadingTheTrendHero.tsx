@@ -1,15 +1,16 @@
 import React from 'react';
+import { project2Image } from '../../data/artwork';
 
 /**
  * Project 2 — Section 01: "THREADING THE TREND" hero.
- * Editable text overlay on the existing UNIQLO hero background (unchanged).
+ * Editable text overlay on the UNIQLO hero background from public/Project 2.
  */
 export function ThreadingTheTrendHero() {
   return (
     <section className="px2-hero" aria-label="Project 2 — Threading the Trend">
       <img
         className="px2-hero__bg"
-        src="/ramya-portfolio-images/placeholders/2A.png"
+        src={project2Image('2A')}
         alt="UNIQLO Threading the Trend hero with embroidered garments, wooden chair and natural flowers"
         draggable={false}
       />

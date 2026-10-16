@@ -1,4 +1,5 @@
 import React from 'react';
+import { project2Image } from '../../data/artwork';
 import { SectionImage } from './SectionImage';
 
 const ICONS = {
@@ -32,10 +33,10 @@ const LOOK_FOR = [
 ];
 
 const STRIP = [
-  { alt: 'Close-up of folded beige and olive linen fabrics', src: '/ramya-portfolio-images/placeholders/2F.png' },
-  { alt: 'Minimalist book reading "Good Clothes Good Days"', src: '/ramya-portfolio-images/placeholders/2G.png' },
-  { alt: 'Botanical branches casting soft shadows on an ivory wall', src: '/ramya-portfolio-images/placeholders/2H.png' },
-  { alt: 'Close-up of relaxed neutral trousers and natural fabric folds', src: '/ramya-portfolio-images/placeholders/2I.png' },
+  { alt: 'UNIQLO paper bag and store basket holding folded neutral garments', src: project2Image('2F') },
+  { alt: 'Book titled "Good Clothes Good Days" on a table beside soft fabric', src: project2Image('2G') },
+  { alt: 'Neatly folded neutral garments with dried botanical sprigs', src: project2Image('2H') },
+  { alt: 'Canvas tote printed with the words Everyday Essentials', src: project2Image('2I') },
 ];
 
 export function WhatConsumersLookFor() {
@@ -43,8 +44,8 @@ export function WhatConsumersLookFor() {
     <section className="px2c" aria-labelledby="px2c-heading">
       <div className="px2c__rail">
         <SectionImage
-          src="/ramya-portfolio-images/placeholders/2B.png"
-          alt="Natural wooden clothing rail with neutral garments, white linen and a kraft-paper tag"
+          src={project2Image('2B')}
+          alt="Wooden clothing rail holding white embroidered shirts and a natural linen tote"
           tint="#E4D9C6"
         />
       </div>
@@ -69,20 +70,20 @@ export function WhatConsumersLookFor() {
           <div className="px2c__collage">
             <SectionImage
               className="px2c__collage-main"
-              src="/ramya-portfolio-images/placeholders/2C.png"
+              src={project2Image('2C')}
               alt="Woman in a white relaxed-fit shirt carrying a canvas tote, photographed from behind in sunlight"
               tint="#E8DED0"
             />
             <SectionImage
               className="px2c__collage-a"
-              src="/ramya-portfolio-images/placeholders/2D.png"
-              alt="Close-up of textured neutral fabric"
+              src={project2Image('2D')}
+              alt="UNIQLO store entrance with the red square sign above a rail of neutral garments"
               tint="#DDD2C0"
             />
             <SectionImage
               className="px2c__collage-b"
-              src="/ramya-portfolio-images/placeholders/2E.png"
-              alt="Botanical shadows on a warm ivory wall"
+              src={project2Image('2E')}
+              alt="UNIQLO store interior with an arched alcove and garments on rails"
               tint="#E7E1D3"
             />
           </div>
