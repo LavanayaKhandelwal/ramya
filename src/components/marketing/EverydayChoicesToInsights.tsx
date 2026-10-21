@@ -148,7 +148,6 @@ export function EverydayChoicesToInsights() {
   return (
     <section className="px2b" aria-labelledby="px2b-heading">
       <header className="px2b__header">
-        <div className="px2b__note">Same Basics Different Stories</div>
         <h2 id="px2b-heading" className="px2b__heading">
           From Everyday Choices
           <br />

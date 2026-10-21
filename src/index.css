@@ -141,7 +141,7 @@ a { color: inherit; }
 }
 
 /* ————————————————— About Me (navy spread, supplied artwork only) —————————————————
-   A fixed 100vh composition, so every position is a percentage of the viewport
+   A viewport-sized composition, so every position is a percentage of the section
    or a fixed pixel against it. There is no background image on this page: both
    backgrounds in the folder are light, and 13px #F8F5EF copy cannot sit on one.
    The corners are the home cover's collage placed twice, and the small
@@ -154,9 +154,13 @@ a { color: inherit; }
   position: relative;
   width: 100%;
   height: 100vh;
-  min-height: 720px;
+  min-height: 660px;
   overflow: hidden;
   background: #062E6F;
+}
+
+@media (max-width: 1099px) {
+  .about-section { height: auto; min-height: 100vh; }
 }
 
 /* Corner collages. The same 1536x1024 asset the cover uses, at 270 and 260 wide
@@ -291,7 +295,11 @@ a { color: inherit; }
   font-weight: 400;
   line-height: 1.6;
   letter-spacing: 0.25px;
-  text-align: justify;
+  /* Left, not justified. At this measure a justified block only closes to the
+     column by pulling words apart, and the third paragraph — the shortest of
+     the three — opened gaps between almost every word. The column edge is
+     ragged by a word or two; the reading is even. */
+  text-align: left;
 }
 
 .about-description p { margin: 0 0 10px; }
@@ -302,9 +310,9 @@ a { color: inherit; }
   position: absolute;
   z-index: 5;
   right: 5.5%;
-  top: 6%;
+  top: 4%;
   width: 39%;
-  height: 52%;
+  height: 60%;
 }
 
 /* The arch. An ivory plate with a pale blue hairline, rounded hard at the top
@@ -313,8 +321,17 @@ a { color: inherit; }
   position: absolute;
   right: 5%;
   top: 0;
-  width: 68%;
-  height: 78%;
+  /* Width sets the arch's size and the aspect ratio sets its height, so the
+     frame can never be a shape the photo has to be trimmed into.
+     `about-portrait.png` is 424x616; the inner plate is inset 10px inside a
+     1.5px border, so 447x639 is the outer box that leaves the inner one at
+     424x616 exactly and object-fit: cover has nothing to cut — the old 378x365
+     arch removed a third of the photo. The 23vw term keeps the arch's foot
+     above the lower band on narrower desktops, where the copy column grows
+     taller and the band's text reaches further right. */
+  width: min(88%, 23vw);
+  aspect-ratio: 447 / 639;
+  height: auto;
   background: #F7F4ED;
   border: 1.5px solid #BBD5F3;
   border-radius: 125px 125px 0 0;
@@ -346,21 +363,23 @@ a { color: inherit; }
 .about-ribbon-crop { top: -10px; left: 16%; z-index: 7; --s: 0.10294; }
 .about-star-crop-right { right: 1%; top: 34%; z-index: 8; --s: 0.15033; }
 .about-star-crop-left { left: 25px; top: 92px; z-index: 4; --s: 0.14379; }
-.about-flower-crop { right: -2%; bottom: 0; z-index: 9; --s: 0.22828; }
+/* The bouquet sits at the arch's foot: with the arch now as tall as the photo,
+   the flower's base drops just past the arch's bottom edge instead of landing
+   halfway up its right border. */
+.about-flower-crop { right: -2%; bottom: -24px; z-index: 9; --s: 0.22828; }
 
-/* Tablet: the columns take more of the width, the arch widens, the copy steps
-   down a size and the corner collages come in. */
-@media (max-width: 768px) {
-  .about-copy { left: 5%; width: 44%; }
-  .about-portrait { right: 4%; width: 43%; }
-  /* Justified text in a column this narrow reads loose without hyphenation —
-     at 390px the 14px measure is about 45 characters and "I enjoy working on
-     creative projects" came out with gaps between every word. It is enabled
-     here and not on the desktop rule above, where the 75-character measure
-     justifies cleanly on its own. */
-  .about-description { font-size: 13px; hyphens: auto; }
+/* Tablet / Medium screens: the columns scale cleanly, font steps down, and elements breathe */
+@media (max-width: 1099px) {
+  .about-copy { left: 5%; width: 46%; top: 2.5%; }
+  .about-portrait { right: 4%; width: 42%; }
+  .about-description { font-size: 13px; line-height: 1.5; }
+  .about-description p { margin: 0 0 8px; }
+  .about-lower-intro-small { font-size: 13px; line-height: 1.5; margin: 8px 0; }
+  .about-lower-approach-small { margin: 12px 0 0; }
+  .about-lower-approach-header-small { margin-bottom: 6px; }
+  .about-lower-approach-body-small { font-size: 13px; line-height: 1.5; }
   .about-title { font-size: min(46px, 12vw); }
-  .about-portrait-frame { width: 78%; }
+  .about-portrait-frame { width: min(84%, 300px); }
   .about-flower-crop { --s: 0.19749; }
   .about-collage-top-right { width: 203px; }
   .about-collage-bottom-left { width: 195px; }
@@ -369,7 +388,11 @@ a { color: inherit; }
 /* Mobile: the two columns stop competing for a 100vh box and stack. The page
    keeps its overflow:hidden so the collage is still cut by the viewport. */
 @media (max-width: 767px) {
-  .about-section { height: 100vh; min-height: 720px; overflow: hidden; }
+  /* Height follows the content here, because the stacked phone layout is taller
+     than the viewport: at 390px wide the section measures ~1500px, and the
+     100vh + overflow:hidden box it used to have cut the lower band off entirely
+     below the portrait. */
+  .about-section { height: auto; min-height: 100vh; overflow: hidden; }
 
   .about-copy {
     position: relative;
@@ -394,7 +417,7 @@ a { color: inherit; }
     margin-top: 40px;
   }
 
-  .about-portrait-frame { right: 15%; width: 70%; height: 390px; }
+  .about-portrait-frame { right: 15%; width: min(72%, 290px); height: auto; }
 
   .about-collage-top-right { display: none; }
   .about-collage-bottom-left { width: 169px; }
@@ -2480,20 +2503,38 @@ img.skills-panel-title {
 .p1-col-row {
   display: flex;
   gap: 24px;
-  align-items: stretch;
+  align-items: flex-start;
 }
 
 .p1-col-sec {
   display: flex;
   flex-direction: column;
+  min-width: 0;
+}
+
+.p1-sec-full {
+  width: 100%;
+}
+
+.p1-sec-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 2px;
 }
 
 .p1-sec-mood, .p1-sec-theme { flex: 1; }
 .p1-sec-color, .p1-sec-fabrics { flex: 1; }
 
-.p1-rule-mood { width: 300px; }
+.p1-rule-mood,
+.p1-rule-color {
+  flex: 1;
+  max-width: 450px;
+  height: 1px;
+  background-color: #8C8479;
+}
 .p1-rule-theme { width: 300px; }
-.p1-rule-color { width: 270px; }
 .p1-rule-fabrics { width: 260px; }
 
 /* Section 01: Mood Collage */
@@ -2563,8 +2604,8 @@ img.skills-panel-title {
 /* Section 02: Theme */
 .p1-theme-layout {
   display: flex;
+  flex-direction: column;
   gap: 8px;
-  height: 190px;
   margin-bottom: 8px;
 }
 
@@ -2638,10 +2679,11 @@ img.skills-panel-title {
 
 /* Section 03: Colour Story */
 .p1-color-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   margin-bottom: 8px;
+  width: 100%;
 }
 
 .p1-color-card {
@@ -2687,9 +2729,9 @@ img.skills-panel-title {
 
 /* Section 04: Fabric Direction */
 .p1-fabric-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   margin-bottom: 8px;
 }
 
@@ -3104,9 +3146,10 @@ img.skills-panel-title {
   z-index: 6;
   left: 5.5%;
   right: 5.5%;
-  bottom: 32px;
+  top: 535px;
+  bottom: auto;
   color: #F7F5F0;
-  padding: 0 0 0 40px;
+  padding: 0;
   pointer-events: none;
 }
 .about-lower-integrated > * {
@@ -3114,50 +3157,48 @@ img.skills-panel-title {
 }
 
 .about-lower-intro-small {
-  color: #F7F5F0;
+  color: #F8F5EF;
   font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
   font-size: 14px;
-  line-height: 1.5;
-  letter-spacing: 0.1px;
-  max-width: 580px;
-  margin-bottom: 14px;
+  line-height: 1.6;
+  letter-spacing: 0.25px;
+  margin: 12px 0;
 }
 
 .about-lower-approach-small {
-  margin-bottom: 18px;
+  margin: 16px 0 0;
 }
 
 .about-lower-approach-header-small {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .about-lower-approach-title-small {
   color: #F5F3EF;
   font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 3.5px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
   text-transform: uppercase;
   white-space: nowrap;
 }
 
 .about-lower-approach-line-small {
   flex: 1;
-  max-width: 320px;
   height: 1px;
-  background: #D9E1E9;
-  opacity: 0.8;
+  background: rgba(217, 225, 233, 0.45);
 }
 
 .about-lower-approach-body-small {
-  color: #F4F3F0;
+  color: #F8F5EF;
   font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
-  font-size: 13px;
-  line-height: 1.5;
-  max-width: 720px;
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 0.25px;
+  margin: 0;
 }
 
 .about-lower-highlight-small {
@@ -3165,8 +3206,8 @@ img.skills-panel-title {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 20px;
-  padding: 6px 0;
+  margin: 14px 0 0;
+  padding: 4px 0;
 }
 
 .about-lower-brush-small {
@@ -3343,7 +3384,22 @@ img.skills-panel-title {
   }
 }
 
-@media (max-width: 768px) {
+/* Below 1100 the section height follows the window (see .about-section), so
+   slack comes from height rather than width: the band rises one pixel per
+   pixel of window past 736, which is the 56px it settled at on a normal
+   desktop and the 32px foot it always had on a short laptop. */
+@media (max-width: 1099px) {
+  .about-lower-integrated {
+    position: absolute;
+    top: 605px;
+    bottom: auto;
+  }
+}
+
+/* 767, not 768: the band only goes into flow with the stacked phone layout, and
+   that layout starts at 767. At exactly 768 the copy and the arch are still
+   absolutely placed, so a band in flow landed on top of them. */
+@media (max-width: 767px) {
   .about-lower-integrated {
     position: relative;
     bottom: auto;
@@ -3360,10 +3416,28 @@ img.skills-panel-title {
   .about-lower-col-small:last-child {
     width: 100%;
   }
+  /* The quote wraps to two lines on a phone, so the brush becomes the block
+     behind it rather than a fixed 24px stripe the second line fell out of, and
+     the little swoosh — which only reads beside a single line — steps out. */
+  .about-lower-highlight-small {
+    display: block;
+    padding: 2px 0 4px;
+  }
   .about-lower-brush-small {
-    width: calc(100% + 16px);
+    top: 0;
+    bottom: 0;
     left: -8px;
-    height: 24px;
+    transform: none;
+    width: calc(100% + 16px);
+    height: auto;
+  }
+  .about-lower-highlight-text-small {
+    display: block;
+    padding: 4px 12px 6px 6px;
+    line-height: 1.45;
+  }
+  .about-lower-swoosh-small {
+    display: none;
   }
   .about-lower-grid-small {
     grid-template-columns: 1fr;
@@ -3714,10 +3788,16 @@ img.skills-panel-title {
   position: relative;
   min-height: 300px;
 }
+/* `Page 2 2C` is a portrait — 944x1212 — and the box it used to sit in was
+   461x300, so object-fit: cover threw away half the photograph. It is now in
+   flow at its own proportions, which lets it set the collage's height (the two
+   small squares stay absolute on the right), and nothing is trimmed. */
 .px2c__collage-main {
-  position: absolute;
-  inset: 0 22% 0 0;
-  height: 100%;
+  position: relative;
+  display: block;
+  width: 78%;
+  aspect-ratio: 944 / 1212;
+  height: auto;
 }
 .px2c__collage-a,
 .px2c__collage-b {
@@ -3847,10 +3927,19 @@ img.skills-panel-title {
   height: 1px;
   background: #a7a397;
 }
+/* The strip is a slim filmstrip of thumbnails, and the 170px it was designed
+   as now sits on the photographs where they can resolve it: as percentage
+   heights they could not resolve against the auto row, so the row grew to the
+   tallest photo's own proportions (~370px) and painted 197px past the end of
+   the section — which is how section 03's heading ended up sitting on top of
+   this band. An explicit height keeps the designed band AND lets the section
+   measure what it paints. */
 .px2c__strip {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 8px;
+}
+.px2c__strip .section-img {
   height: 170px;
 }
 @media (max-width: 900px) {
@@ -3876,6 +3965,7 @@ img.skills-panel-title {
     height: auto;
   }
   .px2c__strip .section-img {
+    height: auto;
     aspect-ratio: 4 / 3;
   }
 }
@@ -3892,18 +3982,6 @@ img.skills-panel-title {
   position: relative;
   text-align: center;
   padding: 30px 0 44px;
-}
-.px2b__note {
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 10px 16px;
-  background: #f4ede0;
-  transform: rotate(4deg);
-  font-family: 'Caveat', 'Comic Sans MS', cursive;
-  font-size: 18px;
-  color: #333127;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
 }
 .px2b__heading {
   margin: 0;
@@ -4432,25 +4510,17 @@ img.skills-panel-title {
   color: #171713;
 }
 .px2e__mood {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 92px;
-  gap: 6px;
+  display: block;
+  width: 100%;
 }
-.px2e__mood-img.portrait {
-  grid-row: span 2;
-}
-.px2e__mood-img.landscape {
-  grid-column: span 2;
-}
-.px2e__mood-img.square {
-  grid-row: span 1;
-}
-.px2e__mood-note {
-  margin: 14px 0 0;
-  font-family: 'Caveat', 'Comic Sans MS', cursive;
-  font-size: 17px;
-  color: #302e28;
+.px2e__mood-collage,
+.px2e__mood-collage.section-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1318 / 1141;
+  object-fit: cover;
+  border-radius: 4px;
 }
 .px2e__right {
   display: flex;

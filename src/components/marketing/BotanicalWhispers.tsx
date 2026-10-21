@@ -2,22 +2,8 @@ import React from 'react';
 import { project2Image } from '../../data/artwork';
 import { SectionImage } from './SectionImage';
 
-// `2AB` is the supplied mood-board artwork; `2AC`–`2AM` still resolve to their
-// labelled placeholders until those boards are supplied.
-const MOOD = [
-  { alt: 'Mood board collage of botanical prints, floral photography and soft colour swatches', src: project2Image('2AB'), cls: 'portrait', tint: '#DED2E4' },
-  { alt: 'Neutral linen fabric texture', src: project2Image('2AC'), cls: 'portrait', tint: '#E1D8C8' },
-  { alt: 'Soft pink botanical flower arrangement', src: project2Image('2AD'), cls: 'portrait', tint: '#EBD5D6' },
-  { alt: 'Green tree canopy and natural sunlight', src: project2Image('2AE'), cls: 'landscape', tint: '#D7DEC6' },
-  { alt: 'Flowering branches against a blue sky', src: project2Image('2AF'), cls: 'portrait', tint: '#D5E0EA' },
-  { alt: 'Close-up of pastel floral embroidery on linen', src: project2Image('2AG'), cls: 'square', tint: '#E4DBC9' },
-  { alt: 'Botanical landscape with flowering trees', src: project2Image('2AH'), cls: 'portrait', tint: '#D9DFC9' },
-  { alt: 'Embroidery hoop with delicate flower stitching', src: project2Image('2AI'), cls: 'square', tint: '#E3DCCB' },
-  { alt: 'Soft iridescent fabric in pastel colours', src: project2Image('2AJ'), cls: 'landscape', tint: '#DCD8E2' },
-  { alt: 'Pastel embroidery threads and sewing materials', src: project2Image('2AK'), cls: 'portrait', tint: '#E6D4D0' },
-  { alt: 'Floral embroidery sketches on paper', src: project2Image('2AL'), cls: 'portrait', tint: '#E4DECE' },
-  { alt: 'Small botanical colour swatches and pressed flowers', src: project2Image('2AM'), cls: 'portrait', tint: '#DFD9C7' },
-];
+// `2AB` is the supplied full mood-board collage artwork.
+
 
 const EMBROIDERY = [
   { label: 'Beaded embroidery', src: project2Image('2AN'), tint: '#E3DACB' },
@@ -93,13 +79,13 @@ export function BotanicalWhispers() {
         <div className="px2e__left">
           <h3 className="px2e__sec-label">Mood Board</h3>
           <div className="px2e__mood">
-            {MOOD.map((m) => (
-              <SectionImage key={m.alt} src={m.src} alt={m.alt} className={`px2e__mood-img ${m.cls}`} tint={m.tint} />
-            ))}
+            <SectionImage
+              src={project2Image('2AB')}
+              alt="Mood board collage of botanical prints, floral embroidery, soft colour swatches and nature-inspired patterns"
+              className="px2e__mood-collage"
+              tint="#DED2E4"
+            />
           </div>
-          <p className="px2e__mood-note">
-            The mood board brings together soft floral elements, earthy tones, and nature-inspired patterns.
-          </p>
         </div>
 
         <div className="px2e__right">

@@ -84,6 +84,40 @@ export function AboutSection() {
           {INTRO.map((para) => (
             <p key={para.slice(0, 24)}>{para}</p>
           ))}
+          <p className="about-lower-intro-small">
+            Building a career in the fashion and lifestyle industry and being a part
+            of brands that create value, inspire people, and make a positive impact.
+          </p>
+
+          <div className="about-lower-approach-small">
+            <div className="about-lower-approach-header-small">
+              <span className="about-lower-approach-title-small">MY APPROACH</span>
+              <div className="about-lower-approach-line-small" />
+            </div>
+            <p className="about-lower-approach-body-small">
+              I believe the best ideas come from understanding people, products and
+              the world around us. I enjoy combining creativity with research and a practical
+              understanding of fashion to create ideas that are both relevant and visually engaging.
+            </p>
+          </div>
+
+          <div className="about-lower-highlight-small">
+            <div className="about-lower-brush-small" aria-hidden />
+            <span className="about-lower-highlight-text-small">
+              Curious by nature. Creative by instinct. Detail-driven by choice.
+            </span>
+            <div className="about-lower-swoosh-small" aria-hidden>
+              <svg viewBox="0 0 120 40" preserveAspectRatio="none">
+                <path
+                  d="M 10 22 C 40 8, 80 8, 110 25"
+                  fill="none"
+                  stroke="#B7D2F0"
+                  strokeWidth="1"
+                  opacity="0.85"
+                />
+              </svg>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -115,45 +149,6 @@ export function AboutSection() {
 
       {/* Lower portion - integrated into existing section */}
       <div className="about-lower-integrated">
-        <div className="about-lower-intro-small">
-          building a career in the fashion and lifestyle industry and being a part
-          of brands that create value, inspire people, and make a positive impact.
-        </div>
-
-        <div className="about-lower-approach-small">
-          <div className="about-lower-approach-header-small">
-            <span className="about-lower-approach-title-small">MY APPROACH</span>
-            <div className="about-lower-approach-line-small" />
-          </div>
-          <div className="about-lower-approach-body-small">
-            I believe the best ideas come from understanding people, products and
-            the world around us.
-            <br />
-            I enjoy combining creativity with research and a practical
-            understanding of fashion to create
-            <br />
-            ideas that are both relevant and visually engaging.
-          </div>
-        </div>
-
-        <div className="about-lower-highlight-small">
-          <div className="about-lower-brush-small" aria-hidden />
-          <span className="about-lower-highlight-text-small">
-            Curious by nature. Creative by instinct. Detail-driven by choice.
-          </span>
-          <div className="about-lower-swoosh-small" aria-hidden>
-            <svg viewBox="0 0 120 40" preserveAspectRatio="none">
-              <path
-                d="M 10 22 C 40 8, 80 8, 110 25"
-                fill="none"
-                stroke="#B7D2F0"
-                strokeWidth="1"
-                opacity="0.85"
-              />
-            </svg>
-          </div>
-        </div>
-
         <div className="about-lower-divider-small">
           <div className="about-lower-divider-line-small" />
           <div className="about-lower-divider-sparkle-small" aria-hidden>
