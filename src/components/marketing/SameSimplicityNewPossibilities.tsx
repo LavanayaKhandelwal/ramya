@@ -95,14 +95,6 @@ export function SameSimplicityNewPossibilities() {
                 comfort and global functionality?
               </p>
             </div>
-            <div className="px2d__arrows" aria-hidden="true">
-              {[0, 1, 2, 3, 4].map((i) => (
-                <svg key={i} viewBox="0 0 60 24" className="px2d__arrow">
-                  <path d="M2 20 Q 26 2 50 14" />
-                  <path d="M44 9 L51 14 L43 16" />
-                </svg>
-              ))}
-            </div>
           </div>
         </div>
 

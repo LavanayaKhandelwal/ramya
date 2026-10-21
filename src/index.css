@@ -4104,7 +4104,7 @@ img.skills-panel-title {
 }
 .px2b__bottom {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 0.6fr;
+  grid-template-columns: 1.75fr 1fr 0.55fr;
   gap: 40px;
   align-items: start;
   margin-top: 56px;
@@ -4121,18 +4121,21 @@ img.skills-panel-title {
 .px2b__truth-row {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
   gap: 14px;
 }
 .px2b__truth-item {
   display: flex;
+  flex: 1;
   flex-direction: column;
   align-items: center;
   gap: 10px;
   text-align: center;
 }
 .px2b__truth-circle {
-  width: 96px;
-  height: 96px;
+  width: clamp(96px, 8vw, 118px);
+  height: clamp(96px, 8vw, 118px);
   border-radius: 50%;
   overflow: hidden;
 }
@@ -4142,7 +4145,7 @@ img.skills-panel-title {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #393832;
-  max-width: 100px;
+  max-width: 120px;
 }
 .px2b__truth-arrow {
   font-size: 20px;
@@ -4231,12 +4234,22 @@ img.skills-panel-title {
   display: grid;
   grid-template-columns: 35% 30% 35%;
   gap: 2.5%;
-  align-items: start;
+  align-items: stretch;
+}
+.px2d__whys,
+.px2d__ideas {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 .px2d__whys-list {
   margin: 0;
   padding: 0;
   list-style: none;
+  flex: 1;
+  display: grid;
+  grid-template-rows: repeat(5, minmax(0, 1fr));
+  gap: 8px;
 }
 .px2d__why {
   position: relative;
@@ -4351,33 +4364,20 @@ img.skills-panel-title {
 .px2d__hl--sage {
   background: linear-gradient(transparent 55%, #d8e0cb 55%);
 }
-.px2d__arrows {
-  position: absolute;
-  right: -30px;
-  top: 20%;
-  display: flex;
-  flex-direction: column;
-  gap: 34px;
-}
-.px2d__arrow {
-  width: 60px;
-  height: 24px;
-  fill: none;
-  stroke: #6a685d;
-  stroke-width: 1.3;
-}
 .px2d__ideas-list {
   margin: 0;
   padding: 0;
   list-style: none;
-  display: flex;
-  flex-direction: column;
+  flex: 1;
+  display: grid;
+  grid-template-rows: repeat(5, minmax(0, 1fr));
   gap: 8px;
 }
 .px2d__idea {
   display: flex;
   align-items: center;
   gap: 12px;
+  height: 100%;
   background: #f0ede5;
   padding: 8px;
 }
@@ -4420,8 +4420,10 @@ img.skills-panel-title {
     grid-template-columns: 1fr;
     gap: 46px;
   }
-  .px2d__arrows {
-    display: none;
+  .px2d__whys-list,
+  .px2d__ideas-list {
+    flex: 0 0 auto;
+    grid-template-rows: none;
   }
 }
 
