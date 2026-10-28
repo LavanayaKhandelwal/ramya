@@ -1,4 +1,5 @@
 import React from 'react';
+import { project1Section3Image } from '../../data/artwork';
 
 /**
  * Project 1 — Section 3: "FINDING THE DIRECTION — HOW INSIGHTS TURNED INTO TRENDS AND OPPORTUNITIES"
@@ -57,7 +58,7 @@ export function Project1DirectionSection() {
               <div className="p1-reveal-col">
                 <div className="p1-reveal-img-wrap">
                   <img
-                    src="/ramya-portfolio-images/placeholders/1F.png"
+                    src={project1Section3Image('1F.PNG')}
                     alt="Mediterranean coastal village"
                     className="p1-reveal-img"
                   />
@@ -78,7 +79,7 @@ export function Project1DirectionSection() {
               <div className="p1-reveal-col">
                 <div className="p1-reveal-img-wrap">
                   <img
-                    src="/ramya-portfolio-images/placeholders/1G.png"
+                    src={project1Section3Image('1G.PNG')}
                     alt="Mediterranean architectural terrace"
                     className="p1-reveal-img"
                   />
@@ -98,7 +99,7 @@ export function Project1DirectionSection() {
               <div className="p1-reveal-col">
                 <div className="p1-reveal-img-wrap">
                   <img
-                    src="/ramya-portfolio-images/placeholders/1H.png"
+                    src={project1Section3Image('1H.PNG')}
                     alt="Resort clothing rack"
                     className="p1-reveal-img"
                   />
@@ -135,7 +136,7 @@ export function Project1DirectionSection() {
 
             <div className="p1-macro-flex-wrap">
               <img
-                src="/ramya-portfolio-images/placeholders/1I.png"
+                src={project1Section3Image('1I.PNG')}
                 alt="Ivory linen fabric with palm shadow"
                 className="p1-macro-img"
               />
@@ -169,7 +170,7 @@ export function Project1DirectionSection() {
                 <h5>FLEX&ndash;STABILITY</h5>
                 <p>Core idea: Fashion should adapt.</p>
                 <img
-                  src="/ramya-portfolio-images/placeholders/1I.png"
+                  src={project1Section3Image('in from macro to micro.PNG')}
                   alt="Soft ivory fabric with olive-green palm shadows"
                   className="p1-m2m-block-img"
                 />
@@ -208,7 +209,7 @@ export function Project1DirectionSection() {
 
             <div className="p1-fabric-flex">
               <img
-                src="/ramya-portfolio-images/placeholders/1M.png"
+                src={project1Section3Image('1M.PNG')}
                 alt="Close-up macro linen texture"
                 className="p1-fabric-img"
               />
@@ -267,7 +268,7 @@ export function Project1DirectionSection() {
             <div className="p1-chain-wrap">
               <div className="p1-chain-node">
                 <img
-                  src="/ramya-portfolio-images/placeholders/1F.png"
+                  src={project1Section3Image('WHERE DID THIS TAKE US/1.PNG')}
                   alt="Sunlit Mediterranean coastal resort"
                   className="p1-node-img"
                 />
@@ -279,7 +280,7 @@ export function Project1DirectionSection() {
 
               <div className="p1-chain-node">
                 <img
-                  src="/Project%201/1E.jpg"
+                  src={project1Section3Image('WHERE DID THIS TAKE US/2.PNG')}
                   alt="Woman wearing a neutral convertible resort dress"
                   className="p1-node-img"
                 />
@@ -291,7 +292,7 @@ export function Project1DirectionSection() {
 
               <div className="p1-chain-node">
                 <img
-                  src="/ramya-portfolio-images/placeholders/1J.png"
+                  src={project1Section3Image('WHERE DID THIS TAKE US/3.PNG')}
                   alt="Detachable fabric tier and button fastening"
                   className="p1-node-img"
                 />
@@ -303,7 +304,7 @@ export function Project1DirectionSection() {
 
               <div className="p1-chain-node p1-node-highlight">
                 <img
-                  src="/ramya-portfolio-images/placeholders/1H.png"
+                  src={project1Section3Image('WHERE DID THIS TAKE US/4.PNG')}
                   alt="Resort dress in a shorter day-ready silhouette"
                   className="p1-node-img"
                 />

@@ -16,6 +16,7 @@
 
 const PLACEHOLDER_DIR = '/ramya-portfolio-images/placeholders';
 
+const PROJECT_1_DIR = 'Project 1';
 const PROJECT_2_DIR = 'Project 2';
 const PROJECT_3_DIR = 'Project 3';
 const PROJECT_4_DIR = 'Project 4';
@@ -151,3 +152,7 @@ export const project4Page3Image = (file: string) => fileUrl(PROJECT_4_DIR, `Proj
 /** Asset for the perfume bottles to the right of 'The Fragrance Expression' heading. */
 export const project4TopHeroImage = (file: string) =>
   fileUrl(PROJECT_4_DIR, `images which goes right side of heading THE FRAGRANCE EXPRESSION/${file}`);
+
+/** Asset from `Project 1/project1- section3/` folder. */
+export const project1Section3Image = (file: string) =>
+  fileUrl(PROJECT_1_DIR, `project1- section3/${file}`);
