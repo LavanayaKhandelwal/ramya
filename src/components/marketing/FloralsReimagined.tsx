@@ -1,5 +1,5 @@
 import React from 'react';
-import { project3Image } from '../../data/artwork';
+import { project3Image, project3TrendBoard } from '../../data/artwork';
 import { SectionImage } from './SectionImage';
 
 const INSIGHTS = [
@@ -42,39 +42,18 @@ const KEYWORDS = [
   { text: 'Light', colour: '#F3E6C9' },
 ];
 
-// `3G` is the supplied mood-board artwork; `3H`–`3M` still resolve to their
-// labelled placeholders until those boards are supplied.
 const MOOD = [
-  { alt: 'Mood board collage of iridescent florals, material studies and editorial portraits', cls: 'a', src: project3Image('3G') },
-  { alt: 'Holographic material close-up', cls: 'b', src: project3Image('3H') },
-  { alt: 'Editorial beauty portrait with luminous pastel makeup', cls: 'c', src: project3Image('3I') },
-  { alt: 'Futuristic fashion portrait with reflective styling', cls: 'd', src: project3Image('3J') },
-  { alt: 'Translucent purple-blue flowers', cls: 'e', src: project3Image('3K') },
-  { alt: 'Flowing iridescent fabric', cls: 'f', src: project3Image('3L') },
-  { alt: 'Pastel fashion silhouettes', cls: 'g', src: project3Image('3M') },
-];
-
-const PALETTE = [
-  { name: 'Blush Pink', hex: '#E7A9B2' },
-  { name: 'Soft Sage', hex: '#B9C8AF' },
-  { name: 'Lavender', hex: '#C7B6E0' },
-  { name: 'Coral', hex: '#EC776C' },
-  { name: 'Pearl Blue', hex: '#A8C9DE' },
-  { name: 'Warm Ivory', hex: '#F5EDE3' },
-];
-
-const TRENDS = [
   {
-    title: 'Iridescent / Holographic',
-    desc: 'Light-reactive surfaces that shift colour and create a futuristic, dimensional experience.',
+    alt: 'Mood board of iridescent florals, holographic textures, pastel colour chips and a glossy beauty portrait',
+    src: project3Image('3G'),
   },
   {
-    title: 'Dreamy Floral Environments',
-    desc: 'Ethereal, romantic settings inspired by nature, soft textures, and immersive installations.',
+    alt: 'Colour board with blush, sage, coral and lavender Pantone swatches, garments and accessories',
+    src: project3Image('3N'),
   },
   {
-    title: 'Soft Futuristic Aesthetic',
-    desc: 'A new take on futuristic design, using minimal spaces with soft curves, pastel tones, and glowing accents.',
+    alt: 'Trend board covering iridescent holographic surfaces, dreamy floral environments and soft futuristic interiors',
+    src: project3TrendBoard,
   },
 ];
 
@@ -121,58 +100,19 @@ export function FloralsReimagined() {
 
         <div className="px3r__right">
           <div className="px3r__panel px3r__panel--mood">
-            <h3 className="px3r__panel-label">Mood Board</h3>
-            <div className="px3r__mood">
-              {MOOD.map((m) => (
-                <SectionImage key={m.alt} src={m.src} alt={m.alt} className={`px3r__mood-img px3r__mood-img--${m.cls}`} tint="#EDE3EC" />
-              ))}
-            </div>
+            <h3 className="px3r__panel-label">01 / Mood Board</h3>
+            <SectionImage src={project3Image('3G')} alt={MOOD[0].alt} className="px3r__board" tint="#EDE3EC" />
           </div>
 
           <div className="px3r__bottom">
             <div className="px3r__panel px3r__panel--palette">
-              <h3 className="px3r__panel-label">Colour Palette</h3>
-              <div className="px3r__swatch-row">
-                <div className="px3r__swatch-tall">
-                  {PALETTE.map((p) => (
-                    <span key={p.name} style={{ background: p.hex }} title={p.name} />
-                  ))}
-                </div>
-                <div className="px3r__palette-refs">
-                  <SectionImage src={project3Image('3N')} alt="Colour board collage with pastel swatches, floral references and styling imagery" tint="#EADCE6" />
-                  <SectionImage src={project3Image('3O')} alt="Holographic material sample" tint="#E1E7EF" />
-                </div>
-              </div>
-              <ul className="px3r__swatch-labels">
-                {PALETTE.map((p) => (
-                  <li key={p.name}>
-                    <span style={{ background: p.hex }} />
-                    {p.name}
-                  </li>
-                ))}
-              </ul>
+              <h3 className="px3r__panel-label">02 / Colour Palette</h3>
+              <SectionImage src={project3Image('3N')} alt={MOOD[1].alt} className="px3r__board" tint="#EADCE6" />
             </div>
 
             <div className="px3r__panel px3r__panel--trend">
-              <h3 className="px3r__panel-label">Trend &amp; Material Direction</h3>
-              <p className="px3r__trend-sub">Trend board</p>
-              <ul className="px3r__trend-list">
-                {TRENDS.map((t) => (
-                  <li key={t.title}>
-                    <h4>{t.title}</h4>
-                    <p>{t.desc}</p>
-                  </li>
-                ))}
-              </ul>
-              <div className="px3r__materials" aria-hidden="true">
-                <span style={{ background: '#E3D6C4' }} />
-                <span style={{ background: '#F0DDDA' }} />
-                <span style={{ background: '#DCE3EE' }} />
-              </div>
-              <p className="px3r__closing">
-                These influences shape a holographic floral VM concept that blends femininity with a
-                soft futuristic retail experience.
-              </p>
+              <h3 className="px3r__panel-label">03 / Trend &amp; Material Direction</h3>
+              <SectionImage src={project3TrendBoard} alt={MOOD[2].alt} className="px3r__board" tint="#E1E7EF" />
             </div>
           </div>
         </div>

@@ -77,12 +77,14 @@ export function WindowIntoTheFuture() {
 
         <div className="px3w__details">
           <figure className="px3w__detail">
-            <SectionImage
-              src={project3Image('3Z')}
-              alt="Close-up of a large holographic flower with layered translucent petals and an illuminated pink-gold centre"
-              className="px3w__detail-img px3w__detail-img--square"
-              tint="#EDE0EC"
-            />
+            <div className="px3w__detail-crop">
+              <SectionImage
+                src={project3Image('3Z')}
+                alt="Close-up of a large holographic flower with layered translucent petals and an illuminated pink-gold centre"
+                className="px3w__detail-img px3w__detail-img--square"
+                tint="#EDE0EC"
+              />
+            </div>
             <figcaption>01 — FLORAL DETAIL</figcaption>
           </figure>
           <figure className="px3w__detail">

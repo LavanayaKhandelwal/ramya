@@ -4960,7 +4960,7 @@ img.skills-panel-title {
   gap: 12px;
 }
 .px3r__left {
-  padding: 16px 8px 12px;
+  padding: clamp(22px, 2.2vw, 38px) clamp(18px, 2vw, 34px);
 }
 .px3r__heading {
   margin: 0;
@@ -4998,11 +4998,11 @@ img.skills-panel-title {
   margin: 14px 0;
 }
 .px3r__intro {
-  margin: 0 0 22px;
-  max-width: 340px;
+  margin: 0 0 26px;
+  max-width: 380px;
   font-family: system-ui, sans-serif;
-  font-size: 13px;
-  line-height: 1.5;
+  font-size: 14px;
+  line-height: 1.55;
   color: #817B79;
 }
 .px3r__insights {
@@ -5010,33 +5010,36 @@ img.skills-panel-title {
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 14px;
+  gap: 20px;
 }
 .px3r__insights li {
   display: grid;
-  grid-template-columns: 64px 1fr;
-  gap: 12px;
+  grid-template-columns: 84px 1fr;
+  gap: 16px;
   align-items: start;
 }
 .px3r__ins-img,
 .px3r__ins-img.section-img {
-  min-height: 64px;
-  height: 64px;
+  width: 84px;
+  min-height: 84px;
+  height: 84px;
+  border-radius: 50%;
+  overflow: hidden;
 }
 .px3r__insights h3 {
-  margin: 0 0 4px;
+  margin: 2px 0 6px;
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-style: italic;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 16px;
   letter-spacing: 1px;
   color: #6E6988;
 }
 .px3r__insights p {
   margin: 0;
   font-family: system-ui, sans-serif;
-  font-size: 11.5px;
-  line-height: 1.5;
+  font-size: 12.5px;
+  line-height: 1.55;
   color: #817B79;
 }
 .px3r__keywords {
@@ -5082,114 +5085,16 @@ img.skills-panel-title {
   text-transform: uppercase;
   color: #6E6988;
 }
-.px3r__mood {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 92px;
-  gap: 8px;
-}
-.px3r__mood-img--a {
-  grid-column: span 2;
-  grid-row: span 2;
-}
-.px3r__mood-img--c {
-  grid-column: span 2;
-}
-.px3r__mood-img--g {
-  grid-column: span 2;
+.px3r__board,
+.px3r__board.section-img {
+  width: 100%;
+  height: auto;
 }
 .px3r__bottom {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
-.px3r__swatch-tall {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  height: 80px;
-}
-.px3r__swatch-tall span {
-  display: block;
-}
-.px3r__palette-refs {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  margin-top: 8px;
-}
-.px3r__palette-refs .section-img {
-  height: 72px;
-}
-.px3r__swatch-labels {
-  list-style: none;
-  margin: 12px 0 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6px 12px;
-  font-family: system-ui, sans-serif;
-  font-size: 10px;
-  letter-spacing: 0.5px;
-  color: #817B79;
-}
-.px3r__swatch-labels li {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-}
-.px3r__swatch-labels span {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-}
-.px3r__trend-sub {
-  margin: -6px 0 10px;
-  font-family: system-ui, sans-serif;
-  font-size: 9px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: #A5A0C8;
-}
-.px3r__trend-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 12px;
-}
-.px3r__trend-list h4 {
-  margin: 0 0 3px;
-  font-family: system-ui, sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  color: #4A4750;
-}
-.px3r__trend-list p {
-  margin: 0;
-  font-family: system-ui, sans-serif;
-  font-size: 10.5px;
-  line-height: 1.45;
-  color: #817B79;
-}
-.px3r__materials {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-  margin: 14px 0;
-}
-.px3r__materials span {
-  height: 34px;
-  display: block;
-}
-.px3r__closing {
-  margin: 0;
-  font-family: system-ui, sans-serif;
-  font-size: 10.5px;
-  line-height: 1.5;
-  color: #817B79;
-}
-
 /* --- Section 03: "EXPERIENCE IN BLOOM" --- */
 .px3e {
   position: relative;
@@ -5210,11 +5115,18 @@ img.skills-panel-title {
   gap: 12px;
 }
 .px3e__intro {
+  position: relative;
   grid-column: 1;
   grid-row: 1 / span 2;
   padding: 16px 8px 12px;
   display: flex;
   flex-direction: column;
+}
+.px3e__divider,
+.px3e__heading,
+.px3e__desc {
+  position: relative;
+  z-index: 1;
 }
 .px3e__divider {
   width: 84px;
@@ -5250,9 +5162,21 @@ img.skills-panel-title {
 }
 .px3e__decor,
 .px3e__decor.section-img {
-  margin-top: auto;
-  height: 200px;
-  border-radius: 50%;
+  position: absolute;
+  left: -12%;
+  bottom: -18%;
+  width: 155%;
+  height: auto;
+  margin: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.px3e__main,
+.px3e__completed,
+.px3e__details,
+.px3e__bottom {
+  position: relative;
+  z-index: 1;
 }
 .px3e__main {
   grid-column: 2;
@@ -5348,24 +5272,18 @@ img.skills-panel-title {
   grid-column: 2 / span 2;
   grid-row: 2;
   display: grid;
-  grid-template-columns: 55fr 45fr;
+  grid-template-columns: 1fr 1fr;
   gap: 12px;
   margin-top: 12px;
 }
 .px3e__bottom-item {
   margin: 0;
 }
-.px3e__bottom-item--wide .px3e__bottom-img.section-img {
-  aspect-ratio: 16 / 9;
-  height: auto;
-}
 .px3e__bottom-item .px3e__bottom-img,
 .px3e__bottom-item .px3e__bottom-img.section-img {
+  width: 100%;
   height: auto;
-  aspect-ratio: 4 / 3;
-}
-.px3e__bottom-item--wide .px3e__bottom-img {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 3 / 2;
 }
 
 /* --- Section 04: "A WINDOW INTO THE FUTURE" --- */
@@ -5397,6 +5315,8 @@ img.skills-panel-title {
   grid-column: 2;
   grid-row: 1;
   padding: 8px;
+  display: flex;
+  flex-direction: column;
 }
 .px3w__heading {
   margin: 0 0 5px;
@@ -5408,19 +5328,19 @@ img.skills-panel-title {
 }
 .px3w__l1 {
   display: block;
-  font-size: clamp(34px, 3.4vw, 48px);
+  font-size: clamp(36px, 3.6vw, 52px);
   color: #191821;
 }
 .px3w__l2 {
   display: block;
   font-style: italic;
-  font-size: clamp(29px, 3vw, 42px);
+  font-size: clamp(31px, 3.2vw, 46px);
   color: #8984B2;
 }
 .px3w__subtitle {
-  margin: 0 0 12px;
+  margin: 0 0 14px;
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 15px;
+  font-size: 16.5px;
   color: #777487;
 }
 .px3w__divider {
@@ -5431,14 +5351,20 @@ img.skills-panel-title {
   margin-bottom: 14px;
 }
 .px3w__block {
-  margin-bottom: 15px;
+  margin-bottom: 18px;
+}
+.px3w__block:last-of-type {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
 }
 .px3w__block > h3 {
-  margin: 0 0 6px;
+  margin: 0 0 8px;
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-style: italic;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 15.5px;
   letter-spacing: 2px;
   color: #6E6988;
 }
@@ -5447,27 +5373,29 @@ img.skills-panel-title {
   padding-left: 10px;
   border-left: 2px solid #C4BBD7;
   font-family: system-ui, sans-serif;
-  font-size: 12px;
-  line-height: 1.45;
+  font-size: 13.2px;
+  line-height: 1.55;
   color: #777487;
 }
 .px3w__principles {
   list-style: none;
-  margin: 7px 0 0;
+  flex: 1;
+  align-content: space-between;
+  margin: 9px 0 0;
   padding: 0 0 0 10px;
   border-left: 2px solid #C4BBD7;
   display: grid;
-  gap: 8px;
+  gap: 10px;
 }
 .px3w__principles li {
   display: grid;
-  grid-template-columns: 32px 1fr;
-  gap: 8px;
+  grid-template-columns: 34px 1fr;
+  gap: 9px;
   align-items: start;
 }
 .px3w__pr-icon {
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   background: #E9E4F7;
   display: flex;
@@ -5477,8 +5405,8 @@ img.skills-panel-title {
 .px3w__pr-text {
   display: block;
   font-family: system-ui, sans-serif;
-  font-size: 10px;
-  line-height: 1.35;
+  font-size: 11.2px;
+  line-height: 1.42;
   color: #777487;
 }
 .px3w__pr-text strong {
@@ -5500,15 +5428,22 @@ img.skills-panel-title {
 .px3w__detail-img.section-img {
   height: 235px;
 }
-.px3w__detail-img--square {
-  aspect-ratio: 1 / 1;
+.px3w__detail-crop {
   height: 250px;
+  overflow: hidden;
+}
+.px3w__detail-img--square,
+.px3w__detail-img--square.section-img {
+  width: 100%;
+  height: 100%;
+  transform: scale(1.55);
+  transform-origin: 52% 54%;
 }
 .px3w__detail figcaption {
   display: block;
   margin-top: 6px;
   font-family: system-ui, sans-serif;
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: #777487;
@@ -5542,15 +5477,15 @@ img.skills-panel-title {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-style: italic;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 16px;
   letter-spacing: 2px;
   color: #625B7C;
 }
 .px3w__learn-copy p {
   margin: 0;
   font-family: system-ui, sans-serif;
-  font-size: 10px;
-  line-height: 1.4;
+  font-size: 11.5px;
+  line-height: 1.45;
   color: #777487;
 }
 
@@ -5576,9 +5511,11 @@ img.skills-panel-title {
   .px3e__bottom {
     grid-column: 1 / -1;
   }
-  .px3e__decor {
-    margin-top: 16px;
-    height: 160px;
+  .px3e__decor,
+  .px3e__decor.section-img {
+    position: static;
+    width: 65%;
+    margin: 16px auto 0;
   }
   .px3w__grid {
     grid-template-columns: 1fr 1fr;
@@ -5610,15 +5547,6 @@ img.skills-panel-title {
     aspect-ratio: auto;
     min-height: 88vh;
     align-items: center;
-  }
-  .px3r__mood {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .px3r__mood-img--a,
-  .px3r__mood-img--c,
-  .px3r__mood-img--g {
-    grid-column: span 1;
-    grid-row: span 1;
   }
   .px3r__bottom {
     grid-template-columns: 1fr;
@@ -6223,8 +6151,15 @@ img.skills-panel-title {
   height: 100%;
 }
 .px4r__left {
+  position: relative;
   padding: 40px 28px;
   background: linear-gradient(150deg, #F3EDE2, #E9E1D2);
+  display: flex;
+  flex-direction: column;
+}
+.px4r__left-overlay {
+  position: relative;
+  z-index: 2;
 }
 .px4r__headline {
   margin: 0;
@@ -6260,6 +6195,14 @@ img.skills-panel-title {
   background: #8D9887;
   margin: 20px 0;
 }
+.px4r__left-img,
+.px4r__left-img.section-img {
+  width: 100%;
+  max-height: 240px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-top: 16px;
+}
 .px4r__stills {
   position: relative;
 }
@@ -6271,10 +6214,12 @@ img.skills-panel-title {
 .px4r__strips {
   position: absolute;
   left: 30%;
-  top: 70px;
+  bottom: 20px;
+  top: auto;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  z-index: 3;
 }
 .px4r__strip {
   display: block;
@@ -6505,6 +6450,87 @@ img.skills-panel-title {
 }
 .px4r__tk-icon {
   display: flex;
+}
+
+/* --- Project 4 top: "REAL PEOPLE, REAL INSIGHTS" + survey image --- */
+.px4r-top {
+  background: #F3EDE2;
+  display: flex;
+  align-items: flex-start;
+  padding: clamp(44px, 6.5vh, 80px) 6% clamp(44px, 6vh, 72px);
+  overflow: hidden;
+}
+.px4r-top__inner {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.8fr);
+  gap: clamp(36px, 6vw, 84px);
+  align-items: start;
+}
+.px4r-top__headline {
+  margin: 0 0 24px;
+  font-family: 'Didot', 'Bodoni MT', 'Playfair Display', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(40px, 4.4vw, 57px);
+  line-height: 0.86;
+  letter-spacing: -1.5px;
+  text-transform: uppercase;
+  color: #171916;
+}
+.px4r-top__headline span {
+  display: block;
+}
+.px4r-top__accent {
+  font-style: italic;
+  color: #718B97;
+}
+.px4r-top__subtitle {
+  margin: 0 0 24px;
+  max-width: 330px;
+  font-family: system-ui, sans-serif;
+  font-size: 12px;
+  letter-spacing: 2.1px;
+  line-height: 1.65;
+  text-transform: uppercase;
+  color: #4E504A;
+}
+.px4r-top__divider {
+  display: block;
+  width: 66px;
+  height: 2px;
+  background: #8D9887;
+  margin: 0;
+}
+.px4r-top__figure {
+  margin: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+.px4r-top__survey {
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+  display: block;
+  box-shadow: 0 10px 26px rgba(60, 50, 30, 0.14);
+}
+
+@media (max-width: 900px) {
+  .px4r-top {
+    padding: 40px 6% 32px;
+  }
+  .px4r-top__inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .px4r-top__figure {
+    justify-content: center;
+  }
+  .px4r-top__survey {
+    max-width: min(440px, 90vw);
+  }
 }
 
 /* --- Section 05: "TURNING INSIGHTS INTO IMPACT" --- */

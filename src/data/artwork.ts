@@ -21,7 +21,8 @@ const PROJECT_3_DIR = 'Project 3';
 const PROJECT_4_DIR = 'Project 4';
 
 /** `Project N` + `Page 5 2AN.png` -> `/Project%20N/Page%205%202AN.png`. */
-const fileUrl = (dir: string, file: string) => `/${encodeURIComponent(dir)}/${encodeURIComponent(file)}`;
+const fileUrl = (dir: string, file: string) =>
+  '/' + [...dir.split('/'), ...file.split('/')].map(encodeURIComponent).join('/');
 
 /** Slot code -> supplied file name, in scroll order. */
 const PROJECT_2_FILES: Record<string, string> = {
@@ -76,10 +77,10 @@ const PROJECT_3_FILES: Record<string, string> = {
   '3D': 'Page 2 3D.png',
   '3E': 'Page 2 3E.png',
   '3F': 'Page 2 3F.png',
-  '3G': 'Page 2 3G.png',
-  '3N': 'Page 2 3N.png',
+  '3G': 'florals reimagined/Page 2 3G.png',
+  '3N': 'florals reimagined/Page 2 3N.png',
   '3P': 'Page 3 3P.png',
-  '3Q': 'Page 3 3Q.png',
+  '3Q': 'Page 3 3Q Background Removed.png',
   '3R': 'Page 3 3R.jpg',
   '3S': 'Page 3 3S.png',
   '3T': 'Page 3 3T.jpg',
@@ -123,6 +124,7 @@ const PROJECT_4_FILES: Record<string, string> = {
   '4AA': 'Page 5 4AA.jpg',
   '4AB': 'Page 5 4AB.jpg',
   '4AC': 'Page 5 AC.jpg',
+  '4AE': 'Page 4 4AE.png',
 };
 
 /** Supplied artwork for the slot, or the labelled placeholder while it is missing. */
@@ -136,6 +138,9 @@ export const project2Image = (code: string) => resolve(PROJECT_2_DIR, PROJECT_2_
 
 /** Asset for a Project 3 slot code (`3A`–`3AB`). */
 export const project3Image = (code: string) => resolve(PROJECT_3_DIR, PROJECT_3_FILES, code);
+
+/** Project 3 trend board, supplied alongside the Florals Reimagined mood boards. */
+export const project3TrendBoard = fileUrl(PROJECT_3_DIR, 'florals reimagined/Page 2 trend board.png');
 
 /** Asset for a Project 4 slot code (`4A`–`4AF`). */
 export const project4Image = (code: string) => resolve(PROJECT_4_DIR, PROJECT_4_FILES, code);
