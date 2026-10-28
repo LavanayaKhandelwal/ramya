@@ -50,12 +50,6 @@ export function Project1HeroGarmentSection() {
               The modular construction allows the wearer to change the length according to the occasion.
             </p>
           </div>
-
-          <div className="p1-hg-script-note" aria-hidden="true">
-            Change the<br />
-            Length.<br />
-            Not the Look.
-          </div>
         </div>
       </header>
 

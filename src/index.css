@@ -2875,19 +2875,6 @@ img.skills-panel-title {
   letter-spacing: 0.2px;
 }
 
-.p1-hg-script-note {
-  font-family: 'Mrs Saint Delafield', 'Snell Roundhand', 'Pinyon Script', 'Playfair Display', cursive;
-  font-style: italic;
-  font-size: clamp(28px, 3vw, 44px);
-  line-height: 1.0;
-  color: #101530;
-  text-align: center;
-  transform: rotate(11deg);
-  white-space: nowrap;
-  flex-shrink: 0;
-  padding-right: 12px;
-}
-
 /* Circular Badges & Section Headers */
 .p1-hg-badge {
   width: 44px;
