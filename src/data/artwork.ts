@@ -9,7 +9,7 @@
 //   * `4I` and `2I` arrive with a lower-case `i` (`Page 2 4i.jpg`).
 //   * Project 4's last asset is `Page 5 AC.jpg` — the slot is `4AC`.
 //
-// Slots with no supplied artwork yet (`2AC`–`2AM`, `3H`–`3M`, `3O`, `4AE`, `4AF`)
+// Slots with no supplied artwork yet (`2AC`–`2AM`, `3H`–`3M`, `3O`)
 // fall back to their labelled placeholder in
 // `public/ramya-portfolio-images/placeholders`, so the gap stays visible instead of
 // silently rendering an empty box.
@@ -142,5 +142,5 @@ export const project3Image = (code: string) => resolve(PROJECT_3_DIR, PROJECT_3_
 /** Project 3 trend board, supplied alongside the Florals Reimagined mood boards. */
 export const project3TrendBoard = fileUrl(PROJECT_3_DIR, 'florals reimagined/Page 2 trend board.png');
 
-/** Asset for a Project 4 slot code (`4A`–`4AF`). */
+/** Asset for a Project 4 slot code (`4A`–`4AE`). */
 export const project4Image = (code: string) => resolve(PROJECT_4_DIR, PROJECT_4_FILES, code);

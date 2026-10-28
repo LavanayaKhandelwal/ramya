@@ -80,13 +80,6 @@ const SKILLS = [
 export function TurningInsightsIntoImpact() {
   return (
     <section className="px4t" aria-label="Turning insights into impact">
-      <SectionImage
-        src={project4Image('4AF')}
-        alt="Soft botanical texture background for the closing spread"
-        className="px4t__bg"
-        tint="#F2EADC"
-      />
-
       <div className="px4t__upper">
         <h2 className="px4t__headline">
           <span>Turning</span>
