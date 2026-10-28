@@ -13,15 +13,8 @@ import React from 'react';
 export function Project1CollectionSection() {
   return (
     <section className="p1-collection-spread" aria-label="Project 1 — Building the Collection Slide">
-      {/* LEFT PANEL — ~24% width full-height photographic panel */}
+      {/* LEFT PANEL — ~24% width sticky editorial column */}
       <div className="p1-col-left">
-        <img
-          src="/ramya-portfolio-images/placeholders/1N.png"
-          alt="Mediterranean resort architecture with terracotta planter, straw hat, and flowing ivory dress"
-          className="p1-col-left-bg-img"
-          draggable={false}
-        />
-
         {/* Top Identifier */}
         <div className="p1-col-top-id">
           <span className="p1-col-id-num">04</span>

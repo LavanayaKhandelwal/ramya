@@ -2368,23 +2368,28 @@ img.skills-panel-title {
 /* ————————————————— Project 1 Section 4 (Building the Collection Page 04) ————————————————— */
 .p1-collection-spread {
   position: relative;
-  width: 100vw;
   width: 100%;
   min-height: 100vh;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
   background-color: #F3EEE6;
-  overflow: hidden;
   box-sizing: border-box;
 }
 
-/* Left Panel — ~24% width */
+/* Left Panel — ~24% width sticky editorial column */
 .p1-col-left {
-  position: relative;
+  position: sticky;
+  top: 0;
   width: 24%;
+  height: 100vh;
   min-height: 100vh;
   overflow: hidden;
   background-color: #DCCEBE;
+  flex-shrink: 0;
+  align-self: flex-start;
+  z-index: 10;
 }
 
 .p1-col-left-bg-img {
@@ -2480,6 +2485,7 @@ img.skills-panel-title {
 .p1-col-right {
   position: relative;
   width: 76%;
+  flex: 1;
   min-height: 100vh;
   background-color: #F3EEE6;
   padding: 28px 32px;
@@ -2792,7 +2798,20 @@ img.skills-panel-title {
 }
 
 @media (max-width: 1024px) {
-  .p1-col-left, .p1-col-right { width: 100%; min-height: auto; }
+  .p1-collection-spread {
+    flex-direction: column;
+  }
+  .p1-col-left {
+    position: relative;
+    top: auto;
+    width: 100%;
+    height: auto;
+    min-height: 440px;
+  }
+  .p1-col-right {
+    width: 100%;
+    min-height: auto;
+  }
   .p1-col-row { flex-direction: column; }
 }
 
