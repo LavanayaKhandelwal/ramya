@@ -105,10 +105,10 @@ const PROJECT_4_FILES: Record<string, string> = {
   '4H': 'Page 2 4H.jpg',
   '4I': 'Page 2 4i.jpg',
   '4J': 'Page 2 4J.png',
-  '4K': 'Page 3 4K.png',
-  '4L': 'Page 3 4L.png',
-  '4M': 'Page 3 4M.png',
-  '4N': 'Page 3 4N.png',
+  '4K': 'Project 4 page 3/HANA.png',
+  '4L': 'Project 4 page 3/MIZU.png',
+  '4M': 'Project 4 page 3/KAZE.png',
+  '4N': 'Project 4 page 3/SORA.png',
   '4O': 'Page 4 4O.jpg',
   '4P': 'Page 4 4P.png',
   '4Q': 'Page 4 4Q.png',
@@ -144,3 +144,10 @@ export const project3TrendBoard = fileUrl(PROJECT_3_DIR, 'florals reimagined/Pag
 
 /** Asset for a Project 4 slot code (`4A`–`4AE`). */
 export const project4Image = (code: string) => resolve(PROJECT_4_DIR, PROJECT_4_FILES, code);
+
+/** Asset from `Project 4/Project 4 page 3/` folder. */
+export const project4Page3Image = (file: string) => fileUrl(PROJECT_4_DIR, `Project 4 page 3/${file}`);
+
+/** Asset for the perfume bottles to the right of 'The Fragrance Expression' heading. */
+export const project4TopHeroImage = (file: string) =>
+  fileUrl(PROJECT_4_DIR, `images which goes right side of heading THE FRAGRANCE EXPRESSION/${file}`);

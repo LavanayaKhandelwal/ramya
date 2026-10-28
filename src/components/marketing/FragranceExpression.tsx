@@ -1,5 +1,5 @@
 import React from 'react';
-import { project4Image } from '../../data/artwork';
+import { project4TopHeroImage, project4Page3Image } from '../../data/artwork';
 import { SectionImage } from './SectionImage';
 
 const Arrow = () => (
@@ -9,20 +9,86 @@ const Arrow = () => (
 );
 
 const PRODUCTS = [
-  { name: 'HANA', meaning: 'Flower', char: '花', src: project4Image('4K'), alt: 'HANA fragrance bottle and pink packaging among cherry blossoms on pale stone', tint: '#F0D7D6', desc: ['Soft', 'Feminine', 'Calm'] },
-  { name: 'MIZU', meaning: 'Water', char: '水', src: project4Image('4L'), alt: 'MIZU fragrance bottle and powder-blue packaging against rippling water and pale sky', tint: '#D7E6EE', desc: ['Fresh', 'Clean', 'Balanced'] },
-  { name: 'KAZE', meaning: 'Wind', char: '風', src: project4Image('4M'), alt: 'KAZE fragrance bottle with botanical green packaging among green leaves and citrus', tint: '#DCE3D1', desc: ['Fresh', 'Energetic', 'Light'] },
-  { name: 'SORA', meaning: 'Sky', char: '空', src: project4Image('4N'), alt: 'SORA fragrance bottle and light-blue packaging against an open blue sky', tint: '#D3E1EC', desc: ['Green', 'Calm', 'Grounded'] },
+  {
+    name: 'HANA',
+    meaning: 'Flower',
+    char: '花',
+    src: project4TopHeroImage('Page 3 4K.png'),
+    stripSrc: project4Page3Image('HANA.png'),
+    alt: 'HANA fragrance bottle and pink packaging among cherry blossoms on pale stone',
+    tint: '#F0D7D6',
+    desc: ['Soft', 'Feminine', 'Calm'],
+  },
+  {
+    name: 'MIZU',
+    meaning: 'Water',
+    char: '水',
+    src: project4TopHeroImage('Page 3 4L.png'),
+    stripSrc: project4Page3Image('MIZU.png'),
+    alt: 'MIZU fragrance bottle and powder-blue packaging against rippling water and pale sky',
+    tint: '#D7E6EE',
+    desc: ['Fresh', 'Clean', 'Balanced'],
+  },
+  {
+    name: 'KAZE',
+    meaning: 'Wind',
+    char: '風',
+    src: project4TopHeroImage('Page 3 4M.png'),
+    stripSrc: project4Page3Image('KAZE.png'),
+    alt: 'KAZE fragrance bottle with botanical green packaging among green leaves and citrus',
+    tint: '#DCE3D1',
+    desc: ['Fresh', 'Energetic', 'Light'],
+  },
+  {
+    name: 'SORA',
+    meaning: 'Sky',
+    char: '空',
+    src: project4TopHeroImage('Page 3 4N.png'),
+    stripSrc: project4Page3Image('SORA.png'),
+    alt: 'SORA fragrance bottle and light-blue packaging against an open blue sky',
+    tint: '#D3E1EC',
+    desc: ['Green', 'Calm', 'Grounded'],
+  },
 ];
 
 const STRIP_IMG = ['#EBC9C8', '#C9DEE9', '#D5DEC6', '#CFE0EC'];
 
 const STAGES = [
-  { n: '01', title: 'Inspiration', alt: 'Moodboard of cherry blossoms, blue water, foliage, citrus and blue sky', tiles: 6 },
-  { n: '02', title: 'Colour Story', alt: 'Collection colour palette swatches with small nature photographs', tiles: 4 },
-  { n: '03', title: 'Material & Texture', alt: 'Material and packaging reference collage of ivory fabric and paper grain', tiles: 4 },
-  { n: '04', title: 'Sketch Development', alt: 'Hand-drawn perfume bottle and packaging sketches on warm paper', tiles: 3 },
-  { n: '05', title: 'Final Packaging Direction', alt: 'HANA perfume bottle and matching box on a pale stone surface with cherry blossoms', tiles: 1 },
+  {
+    n: '01',
+    title: 'Inspiration',
+    src: project4Page3Image('Inspiration.png'),
+    alt: 'Moodboard of cherry blossoms, blue water, foliage, citrus and blue sky',
+    tint: '#EAE1D3',
+  },
+  {
+    n: '02',
+    title: 'Colour Story',
+    src: project4Page3Image('colour story.png'),
+    alt: 'Collection colour palette swatches with nature photographs',
+    tint: '#DDE2D8',
+  },
+  {
+    n: '03',
+    title: 'Material & Texture',
+    src: project4Page3Image('material and texture.png'),
+    alt: 'Material and packaging reference collage of ivory fabric and paper grain',
+    tint: '#E6DECE',
+  },
+  {
+    n: '04',
+    title: 'Sketch Development',
+    src: project4Page3Image('sketch development.png'),
+    alt: 'Hand-drawn perfume bottle and packaging sketches on warm paper',
+    tint: '#ECE6D9',
+  },
+  {
+    n: '05',
+    title: 'Final Packaging Direction',
+    src: project4Page3Image('Final packaging.png'),
+    alt: 'Final packaging design with HANA perfume bottle and matching presentation box',
+    tint: '#EBDCD9',
+  },
 ];
 
 export function FragranceExpression() {
@@ -55,13 +121,13 @@ export function FragranceExpression() {
       </div>
 
       <div className="px4e__strip">
-        {PRODUCTS.map((p, i) => (
+        {PRODUCTS.map((p) => (
           <div key={p.name} className="px4e__card">
             <div className="px4e__card-top">
               <span className="px4e__card-name">
                 {p.name} <em>{p.char}</em>
               </span>
-              <span className="px4e__card-img" style={{ background: STRIP_IMG[i] }} aria-hidden="true" />
+              <SectionImage src={p.stripSrc} alt={p.alt} className="px4e__card-img" tint={p.tint} />
             </div>
             <div className="px4e__card-desc">
               {p.desc.map((d) => (
@@ -87,11 +153,7 @@ export function FragranceExpression() {
           {STAGES.map((s) => (
             <React.Fragment key={s.n}>
               <figure className="px4e__stage">
-                <span className="px4e__stage-img px4e__stage-img--map">
-                  {Array.from({ length: s.tiles }).map((_, i) => (
-                    <span key={i} style={{ background: STRIP_IMG[i % STRIP_IMG.length] }} />
-                  ))}
-                </span>
+                <SectionImage src={s.src} alt={s.alt} className="px4e__stage-img" tint={s.tint} />
                 <figcaption>
                   <span className="px4e__stage-n">{s.n}</span>
                   {s.title}
